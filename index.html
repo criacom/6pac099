@@ -1,0 +1,2201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6PAC099 · Contribuições da Análise do Comportamento Aplicada às Organizações · UEL</title>
+<meta name="description" content="Site didático da disciplina 6PAC099 (Psicologia · UEL): programa, cronograma das turmas T1000 e T2000, Árvore de Leituras e Pensamentos, manual interativo de OBM/BSA, acervo histórico de intervenções institucionais e mural das turmas. CRIACOM.">
+<meta name="author" content="CRIACOM · Universidade Estadual de Londrina">
+<meta property="og:title" content="6PAC099 · Análise do Comportamento Aplicada às Organizações">
+<meta property="og:description" content="Programa, cronograma, manual interativo de OBM/BSA e acervo histórico da disciplina. UEL · CRIACOM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   6PAC099 — identidade visual "dossiê institucional"
+   Papel de processo + carimbo + esferográfica + anotação à mão.
+   Editar cores aqui altera o site inteiro.
+   ============================================================ */
+:root{
+  --papel:        #e4e1d4;   /* papel de processo */
+  --papel-claro:  #f1efe6;   /* ficha, cartão */
+  --papel-fundo:  #dbd8c9;   /* fundo de seção alternada */
+  --pauta:        #a9b6ae;   /* linha de pauta / grade */
+  --tinta:        #17201c;   /* tinta seca, verde-preto */
+  --tinta-media:  #47554d;
+  --tinta-fraca:  #6f7c73;
+  --carimbo:      #9c2b22;   /* vermelho de carimbo */
+  --carimbo-suave:#c4736a;
+  --esfero:       #22406e;   /* azul esferográfica */
+  --verde:        #2e5c43;   /* verde de arquivo / árvore */
+  --verde-claro:  #5d8f6c;
+  --ocre:         #b0812b;
+
+  --u1: #22406e;  /* Unidade I  — instituições */
+  --u2: #2e5c43;  /* Unidade II — diagnóstico */
+  --u3: #9c2b22;  /* Unidade III— controle e crítica */
+
+  --f-tit:  "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  --f-txt:  "IBM Plex Serif", Georgia, serif;
+  --f-mono: "IBM Plex Mono", "Courier New", monospace;
+  --f-mao:  "Caveat", "Comic Sans MS", cursive;
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --maxw: 1080px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+button,input,select,textarea{font:inherit;color:inherit;background:none;border:none;text-align:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{
+  font-family:var(--f-txt); font-size:17px; line-height:1.62;
+  color:var(--tinta); background:var(--papel);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(169,182,174,.22) 27px 28px),
+    radial-gradient(ellipse at 15% 0%, rgba(255,255,255,.5), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(120,130,120,.14), transparent 60%);
+  min-height:100vh; overflow-x:hidden; position:relative;
+}
+/* granulado do papel */
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.5; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .13  0 0 0 0 .16  0 0 0 0 .13  0 0 0 .3 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+header,main,footer,section,.overlay{position:relative;z-index:2}
+::selection{background:rgba(156,43,34,.2)}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--papel-fundo)}
+::-webkit-scrollbar-thumb{background:var(--tinta-fraca);border:3px solid var(--papel-fundo);border-radius:6px}
+a{color:var(--esfero)}
+:focus-visible{outline:2px solid var(--carimbo);outline-offset:3px}
+
+/* ================= BARRA SUPERIOR ================= */
+.topbar{
+  position:sticky; top:0; z-index:60; display:flex; align-items:center; gap:1rem;
+  padding:.55rem 1.1rem; background:rgba(228,225,212,.94);
+  backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
+  border-bottom:1.5px solid var(--tinta); box-shadow:0 1px 0 rgba(23,32,28,.18);
+}
+.tb-brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--tinta);flex-shrink:0}
+.tb-logo{width:24px;height:24px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid rgba(23,32,28,.3)}
+.tb-brand .cod{font-family:var(--f-mono);font-weight:600;font-size:.9rem;letter-spacing:.04em;
+  border:1.5px solid var(--tinta);padding:.1rem .38rem;background:var(--papel-claro)}
+.tb-brand .nm{font-family:var(--f-tit);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.1;max-width:15ch}
+.tb-nav{display:flex;gap:1.05rem;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
+.tb-nav a{font-family:var(--f-tit);font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--tinta-media);text-decoration:none;padding-bottom:2px;border-bottom:1.5px solid transparent;transition:.2s var(--ease)}
+.tb-nav a:hover,.tb-nav a.on{color:var(--carimbo);border-bottom-color:var(--carimbo)}
+.tb-menu{display:none;font-size:1.5rem;line-height:1;margin-left:auto;padding:.1rem .5rem;cursor:pointer}
+
+/* seletor de turma */
+.turma-switch{display:flex;align-items:center;gap:.4rem;flex-shrink:0}
+.turma-switch .lbl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-fraca)}
+.turma-btns{display:flex;border:1.5px solid var(--tinta);background:var(--papel-claro)}
+.turma-btns button{font-family:var(--f-mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;
+  padding:.22rem .5rem;cursor:pointer;transition:.18s var(--ease);color:var(--tinta-media)}
+.turma-btns button+button{border-left:1.5px solid var(--tinta)}
+.turma-btns button.on{background:var(--tinta);color:var(--papel-claro)}
+
+/* ================= CAPA ================= */
+.capa{padding:3.4rem 1.2rem 2.6rem;display:flex;justify-content:center}
+.capa-ficha{
+  width:100%;max-width:var(--maxw);background:var(--papel-claro);
+  border:2px solid var(--tinta); box-shadow:5px 6px 0 rgba(23,32,28,.16);
+  padding:0; position:relative; overflow:hidden;
+}
+.capa-topo{display:flex;justify-content:space-between;align-items:stretch;
+  border-bottom:1.5px solid var(--tinta);font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase}
+.capa-topo span{padding:.4rem .8rem;color:var(--tinta-media)}
+.capa-topo span+span{border-left:1.5px solid var(--tinta)}
+.capa-corpo{padding:2.4rem 2rem 1.6rem;text-align:center;position:relative}
+.capa-eyebrow{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--carimbo);margin-bottom:1rem}
+.capa h1{font-family:var(--f-tit);font-weight:700;text-transform:uppercase;letter-spacing:.01em;
+  font-size:clamp(1.9rem,5.4vw,3.5rem);line-height:.98;margin-bottom:.5rem}
+.capa h1 .cod-grande{display:block;font-family:var(--f-mono);font-weight:600;font-size:clamp(1rem,2.4vw,1.4rem);
+  letter-spacing:.3em;color:var(--tinta-fraca);margin-bottom:.7rem}
+.capa .sub{font-size:1.02rem;color:var(--tinta-media);max-width:60ch;margin:.9rem auto 0;font-style:italic}
+.capa-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1.5px solid var(--tinta)}
+.capa-grade div{padding:.7rem .9rem;border-right:1.5px solid var(--tinta);font-family:var(--f-mono);font-size:.72rem;line-height:1.45}
+.capa-grade div:last-child{border-right:none}
+.capa-grade b{display:block;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-fraca);font-weight:600;margin-bottom:.15rem}
+.carimbo-capa{
+  position:absolute;right:1.1rem;top:.6rem;transform:rotate(-11deg);
+  border:2.5px solid var(--carimbo);color:var(--carimbo);padding:.3rem .7rem;
+  font-family:var(--f-mono);font-weight:600;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  opacity:.72;line-height:1.25;text-align:center;border-radius:3px;pointer-events:none
+}
+.carimbo-capa small{display:block;font-size:.55rem;letter-spacing:.1em;opacity:.85}
+.capa-foto{
+  position:absolute; left:1.2rem; top:.3rem; transform:rotate(6deg); z-index:2;
+  background:var(--papel-claro); border:1px solid rgba(23,32,28,.35); padding:.3rem .3rem .45rem;
+  box-shadow:2px 4px 7px rgba(23,32,28,.25);
+}
+.capa-foto::before{
+  content:""; position:absolute; top:-9px; left:50%; transform:translateX(-50%) rotate(-5deg);
+  width:32px; height:15px; background:rgba(176,129,43,.5); border:1px solid rgba(176,129,43,.65);
+}
+.capa-foto img{display:block;width:58px;height:auto;image-rendering:pixelated}
+@media(max-width:600px){.capa-foto{display:none}}
+.capa-rodape{border-top:1.5px solid var(--tinta);padding:.75rem 1rem;font-family:var(--f-mono);
+  font-size:.66rem;color:var(--tinta-media);text-align:center;letter-spacing:.04em;background:var(--papel)}
+
+/* ================= SEÇÕES ================= */
+.sec{padding:3rem 1.2rem;border-top:1.5px solid rgba(23,32,28,.35)}
+.sec.alt{background:rgba(219,216,201,.55)}
+.sec-inner{max-width:var(--maxw);margin:0 auto}
+.sec-num{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--carimbo);margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem}
+.sec-num::after{content:"";flex:1;height:1.5px;background:rgba(23,32,28,.28)}
+.sec h2{font-family:var(--f-tit);font-weight:700;text-transform:uppercase;letter-spacing:.005em;
+  font-size:clamp(1.5rem,3.6vw,2.3rem);line-height:1.04;margin-bottom:.6rem}
+.sec h2 em{font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;color:var(--tinta-media)}
+.sec-lead{max-width:74ch;color:var(--tinta-media);margin-bottom:1.7rem;font-size:1rem}
+.sec-lead strong{color:var(--tinta)}
+.nota-mao{font-family:var(--f-mao);font-size:1.22rem;color:var(--esfero);line-height:1.3;transform:rotate(-.7deg);display:inline-block}
+
+/* ================= FICHAS GENÉRICAS ================= */
+.ficha{background:var(--papel-claro);border:1.5px solid var(--tinta);box-shadow:3px 3px 0 rgba(23,32,28,.13)}
+.ficha-mascote{display:flex;gap:1.1rem;align-items:flex-end;margin-bottom:1.2rem}
+.ficha-mascote .ficha{flex:1;margin-bottom:0;min-width:0}
+.ficha-mascote .mascote{width:84px;height:auto;flex-shrink:0;image-rendering:pixelated;
+  filter:drop-shadow(2px 3px 3px rgba(23,32,28,.28))}
+@media(max-width:640px){.ficha-mascote{flex-direction:column;align-items:center}.ficha-mascote .mascote{width:104px}}
+.ficha-cab{display:flex;align-items:center;gap:.6rem;padding:.5rem .8rem;border-bottom:1.5px solid var(--tinta);
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-media);background:var(--papel)}
+.ficha-corpo{padding:1rem}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;
+  border:1.2px solid currentColor;padding:.08rem .38rem;border-radius:2px;white-space:nowrap}
+.tag.u1{color:var(--u1)} .tag.u2{color:var(--u2)} .tag.u3{color:var(--u3)}
+.tag.solid{background:currentColor}
+.tag.solid span{color:var(--papel-claro)}
+
+/* acordeões */
+.acc{border:1.5px solid var(--tinta);background:var(--papel-claro);margin-bottom:-1.5px}
+.acc-head{display:flex;align-items:center;gap:.7rem;width:100%;padding:.75rem .9rem;cursor:pointer;transition:background .18s}
+.acc-head:hover{background:rgba(169,182,174,.22)}
+.acc-head .caret{font-family:var(--f-mono);font-size:.85rem;transition:transform .22s var(--ease);color:var(--carimbo);flex-shrink:0}
+.acc.open .acc-head .caret{transform:rotate(90deg)}
+.acc-head h3{font-family:var(--f-tit);font-weight:700;font-size:.98rem;text-transform:uppercase;letter-spacing:.04em;flex:1;line-height:1.2}
+.acc-body{display:none;padding:0 .95rem 1rem;border-top:1px dashed rgba(23,32,28,.3)}
+.acc.open .acc-body{display:block;animation:desdobra .3s var(--ease)}
+@keyframes desdobra{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.acc-body ul{margin:.7rem 0 0 1.1rem}
+.acc-body li{margin-bottom:.45rem}
+.acc-body p{margin-top:.7rem}
+
+/* ================= CRONOGRAMA ================= */
+.crono-barra{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:1.2rem}
+.crono-info{font-family:var(--f-mono);font-size:.72rem;color:var(--tinta-media);border:1.5px dashed var(--tinta-fraca);padding:.3rem .6rem}
+.crono-lista{display:flex;flex-direction:column}
+.aula{border:1.5px solid var(--tinta);margin-bottom:-1.5px;background:var(--papel-claro);transition:background .18s}
+.aula.destaque{box-shadow:inset 4px 0 0 var(--carimbo)}
+.aula-head{display:grid;grid-template-columns:56px 92px 1fr auto;gap:.7rem;align-items:center;padding:.65rem .8rem;cursor:pointer;width:100%;text-align:left}
+.aula-head:hover{background:rgba(169,182,174,.2)}
+.aula-n{font-family:var(--f-mono);font-weight:600;font-size:1.15rem;color:var(--carimbo);text-align:center;
+  border:1.5px solid var(--carimbo);padding:.05rem 0;background:rgba(156,43,34,.05)}
+.aula-data{font-family:var(--f-mono);font-size:.76rem;color:var(--tinta-media);line-height:1.25}
+.aula-tema{font-family:var(--f-tit);font-weight:600;font-size:.96rem;line-height:1.22}
+.aula-vl{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.06em;color:var(--verde);border:1.2px solid var(--verde);padding:.1rem .35rem;white-space:nowrap}
+.aula-corpo{display:none;padding:.2rem .85rem 1rem;border-top:1px dashed rgba(23,32,28,.3)}
+.aula.open .aula-corpo{display:block;animation:desdobra .3s var(--ease)}
+.aula-corpo dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem .9rem;margin-top:.8rem;align-items:start}
+.aula-corpo dt{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-fraca);padding-top:.2rem}
+.aula-corpo dd{font-size:.94rem}
+.aviso{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--carimbo);border:1.2px solid var(--carimbo);padding:.12rem .4rem;margin-top:.6rem}
+.proxima{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--carimbo);color:var(--papel-claro);padding:.1rem .4rem;white-space:nowrap}
+
+/* ================= ÁRVORE / CADERNETA ================= */
+.arvore-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:1.6rem;align-items:start}
+@media(max-width:900px){.arvore-wrap{grid-template-columns:1fr}}
+.arvore-palco{background:var(--papel-claro);border:1.5px solid var(--tinta);box-shadow:3px 3px 0 rgba(23,32,28,.13);
+  padding:.8rem;position:sticky;top:78px}
+.arvore-palco svg{width:100%;height:auto;display:block}
+.arvore-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:.4rem;margin-top:.7rem;
+  border-top:1px dashed rgba(23,32,28,.3);padding-top:.7rem}
+.arvore-stats div{text-align:center;font-family:var(--f-mono)}
+.arvore-stats b{display:block;font-size:1.15rem;color:var(--verde)}
+.arvore-stats span{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-fraca)}
+.caderneta{overflow-x:auto;border:1.5px solid var(--tinta);background:var(--papel-claro)}
+table.cad{border-collapse:collapse;width:100%;font-family:var(--f-mono);font-size:.72rem;min-width:560px}
+table.cad th,table.cad td{border:1px solid rgba(23,32,28,.28);padding:.18rem .2rem;text-align:center}
+table.cad thead th{background:var(--papel);font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--tinta-media);padding:.4rem .15rem;font-weight:600;line-height:1.15}
+table.cad tbody th{background:var(--papel);font-weight:600;text-align:left;padding-left:.45rem;white-space:nowrap;font-size:.7rem}
+table.cad td button{width:100%;height:22px;cursor:pointer;transition:.15s var(--ease);color:transparent;font-size:.85rem;line-height:1}
+table.cad td button:hover{background:rgba(93,143,108,.22)}
+table.cad td button.on{background:rgba(46,92,67,.14);color:var(--verde)}
+table.cad td.vl-col button.on{background:rgba(156,43,34,.14);color:var(--carimbo)}
+.cad-legenda{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+.conq-chip{display:flex;align-items:flex-start;gap:.4rem;border:1.2px solid var(--tinta-fraca);background:var(--papel-claro);
+  padding:.35rem .5rem;font-size:.76rem;line-height:1.3;max-width:230px}
+.conq-chip .ic{font-size:1rem;line-height:1}
+.conq-chip b{font-family:var(--f-tit);text-transform:uppercase;font-size:.7rem;letter-spacing:.05em;display:block}
+.cad-acoes{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.9rem}
+
+/* botões */
+.btn{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  border:1.5px solid var(--tinta);background:var(--papel-claro);padding:.35rem .7rem;cursor:pointer;
+  transition:.16s var(--ease);box-shadow:2px 2px 0 rgba(23,32,28,.16)}
+.btn:hover{background:var(--tinta);color:var(--papel-claro);box-shadow:1px 1px 0 rgba(23,32,28,.16);transform:translate(1px,1px)}
+.btn.vermelho{border-color:var(--carimbo);color:var(--carimbo)}
+.btn.vermelho:hover{background:var(--carimbo);color:var(--papel-claro)}
+.btn.pequeno{font-size:.63rem;padding:.22rem .5rem;box-shadow:none}
+
+/* ================= MANUAL (capítulos) ================= */
+.manual-filtros{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.1rem;align-items:center}
+.busca{display:flex;align-items:center;gap:.45rem;border:1.5px solid var(--tinta);background:var(--papel-claro);padding:.28rem .6rem;flex:1;min-width:220px}
+.busca input{width:100%;font-family:var(--f-mono);font-size:.8rem;background:none}
+.busca input::placeholder{color:var(--tinta-fraca)}
+.parte-faixa{font-family:var(--f-tit);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;
+  color:var(--tinta-media);border-bottom:1.5px solid var(--tinta);padding-bottom:.3rem;margin:1.6rem 0 .8rem;display:flex;gap:.7rem;align-items:baseline}
+.parte-faixa span{font-family:var(--f-mono);color:var(--carimbo)}
+.caps-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:.85rem}
+.cap-card{background:var(--papel-claro);border:1.5px solid var(--tinta);box-shadow:3px 3px 0 rgba(23,32,28,.13);
+  padding:.85rem;cursor:pointer;transition:.18s var(--ease);display:flex;flex-direction:column;gap:.45rem;text-align:left;position:relative}
+.cap-card:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 rgba(23,32,28,.2)}
+.cap-card .num{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;color:var(--carimbo)}
+.cap-card h4{font-family:var(--f-tit);font-weight:700;font-size:.98rem;line-height:1.18;text-transform:uppercase;letter-spacing:.01em}
+.cap-card .aut{font-family:var(--f-mono);font-size:.66rem;color:var(--tinta-fraca);line-height:1.35}
+.cap-card .pit{font-size:.86rem;color:var(--tinta-media);line-height:1.42}
+.cap-card .rodape{margin-top:auto;padding-top:.5rem;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;border-top:1px dashed rgba(23,32,28,.28)}
+.cap-card.lido::after{content:"LIDO";position:absolute;top:.4rem;right:.5rem;font-family:var(--f-mono);font-size:.55rem;
+  letter-spacing:.14em;color:var(--verde);border:1.2px solid var(--verde);padding:.05rem .25rem;transform:rotate(-6deg);opacity:.85}
+
+/* ================= MODAL ================= */
+.overlay{position:fixed;inset:0;z-index:200;background:rgba(23,32,28,.62);display:none;
+  align-items:flex-start;justify-content:center;padding:2.2rem 1rem;overflow-y:auto;backdrop-filter:blur(2px)}
+.overlay.on{display:flex;animation:fade .22s var(--ease)}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal{background:var(--papel-claro);border:2px solid var(--tinta);box-shadow:8px 9px 0 rgba(23,32,28,.35);
+  max-width:780px;width:100%;position:relative;animation:sobe .28s var(--ease)}
+@keyframes sobe{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.modal-cab{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.55rem .8rem;
+  border-bottom:1.5px solid var(--tinta);background:var(--papel);font-family:var(--f-mono);font-size:.66rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-media);position:sticky;top:0;z-index:3}
+.modal-fechar{font-size:1.3rem;line-height:1;cursor:pointer;padding:0 .3rem;color:var(--carimbo)}
+.modal-corpo{padding:1.3rem 1.4rem 1.6rem}
+.modal-corpo h3{font-family:var(--f-tit);font-weight:700;text-transform:uppercase;font-size:1.35rem;line-height:1.1;margin-bottom:.3rem}
+.modal-corpo .aut{font-family:var(--f-mono);font-size:.74rem;color:var(--tinta-fraca);margin-bottom:1rem}
+.modal-corpo h5{font-family:var(--f-tit);font-weight:700;text-transform:uppercase;letter-spacing:.13em;font-size:.72rem;
+  color:var(--carimbo);margin:1.4rem 0 .5rem;display:flex;align-items:center;gap:.55rem}
+.modal-corpo h5::after{content:"";flex:1;height:1px;background:rgba(23,32,28,.25)}
+.modal-corpo p{margin-bottom:.7rem}
+.modal-corpo ul,.modal-corpo ol{margin:.4rem 0 .7rem 1.15rem}
+.modal-corpo li{margin-bottom:.35rem}
+.conceito{border-left:3px solid var(--verde);padding:.25rem 0 .25rem .65rem;margin-bottom:.6rem}
+.conceito b{font-family:var(--f-tit);text-transform:uppercase;letter-spacing:.04em;font-size:.88rem}
+.ponte{background:rgba(34,64,110,.07);border:1.2px dashed var(--esfero);padding:.7rem .8rem;font-size:.93rem}
+.ponte b{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--esfero);display:block;margin-bottom:.25rem}
+
+/* quiz */
+.quiz{border:1.5px solid var(--tinta);background:var(--papel);padding:.9rem;margin-top:.6rem}
+.quiz-q{margin-bottom:1rem}
+.quiz-q:last-of-type{margin-bottom:.4rem}
+.quiz-q p{font-weight:500;margin-bottom:.45rem}
+.quiz-alt{display:block;width:100%;text-align:left;border:1.2px solid var(--tinta-fraca);background:var(--papel-claro);
+  padding:.35rem .55rem;margin-bottom:.3rem;cursor:pointer;font-size:.9rem;transition:.15s var(--ease)}
+.quiz-alt:hover{border-color:var(--tinta);background:rgba(169,182,174,.25)}
+.quiz-alt.certa{border-color:var(--verde);background:rgba(46,92,67,.13);color:var(--verde);font-weight:500}
+.quiz-alt.errada{border-color:var(--carimbo);background:rgba(156,43,34,.1);color:var(--carimbo)}
+.quiz-alt:disabled{cursor:default}
+.quiz-fb{font-size:.86rem;color:var(--tinta-media);border-left:2.5px solid var(--verde);padding-left:.6rem;margin-top:.4rem;display:none}
+.quiz-fb.on{display:block;animation:desdobra .25s var(--ease)}
+.quiz-placar{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  border-top:1px dashed rgba(23,32,28,.3);padding-top:.55rem;margin-top:.5rem;color:var(--tinta-media)}
+
+/* ================= GLOSSÁRIO ================= */
+.glos-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.6rem}
+.verbete{background:var(--papel-claro);border:1.5px solid var(--tinta);padding:.6rem .7rem;cursor:pointer;
+  transition:.16s var(--ease);text-align:left}
+.verbete:hover{background:rgba(169,182,174,.28);transform:translateX(2px)}
+.verbete b{font-family:var(--f-tit);font-weight:700;text-transform:uppercase;font-size:.82rem;letter-spacing:.03em;display:block}
+.verbete .d{font-size:.82rem;color:var(--tinta-media);line-height:1.4;max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+.verbete.open .d{max-height:340px;margin-top:.35rem}
+.verbete .ondeuso{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.08em;color:var(--tinta-fraca);margin-top:.3rem;display:block}
+
+/* ================= ACERVO ================= */
+.acervo-filtros{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;align-items:center}
+.acervo-filtros select{font-family:var(--f-mono);font-size:.74rem;border:1.5px solid var(--tinta);
+  background:var(--papel-claro);padding:.3rem .5rem;cursor:pointer}
+.acervo-stats{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.2rem}
+.stat-box{border:1.5px solid var(--tinta);background:var(--papel-claro);padding:.5rem .8rem;font-family:var(--f-mono);text-align:center;min-width:92px}
+.stat-box b{display:block;font-size:1.5rem;color:var(--carimbo);line-height:1}
+.stat-box span{font-size:.56rem;letter-spacing:.11em;text-transform:uppercase;color:var(--tinta-fraca)}
+.barras{border:1.5px solid var(--tinta);background:var(--papel-claro);padding:.8rem;margin-bottom:1.2rem}
+.barra-linha{display:grid;grid-template-columns:64px 1fr 34px;gap:.5rem;align-items:center;margin-bottom:.28rem;font-family:var(--f-mono);font-size:.7rem}
+.barra-tr{background:rgba(169,182,174,.35);height:13px;position:relative;overflow:hidden}
+.barra-fill{height:100%;background:var(--verde);transition:width .6s var(--ease)}
+.acervo-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:.85rem}
+.ficha-av3{background:var(--papel-claro);border:1.5px solid var(--tinta);box-shadow:3px 3px 0 rgba(23,32,28,.13);
+  display:flex;flex-direction:column;position:relative;overflow:hidden}
+.ficha-av3 .fa-cab{display:flex;justify-content:space-between;gap:.5rem;padding:.4rem .6rem;border-bottom:1.5px solid var(--tinta);
+  background:var(--papel);font-family:var(--f-mono);font-size:.63rem;letter-spacing:.08em;color:var(--tinta-media)}
+.ficha-av3 .fa-corpo{padding:.75rem .8rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.ficha-av3 h4{font-family:var(--f-tit);font-weight:700;font-size:.95rem;line-height:1.2}
+.ficha-av3 .inst{font-family:var(--f-mono);font-size:.7rem;color:var(--esfero)}
+.ficha-av3 .res{font-size:.85rem;color:var(--tinta-media);line-height:1.4}
+.ficha-av3 .alunos{font-family:var(--f-mao);font-size:1.05rem;color:var(--esfero);line-height:1.25;
+  border-top:1px dashed rgba(23,32,28,.28);padding-top:.45rem;margin-top:auto}
+.ficha-av3 .tags{display:flex;flex-wrap:wrap;gap:.25rem}
+.ficha-av3 .tags span{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;
+  border:1px solid var(--tinta-fraca);color:var(--tinta-fraca);padding:.04rem .28rem}
+.ficha-av3.exemplo::after{content:"MODELO — SUBSTITUIR";position:absolute;right:-30px;top:14px;transform:rotate(38deg);
+  background:var(--carimbo);color:var(--papel-claro);font-family:var(--f-mono);font-size:.5rem;letter-spacing:.1em;
+  padding:.15rem 2.2rem;opacity:.85}
+.vazio{border:1.5px dashed var(--tinta-fraca);padding:1.6rem;text-align:center;font-family:var(--f-mono);
+  font-size:.8rem;color:var(--tinta-fraca);grid-column:1/-1}
+
+/* ================= MURAL ================= */
+.mural-ano{margin-bottom:1.8rem}
+.mural-ano h3{font-family:var(--f-mono);font-size:1.05rem;letter-spacing:.22em;color:var(--carimbo);
+  border-bottom:1.5px solid var(--tinta);padding-bottom:.3rem;margin-bottom:.9rem}
+.mural-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.1rem}
+.polaroide{background:var(--papel-claro);border:1px solid rgba(23,32,28,.4);padding:.55rem .55rem 0;
+  box-shadow:3px 4px 7px rgba(23,32,28,.22);cursor:pointer;transition:.22s var(--ease);transform:rotate(var(--gir,-1deg))}
+.polaroide:hover{transform:rotate(0) scale(1.03);box-shadow:5px 7px 13px rgba(23,32,28,.3)}
+.polaroide .foto{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--papel-fundo);border:1px solid rgba(23,32,28,.2)}
+.polaroide .semfoto{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.3rem;
+  background:repeating-linear-gradient(45deg,var(--papel-fundo) 0 9px,rgba(169,182,174,.5) 9px 18px);
+  border:1px solid rgba(23,32,28,.2);font-family:var(--f-mono);font-size:.6rem;letter-spacing:.09em;color:var(--tinta-fraca);text-align:center;padding:.6rem}
+.polaroide .leg{font-family:var(--f-mao);font-size:1.15rem;color:var(--esfero);text-align:center;padding:.45rem .2rem .6rem;line-height:1.2}
+.polaroide .leg small{display:block;font-family:var(--f-mono);font-size:.6rem;color:var(--tinta-fraca);letter-spacing:.08em;margin-top:.15rem}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(23,32,28,.9);display:none;align-items:center;justify-content:center;padding:2rem 1rem}
+.lightbox.on{display:flex;animation:fade .2s var(--ease)}
+.lightbox img{max-width:min(1000px,94vw);max-height:82vh;border:5px solid var(--papel-claro);box-shadow:0 12px 40px rgba(0,0,0,.6)}
+.lb-leg{position:absolute;bottom:1.4rem;left:0;right:0;text-align:center;font-family:var(--f-mono);
+  font-size:.78rem;letter-spacing:.1em;color:var(--papel-claro)}
+.lb-x{position:absolute;top:1rem;right:1.4rem;font-size:2rem;color:var(--papel-claro);cursor:pointer;line-height:1}
+
+/* ================= BIBLIOGRAFIA ================= */
+.bib-lista{list-style:none;counter-reset:b}
+.bib-item{counter-increment:b;display:grid;grid-template-columns:38px 1fr auto;gap:.7rem;align-items:start;
+  padding:.7rem 0;border-bottom:1px dashed rgba(23,32,28,.3)}
+.bib-item::before{content:counter(b,decimal-leading-zero);font-family:var(--f-mono);font-size:.75rem;color:var(--carimbo);padding-top:.15rem}
+.bib-txt{font-size:.94rem;line-height:1.5}
+.bib-txt .ondeler{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.07em;color:var(--tinta-fraca);margin-top:.25rem;text-transform:uppercase}
+.bib-acoes{display:flex;gap:.3rem;flex-wrap:wrap;justify-content:flex-end}
+
+/* ================= CARIMBOS DE PERCURSO ================= */
+.carimbos-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.6rem}
+.carimbo-item{border:2px solid var(--tinta-fraca);color:var(--tinta-fraca);padding:.6rem .5rem;text-align:center;
+  border-radius:4px;opacity:.45;transition:.3s var(--ease);background:var(--papel-claro)}
+.carimbo-item.ganho{border-color:var(--carimbo);color:var(--carimbo);opacity:1;transform:rotate(-2.5deg);
+  background:rgba(156,43,34,.05);box-shadow:0 0 0 1px rgba(156,43,34,.15)}
+.carimbo-item .ic{font-size:1.35rem;line-height:1;display:block;margin-bottom:.25rem}
+.carimbo-item b{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.09em;text-transform:uppercase;display:block;line-height:1.25}
+.carimbo-item small{font-size:.66rem;color:var(--tinta-fraca);display:block;margin-top:.2rem;line-height:1.25}
+.carimbo-item.ganho small{color:var(--carimbo-suave)}
+
+/* toast de carimbo */
+.toast{position:fixed;right:1.1rem;bottom:1.1rem;z-index:400;display:flex;flex-direction:column;gap:.5rem;pointer-events:none}
+.toast-item{background:var(--papel-claro);border:2.5px solid var(--carimbo);color:var(--carimbo);padding:.5rem .8rem;
+  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;box-shadow:4px 4px 0 rgba(23,32,28,.28);
+  animation:bate .5s var(--ease);max-width:270px;border-radius:3px}
+.toast-item b{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+@keyframes bate{0%{opacity:0;transform:scale(2.1) rotate(-14deg)}55%{opacity:1;transform:scale(.94) rotate(2deg)}100%{transform:scale(1) rotate(-2deg)}}
+
+/* ================= DOCENTES / RODAPÉ ================= */
+.docentes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.doc-card{display:flex;gap:.9rem;background:var(--papel-claro);border:1.5px solid var(--tinta);padding:.9rem;box-shadow:3px 3px 0 rgba(23,32,28,.13)}
+.doc-card .av{width:76px;height:76px;flex-shrink:0;border:1.5px solid var(--tinta);object-fit:contain;background:var(--papel-fundo);padding:3px}
+.doc-card h4{font-family:var(--f-tit);font-weight:700;font-size:1rem;text-transform:uppercase;line-height:1.15}
+.doc-card .fn{font-family:var(--f-mono);font-size:.66rem;color:var(--tinta-fraca);letter-spacing:.06em;margin-bottom:.35rem}
+.doc-card p{font-size:.86rem;color:var(--tinta-media);line-height:1.42}
+.rodape{border-top:2px solid var(--tinta);padding:2rem 1.2rem 2.6rem;background:rgba(219,216,201,.7);
+  font-family:var(--f-mono);font-size:.7rem;color:var(--tinta-media);text-align:center;line-height:1.8}
+.rodape a{color:var(--esfero)}
+.rodape .sel{display:flex;border:2px solid var(--verde);border-radius:50%;overflow:hidden;
+  width:82px;height:82px;align-items:center;justify-content:center;
+  margin:0 auto 1rem;transform:rotate(-8deg);background:var(--papel-claro)}
+.rodape .sel img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+/* painel do docente */
+.painel-doc{border:2px dashed var(--esfero);background:rgba(34,64,110,.05);padding:1rem}
+.painel-doc h4{font-family:var(--f-tit);text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--esfero);margin-bottom:.5rem}
+.painel-doc code{font-family:var(--f-mono);font-size:.78rem;background:var(--papel-claro);border:1px solid rgba(23,32,28,.25);padding:.05rem .25rem}
+.painel-doc pre{font-family:var(--f-mono);font-size:.72rem;background:var(--papel-claro);border:1px solid rgba(23,32,28,.25);
+  padding:.6rem;overflow-x:auto;margin:.5rem 0;line-height:1.5}
+.painel-doc ol{margin:.5rem 0 .5rem 1.2rem}
+.painel-doc li{margin-bottom:.4rem;font-size:.9rem}
+
+@media(max-width:760px){
+  body{font-size:16px}
+  .tb-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--papel-claro);
+    border-bottom:1.5px solid var(--tinta);flex-direction:column;padding:.7rem 1.1rem;gap:.6rem;align-items:flex-start}
+  .tb-nav.aberto{display:flex}
+  .tb-menu{display:block}
+  .tb-brand .nm{display:none}
+  .aula-head{grid-template-columns:44px 1fr;gap:.5rem .6rem}
+  .aula-data{grid-column:2}
+  .aula-tema{grid-column:2}
+  .aula-vl{grid-column:2;justify-self:start}
+  .aula-n{grid-row:1/4}
+  .capa-topo{flex-wrap:wrap}
+  .modal-corpo{padding:1rem}
+  .arvore-palco{position:static}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+@media print{
+  .topbar,.tb-nav,.btn,.quiz,.toast{display:none !important}
+  body{background:#fff}
+  .acc-body,.aula-corpo{display:block !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== BARRA SUPERIOR ==================== -->
+<header class="topbar">
+  <a class="tb-brand" href="#capa">
+    <img class="tb-logo" src="img/logo.png" alt="" loading="lazy">
+    <span class="cod">6PAC099</span>
+    <span class="nm">Análise do Comportamento<br>nas Organizações</span>
+  </a>
+  <div class="turma-switch">
+    <span class="lbl">turma</span>
+    <div class="turma-btns" id="turmaBtns" role="group" aria-label="Selecionar turma">
+      <button data-turma="T1000" aria-pressed="false">T1000</button>
+      <button data-turma="T2000" aria-pressed="false">T2000</button>
+    </div>
+  </div>
+  <button class="tb-menu" id="btnMenu" aria-label="Abrir menu" aria-expanded="false">≡</button>
+  <nav class="tb-nav" id="navPrincipal">
+    <a href="#programa">Programa</a>
+    <a href="#cronograma">Cronograma</a>
+    <a href="#arvore">Árvore de Leituras</a>
+    <a href="#manual">Manual OBM/BSA</a>
+    <a href="#glossario">Glossário</a>
+    <a href="#acervo">Acervo</a>
+    <a href="#mural">Mural</a>
+    <a href="#bibliografia">Bibliografia</a>
+  </nav>
+</header>
+
+<!-- ==================== CAPA ==================== -->
+<section class="capa" id="capa">
+  <div class="capa-ficha">
+    <div class="capa-topo">
+      <span>Universidade Estadual de Londrina</span>
+      <span>Centro de Ciências Biológicas · Psicologia</span>
+      <span>Depto. de Psicologia Geral e Análise do Comportamento</span>
+    </div>
+    <div class="capa-corpo">
+      <div class="carimbo-capa">Plano de<br>Atividade Acadêmica<small id="carimboAno">2026 · 2.º SEM.</small></div>
+      <div class="capa-foto"><img src="img/boatacon-joinha.png" alt="Mascote pixel-art do professor Hernando, de jaleco, sinalizando joinha" loading="lazy"></div>
+      <p class="capa-eyebrow">Plano de atividade acadêmica · 3.ª série · 60h</p>
+      <h1><span class="cod-grande">6PAC099</span>Contribuições da Análise do Comportamento Aplicada às Organizações</h1>
+      <p class="sub">Um semestre para perguntar quem arranja as contingências dentro das instituições — e o que a Análise do Comportamento pode fazer a respeito.</p>
+    </div>
+    <div class="capa-grade">
+      <div><b>Turmas</b>T1000 · quinta de manhã<br>T2000 · terça de manhã</div>
+      <div><b>Período</b><span id="capaPeriodo">10/08 a 03/12 de 2026</span><br>17 semanas</div>
+      <div><b>Carga horária</b>Teórica 60h<br>Prática —</div>
+      <div><b>Avaliação</b>VLs 40% · Exercícios 30%<br>Diário de Bordo 30%</div>
+    </div>
+    <div class="capa-rodape">
+      Docente responsável: <strong>Hernando Borges Neves Filho</strong> · Grupo de Pesquisa <strong>CRIACOM</strong> — Criatividade &amp; Comportamento
+    </div>
+  </div>
+</section>
+
+<!-- ==================== COMO USAR ==================== -->
+<section class="sec" id="comousar">
+  <div class="sec-inner">
+    <p class="sec-num">§ 0 — Instruções de uso</p>
+    <h2>Este site é <em>o caderno da disciplina</em></h2>
+    <p class="sec-lead">Tudo o que você precisa para acompanhar 6PAC099 está aqui: o programa completo, o cronograma das duas turmas, o manual interativo de OBM e BSA, o glossário de conceitos, a bibliografia com links e o acervo de tudo o que turmas anteriores já produziram. <strong>Escolha sua turma no topo da página</strong> — todas as datas do site passam a mostrar os seus encontros.</p>
+    <div class="ficha-mascote">
+      <img class="mascote" src="img/boatacon-pensando.png" alt="Mascote pixel-art do professor Hernando, pensativo, de braços cruzados" loading="lazy">
+      <div class="ficha">
+        <div class="ficha-cab"><span>◈</span> O que o site guarda de você</div>
+        <div class="ficha-corpo">
+          <p style="font-size:.95rem">Sua caderneta de VLs, os capítulos que você marcou como lidos, os quizzes respondidos e os carimbos conquistados ficam gravados <strong>apenas neste navegador, neste computador</strong>. Nada é enviado a ninguém e o docente não vê esses dados — o registro que vale para a nota é sempre a entrega no Google Classroom. Se limpar os dados do navegador ou trocar de máquina, o percurso recomeça do zero.</p>
+        </div>
+      </div>
+    </div>
+    <p class="sec-num" style="margin-top:2rem">§ 0.1 — Percurso de exploração</p>
+    <h2 style="font-size:1.25rem;margin-bottom:.5rem">Carimbos <em>do site</em></h2>
+    <p class="sec-lead" style="margin-bottom:1rem">Explorar o material rende carimbos. Eles não valem nota — são só um mapa do quanto você já percorreu. As <strong>conquistas que valem</strong> na Avaliação 1 estão na seção da Árvore de Leituras.</p>
+    <div class="carimbos-grade" id="carimbosGrade"></div>
+  </div>
+</section>
+
+<!-- ==================== PROGRAMA ==================== -->
+<section class="sec alt" id="programa">
+  <div class="sec-inner">
+    <p class="sec-num">§ 1 — Programa oficial</p>
+    <h2>Ementa, objetivos e <em>conteúdo programático</em></h2>
+    <p class="sec-lead">A ementa original foi mantida integralmente. As demais seções foram reorganizadas para o 2.º semestre de 2026, com mais aulas teóricas, menos campo e uma Avaliação 1 apoiada em verificações de leitura semanais. Clique em cada peça para abrir.</p>
+    <div id="programaAcc"></div>
+  </div>
+</section>
+
+<!-- ==================== CRONOGRAMA ==================== -->
+<section class="sec" id="cronograma">
+  <div class="sec-inner">
+    <p class="sec-num">§ 2 — Cronograma detalhado</p>
+    <h2>Dezessete semanas, <em>dezessete VLs</em></h2>
+    <p class="sec-lead">Uma VL é produzida a cada aula. Nas semanas de congresso, recesso ou viagem, a VL funciona também como atividade orientada de integralização da carga horária. As datas mostradas seguem a turma selecionada no topo.</p>
+    <div class="crono-barra">
+      <span class="crono-info" id="cronoTurmaInfo">—</span>
+      <button class="btn pequeno" id="btnAbrirTudo">abrir todas</button>
+      <button class="btn pequeno" id="btnFecharTudo">fechar todas</button>
+      <button class="btn pequeno vermelho" id="btnProxima">ir à próxima aula</button>
+    </div>
+    <div class="crono-lista" id="cronoLista"></div>
+  </div>
+</section>
+
+<!-- ==================== ÁRVORE DE LEITURAS ==================== -->
+<section class="sec alt" id="arvore">
+  <div class="sec-inner">
+    <p class="sec-num">§ 3 — Avaliação 1 · Diário de Bordo</p>
+    <h2>A Árvore de <em>Leituras e Pensamentos</em></h2>
+    <p class="sec-lead">Cada VL é uma pequena unidade de leitura, escrita e pensamento que pode ser retomada nas semanas seguintes. Ao final, as VLs formam um diário de bordo pessoal. Use a caderneta abaixo para marcar o que já entregou e quais conquistas cada VL rendeu — <strong>a árvore ao lado cresce com o seu registro</strong>. Raízes são as fontes originais que você foi buscar; galhos, os conceitos comportamentais que usou; folhas, os exemplos aplicados; frutos, as conclusões próprias.</p>
+    <div class="arvore-wrap">
+      <div>
+        <div class="arvore-palco">
+          <svg id="svgArvore" viewBox="0 0 420 440" role="img" aria-labelledby="arvTit">
+            <title id="arvTit">Sua Árvore de Leituras e Pensamentos, desenhada a partir da caderneta</title>
+          </svg>
+          <div class="arvore-stats" id="arvoreStats"></div>
+        </div>
+        <p class="nota-mao" style="margin-top:.9rem;display:block">Uma árvore vazia não é uma árvore ruim — é uma árvore em agosto.</p>
+      </div>
+      <div>
+        <div class="caderneta">
+          <table class="cad" id="tabCaderneta">
+            <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden">Caderneta pessoal de VLs e conquistas</caption>
+          </table>
+        </div>
+        <div class="cad-acoes">
+          <button class="btn pequeno" id="btnLimparCad">limpar caderneta</button>
+          <button class="btn pequeno" id="btnExportarCad">exportar registro (.txt)</button>
+        </div>
+        <div class="cad-legenda" id="cadLegenda"></div>
+      </div>
+    </div>
+    <div class="ficha" style="margin-top:1.6rem">
+      <div class="ficha-cab"><span>❦</span> O produto final — Diário de Bordo / Árvore pessoal</div>
+      <div class="ficha-corpo" id="produtoFinal"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MANUAL OBM/BSA ==================== -->
+<section class="sec" id="manual">
+  <div class="sec-inner">
+    <p class="sec-num">§ 4 — Material didático · Handbook of Organizational Performance</p>
+    <h2>Manual interativo de <em>OBM e BSA</em></h2>
+    <p class="sec-lead">Roteiros de estudo dos 17 capítulos do <em>Handbook of Organizational Performance: Behavior Analysis and Management</em> (Johnson, Redmon &amp; Mawhinney, orgs., 2001) — o manual de referência do campo. Cada capítulo traz síntese em português, conceitos-chave, perguntas-guia, a ponte com as aulas da disciplina e um quiz. <strong>São roteiros de leitura, não substitutos do texto original</strong>: use-os para entrar no capítulo e para checar se entendeu depois.</p>
+    <div class="manual-filtros">
+      <label class="busca">
+        <span aria-hidden="true" style="color:var(--tinta-fraca)">⌕</span>
+        <input type="search" id="buscaCap" placeholder="buscar por conceito, autor ou tema…" aria-label="Buscar nos capítulos">
+      </label>
+      <button class="btn pequeno" data-filtro-parte="todas">todas as partes</button>
+      <button class="btn pequeno" data-filtro-parte="I">Parte I</button>
+      <button class="btn pequeno" data-filtro-parte="II">Parte II</button>
+      <button class="btn pequeno" data-filtro-parte="III">Parte III</button>
+    </div>
+    <div id="manualLista"></div>
+  </div>
+</section>
+
+<!-- ==================== GLOSSÁRIO ==================== -->
+<section class="sec alt" id="glossario">
+  <div class="sec-inner">
+    <p class="sec-num">§ 5 — Verbetes</p>
+    <h2>Glossário <em>da disciplina</em></h2>
+    <p class="sec-lead">Os conceitos que atravessam as três unidades, do <em>pinpoint</em> ao capital-nuvem. Clique para abrir a definição e ver onde cada um aparece no semestre.</p>
+    <div class="manual-filtros">
+      <label class="busca">
+        <span aria-hidden="true" style="color:var(--tinta-fraca)">⌕</span>
+        <input type="search" id="buscaGlos" placeholder="buscar verbete…" aria-label="Buscar no glossário">
+      </label>
+      <span class="crono-info" id="glosContagem">—</span>
+    </div>
+    <div class="glos-grade" id="glosGrade"></div>
+  </div>
+</section>
+
+<!-- ==================== ACERVO AVALIAÇÃO 3 ==================== -->
+<section class="sec" id="acervo">
+  <div class="sec-inner">
+    <p class="sec-num">§ 6 — Acervo histórico</p>
+    <h2>Intervenções institucionais — <em>Avaliação 3, ano a ano</em></h2>
+    <p class="sec-lead">Todo ano, a Avaliação 3 propôs uma intervenção em alguma instituição real ou semirreal. Esta seção guarda os temas, as instituições e os nomes de quem os propôs, turma por turma, para que a disciplina possa olhar para o próprio histórico: <strong>que instituições os estudantes de Psicologia da UEL escolhem analisar, e o que muda ao longo dos anos</strong>. O acervo cresce a cada semestre e nada é apagado.</p>
+    <div class="acervo-stats" id="acervoStats"></div>
+    <div class="barras" id="acervoBarras"></div>
+    <div class="acervo-filtros">
+      <label class="busca">
+        <span aria-hidden="true" style="color:var(--tinta-fraca)">⌕</span>
+        <input type="search" id="buscaAcervo" placeholder="buscar por tema, instituição, nome ou palavra-chave…" aria-label="Buscar no acervo">
+      </label>
+      <select id="filtroAno" aria-label="Filtrar por ano"></select>
+      <select id="filtroTurma" aria-label="Filtrar por turma"></select>
+      <select id="filtroTipo" aria-label="Filtrar por tipo de instituição"></select>
+      <button class="btn pequeno" id="btnLimparFiltros">limpar</button>
+    </div>
+    <div class="acervo-lista" id="acervoLista"></div>
+  </div>
+</section>
+
+<!-- ==================== MURAL DAS TURMAS ==================== -->
+<section class="sec alt" id="mural">
+  <div class="sec-inner">
+    <p class="sec-num">§ 7 — Mural</p>
+    <h2>Uma foto <em>por turma, por ano</em></h2>
+    <p class="sec-lead">O registro visual de quem passou por 6PAC099. Uma foto para a T1000 e uma para a T2000, a cada ano. Toque para ampliar.</p>
+    <div id="muralConteudo"></div>
+  </div>
+</section>
+
+<!-- ==================== BIBLIOGRAFIA ==================== -->
+<section class="sec" id="bibliografia">
+  <div class="sec-inner">
+    <p class="sec-num">§ 8 — Fontes</p>
+    <h2>Bibliografia <em>e materiais</em></h2>
+    <p class="sec-lead">Referências em APA 7.ª edição. Use o botão <em>copiar</em> para levar a referência formatada direto para o seu trabalho — e confira sempre antes de enviar.</p>
+    <div class="manual-filtros">
+      <label class="busca">
+        <span aria-hidden="true" style="color:var(--tinta-fraca)">⌕</span>
+        <input type="search" id="buscaBib" placeholder="buscar autor, título ou tema…" aria-label="Buscar na bibliografia">
+      </label>
+      <button class="btn pequeno" data-filtro-bib="todas">todas</button>
+      <button class="btn pequeno" data-filtro-bib="instituicoes">Instituições e tecnologia</button>
+      <button class="btn pequeno" data-filtro-bib="obm">OBM, BSA e árvore</button>
+      <button class="btn pequeno" data-filtro-bib="digital">Materiais digitais</button>
+      <button class="btn pequeno" data-filtro-bib="complementar">Complementar</button>
+    </div>
+    <ol class="bib-lista" id="bibLista"></ol>
+  </div>
+</section>
+
+<!-- ==================== DOCENTES + PAINEL ==================== -->
+<section class="sec alt" id="sobre">
+  <div class="sec-inner">
+    <p class="sec-num">§ 9 — Autoria e manutenção</p>
+    <h2>Quem <em>mantém isto</em></h2>
+    <p class="sec-lead">A disciplina 6PAC099 é oferecida pelo Departamento de Psicologia Geral e Análise do Comportamento da UEL. Este site é mantido pelo <strong>CRIACOM — Criatividade &amp; Comportamento</strong>.</p>
+    <div class="docentes">
+      <div class="doc-card">
+        <img class="av" src="img/boatacon-joinha.png" alt="Mascote pixel-art de Hernando Borges Neves Filho" style="image-rendering:pixelated" onerror="this.style.display='none'">
+        <div>
+          <h4>Hernando Borges Neves Filho</h4>
+          <p class="fn">Docente responsável · PPGAC-UEL · CRIACOM</p>
+          <p>Pesquisador em análise do comportamento, criatividade, resolução de problemas e design de jogos comportamentais. Coordena o CRIACOM e responde pela 6PAC099.</p>
+          <p style="margin-top:.4rem"><a href="http://lattes.cnpq.br/2700793023719116" target="_blank" rel="noopener">Currículo Lattes ↗</a></p>
+        </div>
+      </div>
+      <div class="doc-card">
+        <img class="av" src="img/logo.png" alt="Logo do CRIACOM" onerror="this.style.display='none'">
+        <div>
+          <h4>CRIACOM</h4>
+          <p class="fn">Grupo de Pesquisa · Criatividade &amp; Comportamento</p>
+          <p>Grupo de pesquisa da UEL codirigido por Hernando Borges Neves Filho e Yulla Christoffersen Knaus. Investiga criatividade, recombinação de repertórios, cultura digital e ensino de análise do comportamento.</p>
+          <p style="margin-top:.4rem"><a href="https://criacom.github.io/lab" target="_blank" rel="noopener">Site do laboratório ↗</a></p>
+        </div>
+      </div>
+    </div>
+
+    <details class="painel-doc" style="margin-top:1.6rem">
+      <summary style="cursor:pointer;font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--esfero)">▸ Manutenção anual — como atualizar este site</summary>
+      <div id="painelDocente" style="margin-top:.9rem"></div>
+    </details>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="sel"><img src="img/logo.png" alt="CRIACOM"></div>
+  <div>Universidade Estadual de Londrina · Departamento de Psicologia Geral e Análise do Comportamento</div>
+  <div>Site didático da disciplina <strong>6PAC099</strong> · mantido pelo <a href="https://criacom.github.io/lab" target="_blank" rel="noopener">CRIACOM</a></div>
+  <div id="rodapeVersao" style="margin-top:.6rem;color:var(--tinta-fraca)"></div>
+</footer>
+
+<!-- modal genérico -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+  <div class="modal">
+    <div class="modal-cab"><span id="modalProto">—</span><button class="modal-fechar" id="modalFechar" aria-label="Fechar">×</button></div>
+    <div class="modal-corpo" id="modalCorpo"></div>
+  </div>
+</div>
+
+<!-- lightbox de fotos -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <span class="lb-x" id="lbFechar" role="button" tabindex="0" aria-label="Fechar">×</span>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-leg" id="lbLeg"></div>
+</div>
+
+<div class="toast" id="toast" aria-live="polite"></div>
+
+<!-- =================================================================
+     BLOCO DE DADOS 1 — atualize aqui a cada ano.
+     Tudo o que muda de semestre para semestre está neste bloco e no
+     bloco 2 (capítulos do manual). Nada de HTML precisa ser tocado.
+     ================================================================= -->
+<script>
+/* ---------- CONFIGURAÇÃO GERAL ---------- */
+const CONFIG = {
+  anoLetivo: 2026,
+  semestre: "2.º semestre",
+  periodo: "10/08 a 03/12 de 2026",
+  versao: "1.0 · agosto de 2026",
+  turmas: {
+    T1000: { nome: "T1000", dia: "quinta-feira de manhã" },
+    T2000: { nome: "T2000", dia: "terça-feira de manhã" }
+  },
+  turmaPadrao: "T1000"
+};
+
+/* ---------- § 1 PROGRAMA ---------- */
+const PROGRAMA = [
+  { id:"ementa", titulo:"1 · Ementa (original, mantida integralmente)", tag:null, html:`
+    <p>Análise comportamental de sistemas organizacionais. Atuação do psicólogo em nível organizacional e de processos (empresas e sistemas de produção). Planejamento de intervenção. Instrumentos de intervenção.</p>
+    <p class="nota-mao" style="margin-top:.8rem">Quatro frases. O semestre inteiro cabe nelas — mas só depois que a gente descobre o que cada uma quer dizer.</p>` },
+
+  { id:"competencias", titulo:"1.1 · Competências", tag:null, html:`
+    <ul>
+      <li>Analisar sistemas e processos organizacionais sob a ótica da Análise do Comportamento.</li>
+      <li>Elaborar, implantar, acompanhar e avaliar projetos de intervenção sobre processos de trabalho e organizacionais para empresas e instituições, com recursos da <strong>Organizational Behavior Management (OBM)</strong> e da <strong>Behavioral Systems Analysis (BSA)</strong>.</li>
+      <li>Planejar e desenvolver estratégias e procedimentos de intervenção nos processos de trabalho, via OBM, e em sistemas produtivos e organizacionais, via BSA.</li>
+      <li>Analisar o contexto de atuação do psicólogo organizacional e do trabalho em suas dimensões institucional, organizacional e sistêmica, explicitando a dinâmica das interações entre agentes sociais, desigualdades históricas, políticas públicas, formas de controle e a ética do trabalho no capitalismo tardio do Sul Global, em uma perspectiva comportamental.</li>
+      <li>Construir, ao longo da disciplina, um percurso cumulativo de leitura e escrita, articulando repertórios conceituais, exemplos aplicados e reflexão própria.</li>
+    </ul>` },
+
+  { id:"habilidades", titulo:"1.2 · Habilidades", tag:null, html:`
+    <ul>
+      <li>Analisar e desenvolver projetos de ação de caráter inter e multiprofissional.</li>
+      <li>Utilizar investigação científica para fortalecer o conhecimento sobre processos comportamentais no contexto organizacional e do trabalho.</li>
+      <li>Identificar possibilidades de atuação do psicólogo em diferentes níveis das organizações e de seus sistemas de produção, compreendendo-os como contextos e consequências em, pelo menos, três níveis de análise: filogênese, ontogênese e cultura.</li>
+      <li>Analisar funcionalmente processos comportamentais em sistemas de produção (BSA) e modos de organização (OBM).</li>
+      <li>Produzir textos curtos, cumulativos e autorais a partir de leituras orientadas, organizando uma árvore pessoal de conceitos, exemplos e problemas de intervenção.</li>
+    </ul>` },
+
+  { id:"objetivos", titulo:"2 · Objetivo geral e objetivos específicos", tag:null, html:`
+    <p><strong>Geral.</strong> Compreender instituições e organizações no contexto brasileiro, conhecer a literatura especializada em OBM e BSA e desenvolver capacidades para projetar intervenções sobre processos comportamentais, em nível estratégico, no contexto institucional, organizacional e de seus sistemas produtivos.</p>
+    <p><strong>Específicos.</strong></p>
+    <ul>
+      <li>Caracterizar instituições como arranjos de regras formais e informais, práticas, sanções, formas de legitimação e distribuição de consequências.</li>
+      <li>Analisar como desigualdades históricas, políticas públicas, tecnologia e plataformas digitais atravessam organizações brasileiras.</li>
+      <li>Reconhecer padrões retóricos de resistência a mudanças institucionais, especialmente em políticas públicas e reformas sociais.</li>
+      <li>Realizar diagnóstico organizacional a fim de especificar necessidades de intervenção na organização da produção.</li>
+      <li>Identificar necessidades de intervenção sobre processos comportamentais em nível estratégico a partir da OBM.</li>
+      <li>Analisar informações da organização em nível de macrossistema por meio da BSA.</li>
+      <li>Avaliar a adequação do objetivo geral ou missão da organização, com base em contingências, metacontingências, macrocontingências, produtos agregados e indicadores.</li>
+      <li>Analisar criticamente formas disciplinares, psicopolíticas, tecnobehavioristas e tecnofeudais de controle do comportamento.</li>
+      <li>Construir gradualmente um Diário de Bordo da disciplina, reunindo VLs, reflexões, exemplos, conceitos e sínteses em uma Árvore de Leituras e Pensamentos.</li>
+    </ul>` },
+
+  { id:"unidade1", titulo:"3.1 · Unidade I — Brasil, instituições e atuação da psicóloga e do psicólogo", tag:"u1", html:`
+    <ul>
+      <li>Conceito de instituição: regras formais e informais, práticas sociais, sanções, legitimidade, estabilidade e mudança institucional.</li>
+      <li>Instituições brasileiras, desigualdade e hierarquias sociais: distribuição desigual de valor, direitos, oportunidades e reconhecimento entre grupos e organizações.</li>
+      <li>WEIRD na Psicologia: limites de uma ciência construída a partir de amostras estreitas e necessidade de ajustes locais.</li>
+      <li>Políticas públicas e mudança institucional: as teses da perversidade, da futilidade e da ameaça como repertórios de resistência a reformas.</li>
+      <li>Leitura de indicadores sociais e econômicos brasileiros para avaliar argumentos sobre instituições, trabalho, proteção social e desigualdade.</li>
+      <li>Atuação no contexto institucional e organizacional nos níveis de organização, processos e tarefas; histórico da Psicologia nas empresas, indústrias e instituições; surgimento da OBM e desenvolvimento da BSA.</li>
+    </ul>
+    <p style="margin-top:.8rem"><span class="tag u1">aulas 1 a 3</span></p>` },
+
+  { id:"unidade2", titulo:"3.2 · Unidade II — Avaliação de necessidades de intervenção em nível estratégico", tag:"u2", html:`
+    <ul>
+      <li>Elaboração e adaptação de instrumentos para coleta e análise de dados em nível de macrossistema e organização, incluindo <em>pinpoints</em>, <em>Performance Diagnostic Checklist – Human Services</em> (PDC-HS) e <em>Total Performance System</em> (TPS).</li>
+      <li>Coleta e análise de dados comportamentais a partir de protocolos padronizados, estudos de caso, análise documental e observação pontual quando viável.</li>
+      <li>Formulação de objetivos, missão, indicadores, medidas de desempenho e critérios de avaliação.</li>
+      <li>Mapeamento de repertórios, pré-requisitos, ramos conceituais e recombinações progressivas por meio da metáfora da árvore de comportamentos.</li>
+    </ul>
+    <p style="margin-top:.8rem"><span class="tag u2">aulas 4 a 9</span></p>` },
+
+  { id:"unidade3", titulo:"3.3 · Unidade III — Planejamento de intervenção e análise crítica das formas de controle institucional", tag:"u3", html:`
+    <ul>
+      <li>Seleção de estratégias de intervenção em OBM e BSA; feedback, treinamento, antecedentes, consequências, redesenho de processos e avaliação de efeitos planejados e não planejados.</li>
+      <li>Instituições disciplinares em Michel Foucault: vigilância, exame, normalização, hierarquia e produção de corpos úteis.</li>
+      <li>Da disciplina à psicopolítica em Byung-Chul Han: sociedade do desempenho, autoexploração, transparência, big data e panóptico digital.</li>
+      <li>Tecnobehaviorismo, capitalismo de vigilância e economia da atenção: plataformas digitais, formação de hábitos, apropriação de princípios comportamentais, ética e contracontrole.</li>
+      <li>Tecnofeudalismo: capital-nuvem, tecnolordes, renda de acesso, plataformas como ambientes operantes e extração comportamental de valor.</li>
+      <li>Infraestruturas públicas, soberania institucional e contracontrole: o caso do Pix brasileiro.</li>
+    </ul>
+    <p style="margin-top:.8rem"><span class="tag u3">aulas 10 a 17</span></p>` },
+
+  { id:"procedimentos", titulo:"4 · Procedimentos de ensino", tag:null, html:`
+    <p><strong>4.1 Atividade docente.</strong> Leitura, discussão e análise de textos; aulas expositivas e dialogadas; análise de indicadores sociais, políticas públicas, casos institucionais e plataformas digitais; estudos de caso; exercícios de aplicação; coordenação de debates e supervisões; elaboração de roteiros de VL; feedbacks orais e escritos; supervisão dos trabalhos de diagnóstico, planejamento de intervenção e diário de bordo. A atividade em campo será pontual e limitada a, no máximo, uma etapa de observação ou coleta, quando viável, com prioridade para preparação, análise e supervisão em sala.</p>
+    <p><strong>4.2 Atividade discente.</strong> Leitura prévia e discussão dos textos; realização semanal de VLs; produção de textos curtos ou respostas orientadas; análise de dados e indicadores; resolução de estudos de caso; participação em trabalhos e discussões em grupo; elaboração de um Diário de Bordo cumulativo; e realização de atividade aplicada pontual de observação, coleta ou análise documental, quando prevista para o grupo.</p>` },
+
+  { id:"avaliacao", titulo:"6 · Formas e critérios de avaliação", tag:null, html:`
+    <p>O desempenho é avaliado a partir de três notas. A avaliação foi reorganizada para que as leituras semanais funcionem como eixo cumulativo da disciplina.</p>
+    <ul>
+      <li><strong>Avaliação 1 — 40% · VLs cumulativas.</strong> VL 0 a VL 16. Uma VL por aula, em texto livre de até 2 páginas ou respostas orientadas por perguntas. Todas compõem a Árvore de Leituras e Pensamentos.</li>
+      <li><strong>Avaliação 2 — 30% · Exercícios aplicados de OBM/BSA.</strong> Atividades técnicas de diagnóstico, <em>pinpoints</em>, PDC-HS, mensuração, feedback, missão, produtos agregados, processos e planejamento de intervenção, com casos simulados, semirreais ou análise documental.</li>
+      <li><strong>Avaliação 3 — 30% · Diário de Bordo final.</strong> Organização final da Árvore: seleção e revisão das VLs, mapa pessoal do percurso e texto final de síntese.</li>
+    </ul>` },
+
+  { id:"normas", titulo:"6.4 · Observações gerais sobre avaliação", tag:null, html:`
+    <ul>
+      <li>Trabalhos avaliados conforme as normas vigentes na Universidade — ABNT ou APA — e a norma culta da língua portuguesa. Podem ser descontados pontos de trabalhos entregues em desacordo.</li>
+      <li>Entregas preferencialmente pelo <strong>Google Classroom</strong> da disciplina, em formatos que permitam edição. Dificuldades de acesso digital devem ser comunicadas previamente ao docente.</li>
+      <li>Há possibilidade de refazer atividades quando os objetivos de aprendizagem não forem plenamente alcançados; os novos prazos são definidos caso a caso.</li>
+      <li>A entrega das atividades orientadas nas datas previstas compõe a integralização da carga horária e o acompanhamento da participação discente.</li>
+      <li><strong>Uso de inteligência artificial deve ser declarado</strong> quando interferir na redação, análise ou organização dos trabalhos. O estudante permanece responsável pela veracidade, autoria intelectual, adequação das referências e qualidade do material entregue.</li>
+    </ul>` }
+];
+
+/* ---------- § 2 CRONOGRAMA ---------- */
+/* dataT1000 e dataT2000 em formato AAAA-MM-DD; situacao aparece como aviso */
+const CRONOGRAMA = [
+  { n:1, unidade:"u1", dataT2000:"2026-08-11", dataT1000:"2026-08-13",
+    situacao:"ANPEPP — atividade assíncrona para as duas turmas",
+    tema:"Brasil, instituições e tecnofeudalismo: desigualdade, internet e controle do comportamento.",
+    vl:"VL 0", produto:"Texto livre de até 2 páginas sobre Calejon e Varoufakis. Conquista: Semente da disciplina.",
+    bib:"Calejon (2023). Varoufakis (2025). Henrich et al. (2010) como apoio sobre WEIRD.",
+    cap:[1] },
+  { n:2, unidade:"u1", dataT2000:"2026-08-18", dataT1000:"2026-08-20", situacao:null,
+    tema:"Instituições, políticas públicas e mudança social. Hirschman, retórica da intransigência e dados brasileiros.",
+    vl:"VL 1", produto:"Texto orientado por perguntas. Foco: perversidade, futilidade, ameaça e instituições.",
+    bib:"Hirschman (2019). Nery (2024). Indicadores selecionados.", cap:[] },
+  { n:3, unidade:"u1", dataT2000:"2026-08-25", dataT1000:"2026-08-27", situacao:null,
+    tema:"O que é uma organização? Instituições, trabalho, sistemas comportamentais e campo de atuação do psicólogo.",
+    vl:"VL 2", produto:"Texto livre ou mapa conceitual comentado.",
+    bib:"Borba, Ramos & Costa (2017). Gusso & De Luca (2017).", cap:[1,14] },
+  { n:4, unidade:"u2", dataT2000:"2026-09-01", dataT1000:"2026-09-03",
+    situacao:"T1000 sem encontro presencial — ABPMC, Belo Horizonte (02 a 05/09). Atividade orientada no Classroom.",
+    tema:"Introdução à OBM: desempenho, contingências, análise funcional, desempenho organizacional e pinpoints.",
+    vl:"VL 3", produto:"Exercício aplicado. T1000: atividade orientada no Classroom.",
+    bib:"Miguel (1997). Daniels & Bailey (2014, trechos). Roteiro de pinpoint.", cap:[2,5] },
+  { n:5, unidade:"u2", dataT2000:"2026-09-08", dataT1000:"2026-09-10", situacao:null,
+    tema:"Pinpoints e comportamento-alvo: descrever antes de intervir. Dimensões, observabilidade e critérios de qualidade.",
+    vl:"VL 4", produto:"Perguntas técnicas + exemplo próprio.",
+    bib:"Materiais de OBM no Classroom. Exercício de descrição comportamental.", cap:[3] },
+  { n:6, unidade:"u2", dataT2000:"2026-09-15", dataT1000:"2026-09-17", situacao:null,
+    tema:"PDC-HS e diagnóstico de desempenho em serviços humanos.",
+    vl:"VL 5", produto:"Exercício aplicado de diagnóstico.",
+    bib:"Rocha & Gianfaldoni (2019). PDC-HS.", cap:[3,6] },
+  { n:7, unidade:"u2", dataT2000:"2026-09-22", dataT1000:"2026-09-24", situacao:null,
+    tema:"Mensuração, feedback e visualização de desempenho. Indicadores, gráficos e tomada de decisão.",
+    vl:"VL 6", produto:"Mini-análise de caso.",
+    bib:"Materiais de mensuração e feedback. Casos de serviços humanos.", cap:[3,4,9] },
+  { n:8, unidade:"u2", dataT2000:"2026-09-29", dataT1000:"2026-10-01", situacao:null,
+    tema:"Introdução à BSA: organizações como sistemas comportamentais.",
+    vl:"VL 7", produto:"Texto orientado.",
+    bib:"Diener, McGee & Miguel (2009). Aureliano & Pessôa (2017).", cap:[17] },
+  { n:9, unidade:"u2", dataT2000:"2026-10-06", dataT1000:"2026-10-08", situacao:null,
+    tema:"Missão, produtos agregados, processos organizacionais e alinhamento sistêmico.",
+    vl:"VL 8", produto:"Exercício aplicado.",
+    bib:"Gusso & De Luca (2017). Diener et al. (2009).", cap:[17] },
+  { n:10, unidade:"u3", dataT2000:"2026-10-13", dataT1000:"2026-10-15",
+    situacao:"T2000 sem aula — recesso UEL em compensação ao Dia do Professor. Atividade compensatória.",
+    tema:"Planejamento de intervenção: antecedentes, consequências, reforço, custo de resposta, treinamento e redesenho de processos.",
+    vl:"VL 9", produto:"Texto técnico curto. T2000: atividade compensatória.",
+    bib:"Materiais de OBM/BSA. Roteiro de intervenção.", cap:[6,9,12] },
+  { n:11, unidade:"u3", dataT2000:"2026-10-20", dataT1000:"2026-10-22", situacao:null,
+    tema:"Ética, serviços humanos, ABA, autismo, acessibilidade e desenho de ambientes que funcionem para mais pessoas.",
+    vl:"VL 10", produto:"Texto livre.",
+    bib:"Neves Filho (2018). Neves Filho et al. (2019). Materiais sobre inclusão e ambiente.", cap:[16,11] },
+  { n:12, unidade:"u3", dataT2000:"2026-10-27", dataT1000:"2026-10-29",
+    situacao:"SBP, Belém (27 a 30/10) — sem encontro presencial nas duas turmas.",
+    tema:"Foucault: disciplina, instituições, vigilância, exame, normalização e corpos organizados.",
+    vl:"VL 11", produto:"Atividade orientada sem encontro presencial.",
+    bib:"Foucault (2014). Roteiro de estudo no Classroom.", cap:[] },
+  { n:13, unidade:"u3", dataT2000:"2026-11-03", dataT1000:"2026-11-05", situacao:null,
+    tema:"Byung-Chul Han: desempenho, positividade, autoexploração e psicopolítica.",
+    vl:"VL 12", produto:"Texto livre ou perguntas.",
+    bib:"Han (2018). Conexão com trabalho, produtividade e saúde.", cap:[8] },
+  { n:14, unidade:"u3", dataT2000:"2026-11-10", dataT1000:"2026-11-12", situacao:null,
+    tema:"Tecnobehaviorismo: plataformas digitais como ambientes de contingências; economia da atenção e formação de hábitos.",
+    vl:"VL 13", produto:"Texto livre de até 2 páginas.",
+    bib:"Bentes (2022). Skinner (1986). Materiais sobre plataformas digitais.", cap:[5,16] },
+  { n:15, unidade:"u3", dataT2000:"2026-11-17", dataT1000:"2026-11-19", situacao:null,
+    tema:"Tecnofeudalismo: capital-nuvem, tecnolordes, servos das nuvens, extração comportamental de valor e contracontrole.",
+    vl:"VL 14", produto:"Texto orientado.",
+    bib:"Varoufakis (2025). Vídeo suplementar de Varoufakis.", cap:[] },
+  { n:16, unidade:"u3", dataT2000:"2026-11-24", dataT1000:"2026-11-26",
+    situacao:"ACBr, São Paulo — semana de viagem. VL 15 e atividade orientada com vídeo.",
+    tema:"Pix, infraestrutura pública, soberania institucional e contracontrole. Atividade com vídeo de Varoufakis e caso brasileiro.",
+    vl:"VL 15", produto:"Atividade orientada. Produto: análise do Pix e das instituições nacionais.",
+    bib:"Vídeo de Varoufakis no YouTube. Banco Central: materiais sobre Pix.", cap:[17] },
+  { n:17, unidade:"u3", dataT2000:"2026-12-01", dataT1000:"2026-12-03", situacao:null,
+    tema:"Síntese final: apresentação da Árvore de Leituras e Pensamentos e fechamento dos percursos.",
+    vl:"VL 16", produto:"Mapa final + texto de síntese. Entrega da Avaliação 3.",
+    bib:"Revisão de todas as VLs. Diário de Bordo final.", cap:[] }
+];
+
+/* ---------- § 3 ÁRVORE DE LEITURAS ---------- */
+const CONQUISTAS = [
+  { id:"raiz",   ic:"🜃", nome:"Raiz bibliográfica", desc:"Consultou também o texto original — livro, artigo ou trecho complementar — indo além do resumo orientado.", parte:"raízes" },
+  { id:"ramo",   ic:"⑂", nome:"Ramo comportamental", desc:"Usou corretamente pelo menos um conceito da Análise do Comportamento.", parte:"galhos" },
+  { id:"folha",  ic:"❧", nome:"Folha aplicada", desc:"Trouxe um exemplo concreto de instituição, organização, plataforma, serviço ou prática social.", parte:"folhas" },
+  { id:"enxerto",ic:"✚", nome:"Enxerto conceitual", desc:"Conectou a VL atual com uma VL anterior.", parte:"enxertos" },
+  { id:"fruto",  ic:"◍", nome:"Fruto crítico", desc:"Produziu conclusão própria, com argumento claro — não apenas resumo.", parte:"frutos" },
+  { id:"mutacao",ic:"✦", nome:"Mutação criativa", desc:"Fez recombinação original entre autores, conceitos ou exemplos.", parte:"mutações" }
+];
+const CONQ_FINAL = { id:"floresta", ic:"🌲", nome:"Floresta", desc:"Ao final, integrou várias VLs em uma síntese coerente do percurso da disciplina." };
+
+const PRODUTO_FINAL = `
+<p>Ao final da disciplina, cada estudante entrega o seu Diário de Bordo, formado pelas VLs produzidas ao longo do semestre e por uma síntese final. A metáfora da árvore organiza o produto: <strong>raízes</strong> como bases conceituais, <strong>tronco</strong> como problema central do estudante, <strong>ramos</strong> como eixos temáticos, <strong>folhas</strong> como exemplos e <strong>frutos</strong> como aprendizagens, hipóteses e propostas.</p>
+<ol style="margin:.7rem 0 0 1.2rem">
+  <li>Capa e identificação.</li>
+  <li>Mapa pessoal da disciplina, em formato de árvore, mapa conceitual, linha do tempo ou outro recurso visual equivalente.</li>
+  <li>VLs 0 a 16, organizadas em sequência ou agrupadas por temas.</li>
+  <li>Registro dos achievements acumulados.</li>
+  <li>Texto final: “O que minha árvore aprendeu?”</li>
+  <li>Referências utilizadas.</li>
+</ol>`;
+
+/* ---------- CARIMBOS DE EXPLORAÇÃO DO SITE ---------- */
+const CARIMBOS = [
+  { id:"protocolo", ic:"✇", nome:"Protocolo aberto", desc:"Abriu o site pela primeira vez." },
+  { id:"programa",  ic:"§",  nome:"Leitor do programa", desc:"Abriu todas as peças do programa." },
+  { id:"crono",     ic:"🗓", nome:"Cronologista", desc:"Consultou cinco aulas do cronograma." },
+  { id:"manual",    ic:"▤",  nome:"Leitor de manual", desc:"Abriu cinco capítulos do Handbook." },
+  { id:"banca",     ic:"✓",  nome:"Aprovado na banca", desc:"Acertou todas as questões de um quiz." },
+  { id:"erudito",   ic:"⁂",  nome:"Erudito", desc:"Completou dez quizzes de capítulo." },
+  { id:"arquivista",ic:"🗄", nome:"Arquivista", desc:"Usou um filtro no acervo de intervenções." },
+  { id:"biblio",    ic:"❝",  nome:"Bibliófilo", desc:"Copiou uma referência da bibliografia." },
+  { id:"glossa",    ic:"⌘",  nome:"Glossarista", desc:"Consultou dez verbetes do glossário." },
+  { id:"semeador",  ic:"🌱", nome:"Semeador", desc:"Registrou a primeira VL na caderneta." },
+  { id:"floresta",  ic:"🌲", nome:"Floresta", desc:"Registrou as dezessete VLs na caderneta." },
+  { id:"contra",    ic:"⚑",  nome:"Contracontrole", desc:"Encontrou o que estava escondido no rodapé." }
+];
+</script>
+
+<script>
+/* ---------- § 5 GLOSSÁRIO ---------- */
+const GLOSSARIO = [
+  { t:"Pinpoint", u:"u2", onde:"Aulas 4–5 · Cap. 3",
+    d:"Descrição de um comportamento ou resultado em termos observáveis, mensuráveis, sob controle de quem executa e relevantes para o objetivo da organização. É o passo que separa a queixa (“a equipe é desorganizada”) do problema tratável (“número de prontuários devolvidos por preenchimento incompleto, por turno”). Sem pinpoint não há linha de base, e sem linha de base não há como saber se a intervenção funcionou." },
+  { t:"SURF & C", u:"u2", onde:"Cap. 3 · Komaki",
+    d:"Cinco critérios para julgar se uma medida de desempenho presta: amostragem direta (Sampled), estar sob controle de quem trabalha (Under control), concordância entre observadores independentes (Reliability), coleta frequente e regular (Frequent) e relação demonstrada com o resultado que interessa (Critical). Os critérios U e C dizem respeito ao <em>o quê</em> se mede; S, R e F ao <em>como</em>." },
+  { t:"PDC-HS", u:"u2", onde:"Aula 6 · Rocha & Gianfaldoni (2019)",
+    d:"<em>Performance Diagnostic Checklist – Human Services.</em> Roteiro de entrevista que localiza a causa provável de um problema de desempenho em quatro domínios: treinamento, recursos e materiais, processos e tarefas, e consequências. Serve para evitar a intervenção reflexa — treinar de novo quem já sabe fazer, quando o problema está na falta de insumo ou de consequência." },
+  { t:"TPS — Total Performance System", u:"u2", onde:"Aulas 8–9 · Cap. 17 · Brethower",
+    d:"Modelo que descreve a organização como sistema adaptativo: entradas, sistema de processamento, saídas, sistema receptor (cliente), feedback interno, feedback do receptor e influências do ambiente externo. Diagnosticar com o TPS é perguntar em qual dessas alças o sinal está faltando, chegando tarde ou chegando errado." },
+  { t:"BSA — Behavioral Systems Analysis", u:"u2", onde:"Aulas 8–9 · Cap. 17",
+    d:"Análise de sistemas comportamentais. Trata a organização inteira como unidade de análise: descreve os objetivos últimos, verifica como cada componente contribui (ou não) para eles e redesenha o ambiente organizacional para alinhar componentes e objetivos. Complementa a OBM, que opera principalmente no nível do desempenho individual e de grupo." },
+  { t:"OBM — Organizational Behavior Management", u:"u1", onde:"Aula 4 · Cap. 1",
+    d:"Aplicação dos princípios da Análise do Comportamento ao desempenho no trabalho, com foco em produtividade, segurança e qualidade de vida laboral. Consolidou-se como campo com a fundação do <em>Journal of Organizational Behavior Management</em>, em 1977." },
+  { t:"Produto agregado", u:"u2", onde:"Aula 9",
+    d:"Resultado que só existe porque várias pessoas se comportaram de maneira entrelaçada — nenhuma delas o produz sozinha. Uma alta hospitalar segura, um laudo, uma turma formada: cada um é produto agregado de dezenas de contingências individuais coordenadas." },
+  { t:"Metacontingência", u:"u2", onde:"Aulas 8–9 · Cap. 17 · Glenn",
+    d:"Relação entre contingências comportamentais entrelaçadas, o produto agregado que elas geram e o ambiente selecionador que consome ou rejeita esse produto. É a unidade que permite falar em seleção de práticas culturais sem recorrer a explicações mentalistas sobre “a cultura da empresa”." },
+  { t:"Macrocontingência", u:"u2", onde:"Aula 9",
+    d:"Soma de efeitos de muitos comportamentos operantes semelhantes que, agregados, produzem consequência cumulativa relevante — sem que haja entrelaçamento entre eles. Cada motorista que joga lixo pela janela responde à sua própria contingência; o rio poluído é o efeito cumulativo." },
+  { t:"Feedback de desempenho", u:"u2", onde:"Aula 7 · Caps. 3, 9",
+    d:"Informação sobre o próprio desempenho apresentada a quem o produz. É a intervenção mais estudada da OBM e a mais frequentemente mal aplicada: costuma funcionar quando é específico, frequente, individualizado, gráfico e acompanhado de consequência — e costuma falhar quando é anual, coletivo, verbal e vago." },
+  { t:"Contingência de três termos", u:"u1", onde:"Aula 4 · Cap. 2",
+    d:"Relação entre antecedente, resposta e consequência (A–B–C). Nas organizações, antecedentes costumam ser abundantes e baratos (cartazes, treinamentos, memorandos) e consequências, escassas e caras — o que explica boa parte do fracasso de programas baseados apenas em instrução." },
+  { t:"Comportamento governado por regras", u:"u1", onde:"Aula 4 · Cap. 2",
+    d:"Comportamento sob controle de descrições verbais de contingências, e não do contato direto com elas. É o que permite a um funcionário seguir um procedimento de segurança que ele nunca viu falhar — e também o que torna possível manter práticas insensíveis às consequências reais durante anos." },
+  { t:"Esquema de reforçamento", u:"u2", onde:"Cap. 5 · Hantula",
+    d:"Regra que determina quais respostas produzem consequência. No trabalho, aparecem como pagamento por peça (razão), salário fixo (tempo), comissão e bônus. O <em>estiramento de razão</em> — exigir cada vez mais trabalho pelo mesmo pagamento — é um dos usos abusivos que a análise de esquemas torna visível." },
+  { t:"Disciplina (Foucault)", u:"u3", onde:"Aula 12 · Foucault (2014)",
+    d:"Conjunto de técnicas que distribuem corpos no espaço, controlam o tempo, hierarquizam a vigilância, aplicam a sanção normalizadora e utilizam o exame para produzir indivíduos úteis e dóceis. Escola, hospital, quartel e fábrica compartilham o mesmo diagrama." },
+  { t:"Psicopolítica (Han)", u:"u3", onde:"Aula 13 · Han (2018)",
+    d:"Forma de poder que não coage de fora, mas faz com que cada um explore a si mesmo em nome da própria liberdade e do próprio desempenho. Onde a disciplina dizia “você deve”, a psicopolítica diz “você pode” — e produz esgotamento em vez de revolta." },
+  { t:"Tecnobehaviorismo", u:"u3", onde:"Aula 14 · Bentes (2022)",
+    d:"Apropriação comercial de princípios comportamentais no desenho de produtos digitais: gatilhos, ação, recompensa variável e investimento progressivo, arranjados para formar hábitos de uso. Levanta a questão ética central da disciplina: a mesma tecnologia que ensina uma criança a ler pode ser usada para prender sua atenção em uma tela." },
+  { t:"Economia da atenção", u:"u3", onde:"Aula 14",
+    d:"Modelo econômico em que o recurso escasso disputado não é o dinheiro do usuário, mas o seu tempo de olhar. O produto vendido é a atenção; o usuário é o insumo." },
+  { t:"Capitalismo de vigilância", u:"u3", onde:"Aula 14",
+    d:"Modelo em que o excedente comportamental — os rastros de uso que não são necessários para prestar o serviço — é coletado, processado e vendido como matéria-prima para prever e influenciar comportamento futuro." },
+  { t:"Tecnofeudalismo", u:"u3", onde:"Aulas 1 e 15 · Varoufakis (2025)",
+    d:"Tese de que o capitalismo teria sido substituído por um arranjo em que o lucro cede lugar à renda de acesso: plataformas funcionam como feudos digitais, cobram pedágio de vendedores e usuários e extraem valor de trabalho não remunerado. Para a disciplina, interessa a leitura comportamental: a plataforma como ambiente operante inteiramente projetado por um proprietário." },
+  { t:"Capital-nuvem", u:"u3", onde:"Aula 15 · Varoufakis (2025)",
+    d:"Infraestrutura algorítmica que não apenas produz mercadorias, mas modula diretamente o comportamento de quem a usa — recomendando, ordenando, ocultando e priorizando. É meio de produção e agência de controle ao mesmo tempo." },
+  { t:"Contracontrole", u:"u3", onde:"Aulas 14–16 · Skinner (1986)",
+    d:"Comportamento de quem é controlado que altera as contingências impostas pelo controlador. Sindicalização, regulação pública, migração de plataforma, software livre e infraestrutura estatal aberta são formas de contracontrole institucional." },
+  { t:"Instituição", u:"u1", onde:"Aulas 1–3 · North (1991)",
+    d:"Conjunto de restrições formais (leis, contratos, regulamentos) e informais (costumes, códigos de conduta, sanções sociais) que estruturam a interação humana e distribuem consequências. Instituições não são prédios nem organizações: são as regras do jogo — organizações são os times." },
+  { t:"WEIRD", u:"u1", onde:"Aula 1 · Henrich et al. (2010)",
+    d:"Sigla para <em>Western, Educated, Industrialized, Rich, Democratic</em>. Descreve o perfil estreito das amostras das quais a Psicologia extraiu boa parte de suas generalizações — e a razão pela qual intervenções organizacionais importadas exigem verificação local antes de serem aplicadas no Brasil." },
+  { t:"Retórica da intransigência", u:"u1", onde:"Aula 2 · Hirschman (2019)",
+    d:"Três formas recorrentes de argumentar contra reformas: a <strong>perversidade</strong> (a reforma produzirá o oposto do que promete), a <strong>futilidade</strong> (a reforma não mudará nada) e a <strong>ameaça</strong> (a reforma põe em risco uma conquista anterior). Reconhecê-las é um exercício de análise funcional de comportamento verbal." },
+  { t:"Árvore de comportamentos", u:"u2", onde:"Aula 11 · Neves Filho et al. (2019)",
+    d:"Proposta conceitual para descrever o desenvolvimento de repertórios: comportamentos simples funcionam como pré-requisitos que se recombinam progressivamente em repertórios mais complexos, formando ramificações. É a metáfora que organiza também o Diário de Bordo desta disciplina." },
+  { t:"Recombinação de repertórios", u:"u2", onde:"Aula 11",
+    d:"Emergência de um desempenho novo a partir da combinação, em uma situação-problema, de repertórios aprendidos separadamente. É um dos processos comportamentais candidatos a explicar comportamento criativo sem apelo a insight." },
+  { t:"Comportamento seguro (BBS)", u:"u3", onde:"Caps. 10–11",
+    d:"Abordagem de segurança do trabalho que trata o comportamento arriscado como resposta mantida por consequências naturais imediatas — rapidez, conforto, menos esforço — enquanto a consequência aversiva (a lesão) é rara e adiada. Intervir é reorganizar essa assimetria com observação, metas, feedback e reforçamento." },
+  { t:"Modelo do gancho", u:"u3", onde:"Aula 14 · Bentes (2022)",
+    d:"Sequência de desenho de produto digital descrita por Nir Eyal — gatilho, ação, recompensa variável, investimento — cuja função é converter uso ocasional em hábito. Bentes analisa criticamente essa apropriação de princípios comportamentais pela indústria de tecnologia." },
+  { t:"Pix", u:"u3", onde:"Aula 16 · Banco Central",
+    d:"Sistema de pagamentos instantâneos operado pelo Banco Central do Brasil. Na disciplina, funciona como caso de infraestrutura pública que altera contingências de um mercado inteiro sem intermediação privada — exemplo concreto de contracontrole institucional em escala nacional." }
+];
+
+/* ---------- § 8 BIBLIOGRAFIA ---------- */
+const BIBLIOGRAFIA = [
+  { cat:"instituicoes", ref:"Calejon, C. (2023). <em>Esfarrapados: Como o elitismo histórico-cultural moldou as desigualdades no Brasil</em>. Civilização Brasileira.", onde:"VL 0 · aula 1" },
+  { cat:"instituicoes", ref:"Foucault, M. (2014). <em>Vigiar e punir: Nascimento da prisão</em> (42.ª ed.; R. Ramalhete, Trad.). Vozes. (Obra original publicada em 1975)", onde:"VL 11 · aula 12" },
+  { cat:"instituicoes", ref:"Han, B.-C. (2018). <em>Psicopolítica: O neoliberalismo e as novas técnicas de poder</em> (M. Liesen, Trad.). Âyiné.", onde:"VL 12 · aula 13" },
+  { cat:"instituicoes", ref:"Henrich, J., Heine, S. J., & Norenzayan, A. (2010). The weirdest people in the world? <em>Behavioral and Brain Sciences, 33</em>(2–3), 61–83.", link:"https://doi.org/10.1017/S0140525X0999152X", onde:"VL 0 · aula 1" },
+  { cat:"instituicoes", ref:"Hirschman, A. O. (2019). <em>A retórica da intransigência: Perversidade, futilidade, ameaça</em> (2.ª ed.; T. R. Bueno, Trad.). Companhia das Letras. (Obra original publicada em 1991)", onde:"VL 1 · aula 2" },
+  { cat:"instituicoes", ref:"Lala, K. N., Uller, T., Feiner, N., Feldman, M. W., & Gilbert, S. F. (2024). <em>Evolution evolving: The developmental origins of adaptation and biodiversity</em>. Princeton University Press.", onde:"apoio · níveis de seleção" },
+  { cat:"instituicoes", ref:"Nery, P. F. (2024). <em>Extremos: Um mapa para entender as desigualdades no Brasil</em>. Zahar.", onde:"VL 1 · aula 2" },
+  { cat:"instituicoes", ref:"North, D. C. (1991). Institutions. <em>Journal of Economic Perspectives, 5</em>(1), 97–112.", link:"https://doi.org/10.1257/jep.5.1.97", onde:"aulas 1–3" },
+  { cat:"instituicoes", ref:"Varoufakis, Y. (2025). <em>Tecnofeudalismo: O que matou o capitalismo</em>. Crítica.", onde:"VL 0 e VL 14 · aulas 1 e 15" },
+
+  { cat:"obm", ref:"Aureliano, L., & Pessôa, C. V. B. B. (2017). Análise de Sistemas Comportamentais: uma proposta de análise e intervenção nas organizações. In D. L. O. Vilas Boas, F. Cassas, & H. L. Gusso (Orgs.), <em>Comportamento em foco: Análise do comportamento nas organizações</em> (Vol. 5, pp. 41–52). ABPMC.", onde:"VL 7 · aula 8" },
+  { cat:"obm", ref:"Azevedo, B. M., & Botomé, S. P. (2001). Psicólogo organizacional: aplicador de técnicas e procedimentos ou agente de mudanças e de intervenção nos processos decisórios organizacionais? <em>Revista Psicologia: Organizações e Trabalho, 1</em>(1), 181–186.", onde:"aula 3" },
+  { cat:"obm", ref:"Bentes, A. C. F. (2022). O modelo do gancho e a formação de hábitos: tecnobehaviorismo, capitalismo de vigilância e economia da atenção. <em>Anuario Electrónico de Estudios en Comunicación Social “Disertaciones”, 15</em>(2), 1–19.", link:"https://doi.org/10.12804/revistas.urosario.edu.co/disertaciones/a.11342", onde:"VL 13 · aula 14" },
+  { cat:"obm", ref:"Borba, A., Ramos, C. C., & Costa, T. D. (2017). O surgimento da Análise do Comportamento Aplicada às organizações. In D. L. Vilas Boas, F. Cassas, & H. L. Gusso (Orgs.), <em>Comportamento em foco</em> (Vol. 5, pp. 13–27). ABPMC.", onde:"VL 2 · aula 3" },
+  { cat:"obm", ref:"Daniels, A. C., & Bailey, J. S. (2014). <em>Performance management: Changing behavior that drives organizational effectiveness</em> (5.ª ed.). Performance Management Publications.", onde:"VL 3 · aula 4" },
+  { cat:"obm", ref:"Diener, L. H., McGee, H. M., & Miguel, C. F. (2009). An integrated approach for conducting a behavioral systems analysis. <em>Journal of Organizational Behavior Management, 29</em>(2), 108–135.", link:"https://doi.org/10.1080/01608060902874534", onde:"VLs 7 e 8 · aulas 8–9" },
+  { cat:"obm", ref:"Gusso, H. L. (2017). Desafios ao analista do comportamento no campo organizacional brasileiro. In D. L. Vilas Boas, F. Cassas, & H. L. Gusso (Orgs.), <em>Comportamento em foco</em> (Vol. 5, pp. 77–86). ABPMC.", onde:"aula 3" },
+  { cat:"obm", ref:"Gusso, H. L., & De Luca, G. G. (2017). Organizações como sistemas comportamentais: considerações para a delimitação do campo de atuação. In D. L. O. Vilas Boas, F. Cassas, & H. L. Gusso (Orgs.), <em>Comportamento em foco</em> (Vol. 5, pp. 28–40). ABPMC.", onde:"VLs 2 e 8 · aulas 3 e 9" },
+  { cat:"obm", ref:"Miguel, C. F. (1997). Introdução ao gerenciamento comportamental de organizações. In M. Delitti (Org.), <em>Sobre comportamento e cognição</em> (Vol. 2, pp. 277–287). Arbytes.", onde:"VL 3 · aula 4" },
+  { cat:"obm", ref:"Neves Filho, H. B. (2018). <em>Criatividade: Suas origens e produtos sob uma perspectiva comportamental</em>. Imagine Publicações.", onde:"VL 10 · aula 11" },
+  { cat:"obm", ref:"Neves Filho, H. B., Leite, F. L., Araripe, N. B., & Picanço, C. R. F. (2019). Uma proposta conceitual para o estudo comportamental do desenvolvimento e criatividade individual: A árvore de comportamentos. <em>Revista Brasileira de Terapia Comportamental e Cognitiva, 21</em>(3), 350–371.", link:"https://doi.org/10.31505/rbtcc.v21i3.1341", onde:"VL 10 · aula 11" },
+  { cat:"obm", ref:"Rocha, G. G., & Gianfaldoni, M. H. T. A. (2019). Performance Diagnostic Checklist – Human Services: comparação entre aplicação em lideranças e liderados. In A. T. Bolsoni-Silva et al. (Orgs.), <em>Comportamento em foco</em> (Vol. 9, pp. 326–346). ABPMC.", onde:"VL 5 · aula 6" },
+  { cat:"obm", ref:"Skinner, B. F. (1986). What is wrong with daily life in the Western world? <em>American Psychologist, 41</em>(5), 568–574.", link:"https://doi.org/10.1037/0003-066X.41.5.568", onde:"VL 13 · aula 14" },
+
+  { cat:"complementar", ref:"Johnson, C. M., Redmon, W. K., & Mawhinney, T. C. (Orgs.). (2001). <em>Handbook of organizational performance: Behavior analysis and management</em>. The Haworth Press.", onde:"manual da disciplina · § 4" },
+
+  { cat:"digital", ref:"Varoufakis, Y. — vídeo suplementar sobre tecnofeudalismo.", link:"https://www.youtube.com/watch?v=JKzlB_jrOyk", onde:"VL 14 · aula 15" },
+  { cat:"digital", ref:"Varoufakis, Y. — palestra usada na atividade sobre o Pix.", link:"https://www.youtube.com/watch?v=P_TMuVQPfxw&t=936s", onde:"VL 15 · aula 16" },
+  { cat:"digital", ref:"Calejon, C. — canal oficial.", link:"https://www.youtube.com/@CesarCalejonOficial", onde:"VL 0 · aula 1" },
+  { cat:"digital", ref:"Banco Central do Brasil — materiais sobre o Pix.", link:"https://www.bcb.gov.br/estabilidadefinanceira/pix", onde:"VL 15 · aula 16" }
+];
+
+/* =================================================================
+   ACERVO DA AVALIAÇÃO 3 — memória longa da disciplina.
+   Uma entrada por grupo, por ano. NÃO APAGUE entradas antigas:
+   o valor deste acervo está justamente no acúmulo.
+   Campos: ano, turma, instituicao, tipo, tema, resumo, alunos[], tags[]
+   Tipos usados até agora (mantenha a grafia para os gráficos baterem):
+   "Escola", "Clínica", "Saúde", "Universidade", "Empresa",
+   "Terceiro setor", "Serviço público", "Esporte e lazer", "Outro"
+   Marque exemplo:true apenas nas fichas-modelo; apague-as quando
+   inserir os dados reais.
+   ================================================================= */
+const ACERVO_AV3 = [
+  { ano:2026, turma:"T1000", exemplo:true, instituicao:"Clínica-escola de ABA (caso semifictício)", tipo:"Clínica",
+    tema:"Registro de sessão e atraso de feedback ao terapeuta iniciante",
+    resumo:"Ficha-modelo mostrando o formato de entrada do acervo. Substitua pelos dados reais da turma ao final do semestre.",
+    alunos:["Nome Sobrenome","Nome Sobrenome"], tags:["feedback","PDC-HS","supervisão"] },
+  { ano:2026, turma:"T2000", exemplo:true, instituicao:"Escola municipal de ensino fundamental", tipo:"Escola",
+    tema:"Produtos agregados do conselho de classe",
+    resumo:"Ficha-modelo mostrando o formato de entrada do acervo. Substitua pelos dados reais da turma ao final do semestre.",
+    alunos:["Nome Sobrenome","Nome Sobrenome","Nome Sobrenome"], tags:["BSA","produto agregado","escola"] }
+];
+
+/* =================================================================
+   MURAL — uma foto por turma, por ano.
+   Coloque os arquivos em img/ e aponte o caminho em "foto".
+   Se o arquivo não existir, a ficha aparece como moldura vazia
+   com o nome do arquivo esperado — não quebra o site.
+   ================================================================= */
+const MURAL = [
+  { ano:2026, turma:"T1000", foto:"img/turma-2026-T1000.jpg", legenda:"Turma T1000 · 2026", n:null },
+  { ano:2026, turma:"T2000", foto:"img/turma-2026-T2000.jpg", legenda:"Turma T2000 · 2026", n:null }
+];
+</script>
+
+<!-- =================================================================
+     BLOCO DE DADOS 2 — roteiros de estudo do Handbook.
+     Conteúdo autoral em português, escrito a partir dos capítulos.
+     Não reproduz o texto original: serve de porta de entrada e de
+     verificação de leitura.
+     ================================================================= -->
+<script>
+const CAPITULOS = [
+{ n:1, parte:"I", titulo:"Introdução ao desempenho organizacional: análise do comportamento e gestão",
+  autores:"C. Merle Johnson, Thomas C. Mawhinney & William K. Redmon", pp:"pp. 3–22",
+  pitch:"De onde vem a OBM, por que ela tem duas genealogias concorrentes e quais temas voltam sempre.",
+  sintese:`<p>O capítulo de abertura faz o que todo bom capítulo de abertura faz: mostra que o campo não é tão unificado quanto o nome sugere. Os organizadores reconstroem a OBM a partir de duas linhagens distintas. A primeira é a linhagem estritamente analítico-comportamental, marcada pela sequência de periódicos que institucionalizaram o campo — o <em>JEAB</em> em 1958 para a pesquisa básica, o <em>JABA</em> em 1968 para a aplicação, e o <em>JOBM</em> em 1977 para o trabalho nas organizações. Nessa leitura, a OBM é um ramo da análise do comportamento que apenas mudou de cenário.</p>
+  <p>A segunda linhagem é a da <em>Organizational Behavior Modification</em> (O.B. Mod.), que se declara influenciada não só por Skinner, mas também por Tolman, Lewin e, mais recentemente, Bandura — e que se reconhece herdeira da administração científica, dos estudos de Hawthorne, do movimento de relações humanas e das Teorias X e Y de McGregor. A consequência prática é direta: <strong>o que se entende por OBM depende de quem está descrevendo</strong>. O capítulo então levanta os temas recorrentes da literatura — medida de desempenho, feedback, incentivos, segurança, liderança, análise sistêmica — que reaparecem em quase todos os capítulos seguintes.</p>
+  <p>Para uma turma brasileira, o ponto mais útil é perceber que a OBM nasceu resolvendo problemas de fábricas e bancos norte-americanos dos anos 1970. Isso não a invalida: apenas obriga a perguntar, a cada procedimento, se as contingências que o sustentavam lá estão presentes aqui.</p>`,
+  conceitos:[
+    {t:"OBM", d:"Extensão dos princípios da análise do comportamento à melhoria do desempenho individual, grupal e organizacional, incluindo produtividade, segurança e qualidade de vida no trabalho."},
+    {t:"O.B. Mod.", d:"Vertente da modificação do comportamento organizacional que incorpora deliberadamente elementos cognitivos e sociais, aproximando-se da psicologia industrial/organizacional."},
+    {t:"Genealogia dupla", d:"A OBM pode ser contada como ramo puro da análise do comportamento ou como confluência entre behaviorismo e tradições da administração — e a escolha da narrativa afeta o que se considera prática legítima."},
+    {t:"Tema recorrente", d:"Problema que reaparece em toda a literatura do campo: definir e medir desempenho, arranjar consequências, avaliar efeitos e sustentar mudanças no tempo."}
+  ],
+  perguntas:["Quais consequências práticas decorrem de adotar uma ou outra genealogia da OBM ao apresentar-se a uma empresa?",
+             "Que aspectos da história da psicologia organizacional brasileira não aparecem em nenhuma das duas genealogias descritas?",
+             "Se a OBM se define pela aplicação de princípios comportamentais, o que a distingue de qualquer consultoria de produtividade?"],
+  ponte:"Leia junto com a aula 3 (Borba, Ramos & Costa, 2017) e com Gusso (2017): os três textos contam a mesma história a partir de lugares diferentes — a versão norte-americana e a versão brasileira do surgimento do campo.",
+  quiz:[
+    {p:"O periódico que marca a institucionalização específica da OBM como campo é:", alt:["O Journal of the Experimental Analysis of Behavior (1958)","O Journal of Applied Behavior Analysis (1968)","O Journal of Organizational Behavior Management (1977)","O Academy of Management Review"], c:2,
+     fb:"O JEAB consolidou a pesquisa básica e o JABA a aplicação geral; foi o JOBM, em 1977, que deu ao trabalho nas organizações um lugar editorial próprio."},
+    {p:"A principal diferença entre a genealogia da 'análise do comportamento' e a da 'O.B. Mod.' é que a segunda:", alt:["Rejeita o conceito de reforçamento","Assume influências cognitivas e sociais, aproximando-se da psicologia I/O","Só trabalha com organizações públicas","Não utiliza medidas de desempenho"], c:1,
+     fb:"A O.B. Mod. reconhece explicitamente Tolman, Lewin e Bandura, além das tradições da administração — o que a coloca em diálogo com a psicologia industrial/organizacional."},
+    {p:"Ao ler que 'o que a OBM é depende de quem descreve', a implicação metodológica mais defensável é:", alt:["Que o campo é arbitrário e não vale a pena estudá-lo","Que é preciso explicitar pressupostos e critérios ao propor uma intervenção","Que só a versão skinneriana é científica","Que a definição não importa na prática aplicada"], c:1,
+     fb:"Pluralidade de origens não impede rigor: exige que o analista torne explícitos os pressupostos, os critérios de sucesso e as fontes conceituais do que está propondo."}
+  ]},
+
+{ n:2, parte:"I", titulo:"Princípios de aprendizagem: condicionamento respondente, operante e comportamento humano",
+  autores:"Alan Poling & Diane Braatz", pp:"pp. 23–49",
+  pitch:"A revisão dos princípios básicos que sustentam tudo o que vem depois — inclusive regras e comportamento verbal.",
+  sintese:`<p>Poling e Braatz assumem uma premissa desconcertantemente simples: gerir comportamento em organizações é <strong>mudar o que as pessoas fazem oferecendo a elas novas experiências</strong>. A partir daí, revisam os dois processos básicos de aprendizagem. O condicionamento respondente é apresentado pelo caminho clássico — pareamento temporal entre estímulo condicional e incondicional, aquisição, extinção, generalização — e importa nas organizações sobretudo para entender reações emocionais eliciadas por locais, pessoas e sinais do ambiente de trabalho.</p>
+  <p>O grosso do capítulo trata do condicionamento operante: a contingência de três termos, reforçamento positivo e negativo, punição, extinção, controle de estímulos, esquemas, modelagem e encadeamento. Os autores tomam o cuidado de mostrar que os princípios derivados de ratos e pombos não são aplicados por analogia direta a humanos: a diferença decisiva é o comportamento verbal.</p>
+  <p>A parte final é a mais importante para a disciplina. Grande parte do comportamento no trabalho é <strong>governado por regras</strong> — descrições verbais de contingências — e não moldado por contato direto com consequências. Isso explica por que um procedimento pode ser seguido por anos sem que ninguém tenha contatado a consequência que ele supostamente previne, e também por que regras podem tornar o desempenho insensível às consequências reais. Quem trabalha em organizações passa boa parte do tempo diante de manuais, memorandos e metas — isto é, diante de regras.</p>`,
+  conceitos:[
+    {t:"Contingência de três termos", d:"Relação entre antecedente, resposta e consequência. Nas organizações, antecedentes são baratos e abundantes; consequências, caras e escassas."},
+    {t:"Reforçamento negativo", d:"Aumento da frequência de uma resposta que remove ou adia estímulo aversivo. É o processo que mantém boa parte do desempenho organizacional — trabalha-se para evitar advertência, cobrança ou demissão."},
+    {t:"Controle de estímulos", d:"Variação da probabilidade de uma resposta em função de estímulos antecedentes que sinalizaram consequências no passado."},
+    {t:"Comportamento governado por regras", d:"Comportamento sob controle de descrições verbais de contingências. Permite aprendizagem sem exposição direta — e insensibilidade às contingências reais."},
+    {t:"Modelagem", d:"Reforçamento diferencial de aproximações sucessivas de um desempenho-alvo. Base comportamental de qualquer programa de treinamento bem construído."}
+  ],
+  perguntas:["Que exemplos do seu estágio ou trabalho são mantidos por reforçamento negativo? O que mudaria se fossem mantidos por reforçamento positivo?",
+             "Quando uma regra bem escrita deixa de produzir o comportamento que descreve — e por quê?",
+             "Como distinguir, em uma organização, um problema de repertório de um problema de consequência?"],
+  ponte:"Este é o capítulo-âncora da aula 4. Toda a Unidade II depende de operar com segurança estes conceitos: sem eles, 'pinpoint' vira sinônimo de 'meta' e o diagnóstico vira palpite.",
+  quiz:[
+    {p:"Um funcionário preenche corretamente o checklist de segurança apenas quando o supervisor está no setor. Trata-se principalmente de:", alt:["Extinção","Controle de estímulos","Condicionamento respondente","Punição positiva"], c:1,
+     fb:"A presença do supervisor virou estímulo discriminativo: sinaliza a contingência sob a qual o comportamento produz consequências."},
+    {p:"O conceito de comportamento governado por regras ajuda a explicar por que:", alt:["Treinamentos sempre funcionam melhor que feedback","Procedimentos podem ser mantidos mesmo sem contato com suas consequências reais","O reforçamento negativo é mais eficaz que o positivo","Humanos não respondem a esquemas de reforçamento"], c:1,
+     fb:"Regras permitem que o comportamento se instale sem exposição direta à contingência — e, pelo mesmo motivo, podem torná-lo insensível a mudanças nas consequências reais."},
+    {p:"Ao dizer que princípios estudados com organismos não verbais são relevantes, mas insuficientes, os autores estão afirmando que:", alt:["Os princípios básicos não valem para humanos","O comportamento verbal acrescenta processos que precisam ser considerados","A análise experimental do comportamento foi superada","Só a pesquisa aplicada tem valor"], c:1,
+     fb:"Os princípios continuam operando; o comportamento verbal acrescenta camadas — regras, autorregras, relações derivadas — que precisam entrar na análise."}
+  ]},
+
+{ n:3, parte:"I", titulo:"Desenvolvendo avaliações de desempenho: critérios para o que e como se mede",
+  autores:"Judith L. Komaki & Michelle Reynard Minnich", pp:"pp. 51–79",
+  pitch:"Por que quase toda avaliação de desempenho é ruim — e cinco critérios para consertá-la.",
+  sintese:`<p>Komaki e Minnich abrem com um diagnóstico severo: apesar de todo mundo dizer que medir bem é importante, a definição e a medida do desempenho costumam ser as etapas mais atropeladas de qualquer programa. A psicologia industrial/organizacional convive há décadas com o que chama de <em>problema do critério</em>, e a análise aplicada do comportamento repete o alerta com outras palavras. As autoras percorrem dois grandes conjuntos de falhas: <strong>o que</strong> se avalia — traços de personalidade em vez de desempenho, aspectos que não representam o trabalho, resultados fora do controle de quem trabalha — e <strong>como</strong> se avalia — julgamentos subjetivos, escalas vagas, viés do avaliador, frequência anual. Casos de tribunal comparecem como evidência: avaliações subjetivas aplicadas de forma desigual a grupos minoritários já custaram processos a organizações.</p>
+  <p>A resposta é o conjunto de critérios <strong>SURF & C</strong>. O alvo deve ser amostrado diretamente (<em>Sampled</em>), estar primariamente sob controle de quem trabalha (<em>Under control</em>), apresentar concordância entre observadores independentes (<em>Reliability</em>), ser avaliado com frequência e regularidade (<em>Frequent</em>) e ter relação demonstrada com o resultado que importa (<em>Critical</em>). Os critérios U e C julgam o conteúdo do que se mede; S, R e F julgam o método.</p>
+  <p>O capítulo traz um exemplo instrutivo: uma medida de manutenção preventiva que só passou a funcionar quando foi redesenhada para ficar sob controle dos próprios executantes — mesmo com uma intervenção mais fraca, os resultados melhoraram. É a lição central: <strong>medir a coisa certa vale mais do que intervir com força na coisa errada</strong>.</p>`,
+  conceitos:[
+    {t:"Problema do critério", d:"Dificuldade persistente de construir índices de desempenho que sejam ao mesmo tempo relevantes, justos e mensuráveis."},
+    {t:"S — amostragem direta", d:"Observar o desempenho na fonte, em vez de depender de relatos filtrados, memória de terceiros ou registros secundários."},
+    {t:"U — sob controle", d:"O alvo precisa responder ao esforço de quem é avaliado e sofrer pouca influência de fatores externos. Medir o que o trabalhador não controla é injusto e ineficaz."},
+    {t:"R — fidedignidade", d:"Observadores independentes registrando a mesma coisa, com concordância de 80% a 90% ou mais durante a coleta formal."},
+    {t:"F — frequência", d:"Avaliação regular e repetida ao longo da intervenção, e não uma vez por semestre. É a condição para que existam consequências frequentes."},
+    {t:"C — criticidade", d:"Evidência de que o alvo medido tem relação significativa com o resultado que a organização quer alcançar."}
+  ],
+  perguntas:["Pegue uma avaliação de desempenho real que você conheça: quantos dos cinco critérios ela cumpre?",
+             "Um indicador pode ser fidedigno e frequente e ainda assim ser uma péssima medida. Como isso acontece?",
+             "Que riscos éticos surgem quando se mede algo que o trabalhador não controla?"],
+  ponte:"Base direta das aulas 5 (pinpoints) e 7 (mensuração e feedback). O SURF & C é o crivo que você vai aplicar aos pinpoints da Avaliação 2.",
+  quiz:[
+    {p:"Uma clínica avalia terapeutas pelo número de altas de pacientes. O critério mais claramente violado é:", alt:["S — amostragem direta","U — estar sob controle do trabalhador","R — fidedignidade","F — frequência"], c:1,
+     fb:"A alta depende de família, gravidade do caso, adesão e convênio. Medir o terapeuta por ela é medir principalmente o que ele não controla."},
+    {p:"No SURF & C, os critérios que dizem respeito ao CONTEÚDO do que se mede são:", alt:["S e R","U e C","F e R","S e F"], c:1,
+     fb:"U (sob controle) e C (crítico) julgam se o alvo é o certo; S, R e F julgam se o método de obter a informação é adequado."},
+    {p:"Avaliar desempenho uma vez por ano fere principalmente qual critério, e com que consequência?", alt:["R — impede o cálculo de concordância","F — inviabiliza consequências frequentes e contingentes","C — torna o alvo irrelevante","S — obriga a observação direta"], c:1,
+     fb:"Sem coleta frequente não há como oferecer consequências próximas ao desempenho, que é justamente o que faz um programa motivacional funcionar."}
+  ]},
+
+{ n:4, parte:"I", titulo:"Delineamentos intragrupo: além das perguntas de avaliação de programa",
+  autores:"Judith L. Komaki & Sonia M. Goltz", pp:"pp. 81–137",
+  pitch:"Como escolher o delineamento certo para a pergunta que você realmente está fazendo.",
+  sintese:`<p>O argumento do capítulo é metodológico e direto: o erro mais comum na pesquisa aplicada não é usar um delineamento fraco, é usar um delineamento que não responde à pergunta feita. Komaki e Goltz classificam as perguntas típicas de contextos aplicados — perguntas de avaliação de programa (“isto funcionou?”), perguntas sobre tendências ao longo do tempo (“o efeito se mantém?”) e perguntas de comparação (“qual das duas alternativas é melhor?”) — e mostram quais delineamentos intragrupo servem a cada uma.</p>
+  <p>Os delineamentos intragrupo — reversão, linha de base múltipla, critério mutante, tratamentos alternados — usam o próprio participante ou grupo como seu controle. Isso resolve elegantemente as perguntas de avaliação de programa e as de tendência. As dificuldades aparecem nas perguntas de comparação: efeitos de sequência, arrastamento entre condições e histórias diferentes tornam arriscado concluir que um tratamento é superior ao outro. As autoras discutem alternativas, inclusive a de reformular a pergunta em vez de forçar o delineamento.</p>
+  <p>Para a disciplina, o capítulo é o antídoto contra dois vícios comuns em trabalhos de intervenção: apresentar uma média de antes e depois como se fosse demonstração de efeito, e afirmar superioridade entre estratégias que nunca foram comparadas de forma controlada.</p>`,
+  conceitos:[
+    {t:"Ajuste pergunta–delineamento", d:"A qualidade de um estudo aplicado depende menos da sofisticação do delineamento e mais da correspondência entre a pergunta formulada e o arranjo escolhido."},
+    {t:"Delineamento intragrupo", d:"Arranjo em que o mesmo grupo ou participante serve como seu próprio controle, com comparações entre condições sucessivas."},
+    {t:"Linha de base múltipla", d:"Introdução escalonada da intervenção em diferentes comportamentos, pessoas ou contextos, permitindo demonstrar efeito sem retirar o tratamento."},
+    {t:"Pergunta de comparação", d:"Pergunta sobre qual entre dois ou mais tratamentos é superior — a mais difícil de responder com delineamentos intragrupo, por efeitos de ordem e arrastamento."}
+  ],
+  perguntas:["Que pergunta a sua proposta de intervenção realmente faz? E o seu delineamento responde a ela?",
+             "Em que situações organizacionais a reversão é eticamente inaceitável — e o que usar no lugar?",
+             "Por que uma comparação simples entre 'antes' e 'depois' quase nunca demonstra efeito?"],
+  ponte:"Útil para a Avaliação 2 e para qualquer TCC de intervenção. A escolha do delineamento deve ser justificada no projeto, não decidida depois de coletar os dados.",
+  quiz:[
+    {p:"Um serviço quer saber se um programa de feedback melhorou a pontualidade da equipe e não pode retirar o programa depois de implantado. O delineamento mais adequado é:", alt:["Reversão ABAB","Linha de base múltipla entre setores","Grupo-controle randomizado","Tratamentos alternados"], c:1,
+     fb:"A linha de base múltipla demonstra efeito pela introdução escalonada, sem exigir retirada da intervenção — o que resolve o impedimento ético e prático."},
+    {p:"A principal dificuldade dos delineamentos intragrupo para perguntas de comparação é:", alt:["Exigem amostras grandes","Efeitos de sequência e arrastamento entre condições","Não permitem medida repetida","Não podem ser usados em organizações"], c:1,
+     fb:"Como as condições ocorrem em sequência com os mesmos participantes, o efeito de uma pode contaminar a seguinte, dificultando atribuir superioridade."},
+    {p:"Segundo o capítulo, o erro mais comum na pesquisa aplicada é:", alt:["Usar poucos participantes","Escolher um delineamento que não responde à pergunta formulada","Usar medidas comportamentais","Publicar resultados negativos"], c:1,
+     fb:"O ajuste entre pergunta e delineamento é o ponto crítico; sem ele, mesmo um arranjo sofisticado produz uma resposta para outra pergunta."}
+  ]},
+
+{ n:5, parte:"I", titulo:"Esquemas de reforçamento no desempenho organizacional, 1971–1994",
+  autores:"Donald A. Hantula", pp:"pp. 139–166",
+  pitch:"O que duas décadas de pesquisa aplicada descobriram sobre razão, intervalo e o abuso do estiramento.",
+  sintese:`<p>Hantula parte de um ponto conceitual fino: reforçamento não é variável independente — é o nome de um efeito. O que o pesquisador manipula é o <strong>esquema</strong>, a regra que determina quais respostas produzem consequência. Manipular esquemas produz efeitos previsíveis sobre taxa, padrão e persistência do responder, e essa é a razão pela qual o conceito interessa a quem gerencia trabalho.</p>
+  <p>A revisão cobre a literatura aplicada entre 1971 e 1994 e organiza os achados por tipo de esquema. Esquemas de razão — pagamento por peça, comissão — produzem taxas altas; esquemas de intervalo — salário fixo, avaliação periódica — produzem padrões diferentes e frequentemente menos sensíveis ao esforço momentâneo. Estudos com valor esperado equalizado mostram que diferenças de desempenho podem decorrer do <em>arranjo</em> do reforçamento, e não da quantia paga.</p>
+  <p>O trecho de maior peso ético trata do <strong>estiramento de razão</strong>: aumentar progressivamente a exigência para o mesmo pagamento. Hantula é explícito ao apontar o problema — a organização colhe o ganho do trabalho adicional enquanto o trabalhador precisa produzir mais só para manter o mesmo rendimento. É um dos pontos em que a análise técnica e a análise crítica da disciplina se encontram sem atrito nenhum.</p>`,
+  conceitos:[
+    {t:"Esquema de reforçamento", d:"Regra que especifica quais respostas produzem consequência. É a variável manipulável; o reforçamento é o efeito observado."},
+    {t:"Razão versus intervalo", d:"Esquemas de razão tornam a consequência dependente do número de respostas; esquemas de intervalo, do tempo decorrido. Produzem taxas e padrões distintos."},
+    {t:"Estiramento de razão", d:"Aumento progressivo da exigência de resposta para a mesma consequência. Em sistemas de pagamento, transfere ganho de produtividade ao empregador às custas do trabalhador."},
+    {t:"Valor esperado", d:"Retorno médio de um esquema. Igualar o valor esperado entre dois esquemas permite isolar o efeito do arranjo, separando-o do efeito da quantia."}
+  ],
+  perguntas:["Que esquemas descrevem as formas de remuneração que você conhece — inclusive as de aplicativos de entrega e transporte?",
+             "Onde termina a otimização legítima de um sistema de incentivos e começa o estiramento de razão?",
+             "Como o conceito de esquema ajuda a analisar a rolagem infinita de um aplicativo?"],
+  ponte:"Conversa diretamente com a aula 14: recompensa variável em plataformas digitais é, tecnicamente, um esquema de razão variável desenhado por quem projeta o produto.",
+  quiz:[
+    {p:"Dizer que 'reforçamento não é variável independente, o esquema é' significa que:", alt:["Reforçamento não existe","O pesquisador manipula a regra de entrega da consequência, não o efeito","Esquemas só se aplicam a animais","Reforçamento e punição são equivalentes"], c:1,
+     fb:"Reforçamento nomeia o efeito de um evento sobre o responder; o que se manipula experimentalmente é a regra que determina quando esse evento ocorre."},
+    {p:"Um aplicativo de entregas aumenta gradualmente o número de corridas necessárias para atingir o mesmo bônus. Isso caracteriza:", alt:["Reforçamento diferencial","Estiramento de razão","Extinção","Esquema de intervalo fixo"], c:1,
+     fb:"É o caso clássico descrito por Hantula: a exigência sobe, o pagamento permanece, e o ganho de produtividade fica com quem arranjou o esquema."},
+    {p:"Estudos que igualam o valor esperado entre dois esquemas servem para demonstrar que:", alt:["A quantia paga é irrelevante","Diferenças de desempenho podem decorrer do arranjo do reforçamento, e não do valor","Esquemas de intervalo são sempre superiores","Não há diferença entre esquemas"], c:1,
+     fb:"Ao equalizar o retorno médio, o que resta de diferença é atribuível ao modo como o reforçamento é distribuído no tempo e nas respostas."}
+  ]},
+
+{ n:6, parte:"II", titulo:"Treinamento e desenvolvimento nas organizações",
+  autores:"Richard Perlow", pp:"pp. 169–190",
+  pitch:"Treinar resolve problema de repertório, não problema de consequência — e mesmo assim vale estudar como treinar bem.",
+  sintese:`<p>Perlow abre reconhecendo uma tensão dentro da própria OBM. Vários autores do campo sustentam que técnicas antecedentes — treinamentos, oficinas, cartazes — raramente produzem mudança duradoura sem consequências programadas. Geller, discutindo segurança, é categórico nesse ponto. Perlow não discorda, mas argumenta que <strong>estudar como estruturar o material a ser aprendido é valioso por si só</strong>, sobretudo para desempenhos complexos e interdependentes.</p>
+  <p>A revisão organiza a literatura de treinamento em OBM em torno de instrução e aquisição de habilidades: instruções escritas e verbais, modelação, ensaio comportamental, feedback durante a aquisição, uso de listas de verificação e programas de instrução baseados em desempenho. Aparecem também estudos comparativos entre formatos e trabalhos sobre a relação entre treinamento e motivação. O capítulo é honesto quanto às lacunas: muita pesquisa avalia reações dos treinandos em vez de desempenho, e a manutenção dos efeitos costuma ser pouco investigada.</p>
+  <p>A lição operacional é a que o PDC-HS formaliza depois: antes de treinar de novo, verifique se o problema é mesmo de repertório. Treinar quem já sabe fazer, mas não tem material, tempo ou consequência para fazer, é um dos desperdícios mais frequentes das organizações.</p>`,
+  conceitos:[
+    {t:"Antecedente versus consequência", d:"Instruções e treinamentos atuam como antecedentes. Sem consequências que sustentem o desempenho no ambiente natural, o efeito tende a se dissipar."},
+    {t:"Ensaio comportamental", d:"Prática do desempenho-alvo em condições simuladas, com feedback imediato — mais eficaz que a exposição apenas verbal ou escrita."},
+    {t:"Transferência e manutenção", d:"O problema de fazer o desempenho treinado ocorrer e persistir no ambiente real de trabalho, e não apenas na sala de treinamento."},
+    {t:"Avaliação de reação", d:"Medida da satisfação do treinando com o programa. Popular por ser barata, mas fraca como evidência de mudança de desempenho."}
+  ],
+  perguntas:["Como distinguir, em um serviço, um déficit de repertório de um déficit de consequência antes de propor treinamento?",
+             "Que arranjos aumentam a chance de o desempenho treinado aparecer no ambiente real?",
+             "Por que avaliações de satisfação com treinamentos são tão comuns e tão pouco informativas?"],
+  ponte:"Leia antes da aula 6 (PDC-HS): o checklist existe justamente para impedir que 'treinamento' vire resposta automática a qualquer problema de desempenho.",
+  quiz:[
+    {p:"A crítica central ao uso isolado de treinamento como intervenção é que:", alt:["Treinamento é caro","Antecedentes sem consequências programadas raramente sustentam o desempenho","Treinandos não gostam de treinamentos","Treinamento não pode ser medido"], c:1,
+     fb:"Instrução instala repertório; é a consequência no ambiente natural que mantém o desempenho ao longo do tempo."},
+    {p:"Uma equipe de enfermagem sabe executar o protocolo corretamente, mas não o executa por falta de insumos. Nesse caso, treinar novamente:", alt:["Resolve o problema","Não ataca a causa e desperdiça recursos","Aumenta a motivação intrínseca","É a única alternativa ética"], c:1,
+     fb:"O déficit não é de repertório. É um caso típico daquilo que o PDC-HS categoriza como problema de recursos e materiais."},
+    {p:"Avaliar um treinamento apenas pela satisfação dos participantes é frágil porque:", alt:["Satisfação é impossível de medir","Satisfação não demonstra mudança no desempenho no trabalho","Participantes sempre mentem","Reduz o custo do programa"], c:1,
+     fb:"Gostar do curso e passar a fazer diferente no trabalho são efeitos distintos; só o segundo interessa à avaliação de um programa de treinamento."}
+  ]},
+
+{ n:7, parte:"II", titulo:"Liderança: comportamento, contexto e consequências",
+  autores:"Thomas C. Mawhinney", pp:"pp. 191–223",
+  pitch:"Liderança não é traço nem carisma: é comportamento selecionado por consequências dentro de contingências entrelaçadas.",
+  sintese:`<p>Mawhinney começa desmontando a pergunta usual. Se a liderança é uma das preocupações mais antigas registradas, a maior parte da literatura pergunta o que os líderes <em>são</em>. Do ponto de vista da análise do comportamento, o que líderes fazem não é diferente, em natureza, do que qualquer pessoa faz: reagem a estímulos, operam sobre o ambiente e emitem comportamento verbal, tudo isso selecionado por consequências.</p>
+  <p>O capítulo desenvolve a seleção por consequências como modo causal e discute duas versões da lei do efeito — a baseada em contiguidade, que enfatiza a proximidade temporal entre resposta e consequência, e a baseada em correlação molar, que considera relações estendidas no tempo entre taxas de resposta e taxas de reforçamento. A distinção importa porque muito do que se chama liderança envolve consequências distantes e correlações de longo prazo, não reforçadores imediatos.</p>
+  <p>O núcleo do argumento está nas <strong>condições necessárias para que haja liderança</strong>: é preciso que existam contingências sobrepostas entre líder e seguidor, isto é, que o comportamento de um produza consequências para o outro e vice-versa. Sem sobreposição, há chefia formal sem liderança. Mawhinney também discute observação e registro do comportamento de líderes — o que conecta o capítulo à agenda de medida dos capítulos 3 e 4.</p>`,
+  conceitos:[
+    {t:"Seleção por consequências", d:"Modo causal que explica a forma e a frequência do comportamento pelo histórico de consequências, dispensando explicações por traços internos."},
+    {t:"Lei do efeito por contiguidade", d:"Ênfase na proximidade temporal entre resposta e consequência como determinante do fortalecimento."},
+    {t:"Lei do efeito por correlação molar", d:"Ênfase na relação estendida entre taxas de resposta e taxas de reforçamento ao longo do tempo, e não em pareamentos momentâneos."},
+    {t:"Contingências sobrepostas", d:"Arranjo em que o comportamento do líder produz consequências para o seguidor e o do seguidor produz consequências para o líder. É a condição mínima para que exista liderança, e não apenas cargo."}
+  ],
+  perguntas:["Que consequências o comportamento de uma coordenadora de serviço produz para a equipe — e quais a equipe produz para ela?",
+             "É possível ocupar um cargo de chefia sem que haja contingências sobrepostas? Como isso se manifesta no cotidiano?",
+             "Por que explicações por carisma são tão resistentes, mesmo sendo pouco úteis para intervir?"],
+  ponte:"Combine com a aula 10 (planejamento de intervenção): mudar o comportamento de lideranças é frequentemente o ponto de maior alavancagem em um serviço, e exige descrever o que a liderança faz, não o que ela é.",
+  quiz:[
+    {p:"Para Mawhinney, a condição necessária para que exista liderança é:", alt:["Carisma pessoal do líder","Autoridade formal registrada em organograma","Contingências sobrepostas entre líder e seguidores","Formação em administração"], c:2,
+     fb:"Sem que o comportamento de cada parte produza consequências para a outra, existe cargo, mas não relação de liderança em sentido comportamental."},
+    {p:"A lei do efeito baseada em correlação molar difere da baseada em contiguidade porque considera:", alt:["Apenas consequências imediatas","Relações estendidas entre taxas de resposta e de reforçamento ao longo do tempo","Somente comportamento verbal","Apenas variáveis fisiológicas"], c:1,
+     fb:"A versão molar analisa correlações no tempo, o que a torna mais adequada a desempenhos cujas consequências são distantes — como boa parte do comportamento de liderança."},
+    {p:"Descrever liderança como comportamento, e não como traço, tem qual vantagem prática principal?", alt:["Torna a liderança inata","Permite identificar o que observar, medir e alterar","Elimina a necessidade de avaliação","Dispensa a análise do contexto"], c:1,
+     fb:"Traços não são manipuláveis; comportamentos podem ser descritos, registrados, treinados e consequenciados."}
+  ]},
+
+{ n:8, parte:"II", titulo:"A gestão do estresse ocupacional",
+  autores:"Terry A. Beehr, Steve M. Jex & Papia Ghosh", pp:"pp. 225–253",
+  pitch:"Estresse como processo entre condições de trabalho e respostas do trabalhador — e a crítica às intervenções que tratam só o segundo.",
+  sintese:`<p>Os autores começam pela confusão terminológica. Estresse já foi definido como estímulo do ambiente, como resposta do organismo e como o processo em que os dois se relacionam; eles adotam a terceira definição. A partir daí, distinguem <strong>estressores</strong> — características do trabalho, como sobrecarga, ambiguidade de papel, conflito de papel, baixo controle — de <strong>tensões</strong>, que são as respostas psicológicas, fisiológicas e comportamentais associadas a eles.</p>
+  <p>O capítulo revisa a medida dos estressores ocupacionais e discute a satisfação no trabalho, para em seguida classificar as abordagens de tratamento. E aqui está o ponto crítico: a maior parte dos programas organizacionais atua sobre o indivíduo — relaxamento, manejo de tempo, reestruturação cognitiva, programas de apoio ao empregado — e não sobre as condições de trabalho que produzem a tensão. Ensinar o trabalhador a suportar melhor uma jornada mal desenhada é uma intervenção sobre a resposta, não sobre o estressor.</p>
+  <p>Para a Unidade III, o capítulo é uma ponte inesperada e produtiva. Escrito em 2001, ele já descreve a estrutura que Byung-Chul Han radicaliza: quando a responsabilidade pelo esgotamento é deslocada para quem sofre, o arranjo organizacional que o produz permanece intocado — e o trabalhador passa a se gerenciar como se o problema fosse dele.</p>`,
+  conceitos:[
+    {t:"Estressor", d:"Característica do trabalho ou do ambiente laboral com potencial de produzir respostas prejudiciais: sobrecarga, ambiguidade e conflito de papel, baixo controle, insegurança."},
+    {t:"Tensão (strain)", d:"Resposta psicológica, fisiológica ou comportamental associada à exposição a estressores."},
+    {t:"Intervenção individual", d:"Programa dirigido à resposta do trabalhador — relaxamento, manejo de tempo, apoio psicológico. Frequente, barato e insuficiente quando o estressor permanece."},
+    {t:"Intervenção organizacional", d:"Alteração das condições que produzem a tensão: redesenho de tarefas, clareza de papéis, ampliação de controle, dimensionamento de jornada."}
+  ],
+  perguntas:["Que estressores você identifica nos serviços de saúde e educação brasileiros — e quais intervenções costumam ser oferecidas?",
+             "Por que intervenções individuais são tão mais frequentes que as organizacionais?",
+             "Como a distinção estressor/tensão ajuda a criticar campanhas de 'saúde mental do trabalhador' que não mudam a carga de trabalho?"],
+  ponte:"Leitura preparatória ideal para a aula 13 (Han). O que Beehr e colaboradores descrevem como deslocamento da intervenção para o indivíduo, Han lê como autoexploração no regime do desempenho.",
+  quiz:[
+    {p:"Definir estresse como processo, e não como estímulo ou resposta, implica que a análise deve considerar:", alt:["Apenas as condições do ambiente","Apenas as reações do trabalhador","A relação entre condições de trabalho e respostas do trabalhador","Somente medidas fisiológicas"], c:2,
+     fb:"A definição processual obriga a analisar os dois polos e sua relação, o que abre espaço para intervenções nos dois níveis."},
+    {p:"Uma empresa oferece meditação guiada a uma equipe com jornada de 12 horas e metas crescentes. Segundo o capítulo, trata-se de:", alt:["Intervenção organizacional adequada","Intervenção individual que não altera o estressor","Eliminação da tensão","Redesenho de processo"], c:1,
+     fb:"O programa age sobre a resposta do trabalhador; o estressor — jornada e metas — permanece exatamente onde estava."},
+    {p:"São exemplos de estressores ocupacionais discutidos no capítulo:", alt:["Relaxamento e apoio social","Ambiguidade de papel, conflito de papel e sobrecarga","Feedback e reforçamento","Fidedignidade e criticidade"], c:1,
+     fb:"Ambiguidade, conflito de papel e sobrecarga são características do trabalho — portanto estressores, e não respostas do trabalhador."}
+  ]}
+];
+</script>
+
+<script>
+CAPITULOS.push(
+{ n:9, parte:"II", titulo:"Pagamento por desempenho",
+  autores:"Phillip K. Duncan & Dee Tinley Smoot", pp:"pp. 255–275",
+  pitch:"Participação nos lucros, ganhos compartilhados e pagamento por desempenho: o que faz um sistema de incentivo funcionar.",
+  sintese:`<p>Duncan e Smoot lembram, logo de início, que pagamento por desempenho não é invenção recente: propostas de remuneração vinculada ao trabalho individual atravessam o século XIX e o XX, e há registros de esquemas de incentivo muito anteriores. O capítulo descreve as famílias de planos existentes e depois avalia o que a literatura comportamental acrescenta.</p>
+  <p>Na <strong>participação nos lucros</strong>, o pagamento se liga à lucratividade da empresa e costuma ser anual — temporalmente muito distante do desempenho individual. Nos planos de <strong>ganhos compartilhados</strong>, o cálculo se dá sobre unidades de trabalho mais circunscritas e os pagamentos podem ser mais frequentes, o que os torna geralmente superiores. Ainda assim, os autores apontam duas limitações: mesmo pagamentos mensais são distantes do comportamento, e o padrão de custo contra o qual o ganho é calculado tende a se atualizar, secando o fundo até que novas economias sejam encontradas.</p>
+  <p>A contribuição comportamental está nos <strong>elementos comuns</strong> aos sistemas que funcionam: definição precisa do desempenho, medida frequente e precisa, feedback claro e oportuno, e enunciado explícito da relação entre desempenho e pagamento. Estudos em bancos, oficinas e restaurantes mostram ganhos expressivos quando esses quatro elementos estão presentes — e mostram, com igual clareza, que o feedback sozinho já produz parte do efeito.</p>`,
+  conceitos:[
+    {t:"Participação nos lucros", d:"Vinculação do pagamento à lucratividade global da empresa, normalmente com periodicidade anual e relação distante com o desempenho individual."},
+    {t:"Ganhos compartilhados", d:"Vinculação a economias ou melhorias de unidades de trabalho circunscritas, com pagamentos mais frequentes e relação mais próxima com o desempenho."},
+    {t:"Quatro elementos comuns", d:"Definição precisa do desempenho, medida frequente e precisa, feedback claro e oportuno, e regra explícita ligando desempenho a pagamento."},
+    {t:"Deriva do padrão", d:"Tendência de o custo obtido após a melhoria virar o novo padrão de comparação, esvaziando o fundo de ganhos compartilhados."}
+  ],
+  perguntas:["Por que o feedback isolado já produz parte substancial do efeito atribuído ao incentivo financeiro?",
+             "Que efeitos colaterais um sistema de bônus por metas pode produzir em uma clínica ou escola?",
+             "Como avaliar se um sistema de incentivos é justo, e não apenas eficaz?"],
+  ponte:"Leia junto com o capítulo 5: sistemas de pagamento são esquemas de reforçamento. E junto com o capítulo 3: sem medida que atenda ao SURF & C, qualquer bônus premia a coisa errada.",
+  quiz:[
+    {p:"A vantagem principal dos planos de ganhos compartilhados sobre a participação nos lucros é:", alt:["Custam menos à empresa","Ligam-se a unidades de trabalho mais circunscritas e permitem pagamentos mais frequentes","Dispensam medida de desempenho","Eliminam a necessidade de feedback"], c:1,
+     fb:"Quanto mais próxima a relação entre o que se faz e o que se recebe, e quanto menor o atraso, maior a chance de o sistema afetar o desempenho."},
+    {p:"Entre os elementos comuns aos sistemas de pagamento por desempenho eficazes NÃO está:", alt:["Definição precisa do desempenho","Medida frequente","Avaliação anual por escala de traços","Feedback oportuno"], c:2,
+     fb:"Avaliação anual por traços é justamente o oposto do que a literatura recomenda: distante, subjetiva e infrequente."},
+    {p:"A 'deriva do padrão' nos planos de ganhos compartilhados significa que:", alt:["Os trabalhadores perdem interesse pelo dinheiro","O novo custo obtido vira o padrão de comparação e o fundo se esgota","O plano precisa de aprovação sindical","Os pagamentos ficam mais frequentes com o tempo"], c:1,
+     fb:"Uma vez incorporada a melhoria, ela deixa de ser 'ganho'; sem novas economias, não há mais o que compartilhar."}
+  ]},
+
+{ n:10, parte:"II", titulo:"A abordagem do desempenho seguro na prevenção de doenças e acidentes de trabalho",
+  autores:"Beth Sulzer-Azaroff, Kathleen Blake McCann & Todd C. Harris", pp:"pp. 277–301",
+  pitch:"Por que trabalhar de forma insegura é reforçado — e o modelo de seis passos para inverter a assimetria.",
+  sintese:`<p>Este é um dos capítulos mais bem construídos do volume, e o argumento central é uma análise funcional impecável. Trabalhar de modo inseguro costuma ser <strong>imediatamente reforçado</strong>: é mais rápido, mais confortável, exige menos esforço, dispensa equipamento incômodo, e o produto final não denuncia se o trabalho foi feito com ou sem segurança. Trabalhar de modo seguro exige passos adicionais e desconforto. A consequência aversiva — a lesão — é rara, probabilística e adiada. Uma pessoa pode agir de forma arriscada centenas de vezes sem se ferir. Não dá para esperar que a 'lição natural' ensine.</p>
+  <p>Diante disso, as autoras argumentam que engenharia, regulação e treinamento são necessários mas insuficientes: mesmo com barreiras físicas, as pessoas ajustam seu comportamento e reabsorvem parte do ganho. O que falta é programar consequências positivas, imediatas e previsíveis para o desempenho seguro.</p>
+  <p>O <strong>modelo do desempenho seguro</strong> organiza a intervenção em etapas: pinpoint das práticas críticas; observação direta e entrevistas; análise ecocomportamental do contexto — materiais, pessoal, recursos, ambiente físico; definição de prioridades; implementação de medidas com linha de base; intervenção com metas, feedback e reforçamento do desempenho seguro; e, por fim, arranjos para sustentar a mudança no tempo. A revisão de aplicações em estaleiros, construção, telecomunicações e ferrovias mostra reduções consistentes de risco.</p>`,
+  conceitos:[
+    {t:"Assimetria de consequências", d:"O comportamento inseguro produz consequências imediatas e positivas; a consequência aversiva é rara e adiada. É a raiz do problema da segurança."},
+    {t:"Análise ecocomportamental", d:"Exame das condições materiais, de pessoal, de recursos e do ambiente físico que cercam o desempenho, além do comportamento em si."},
+    {t:"Observação direta com linha de base", d:"Registro sistemático das práticas de segurança antes da intervenção, base para metas e feedback."},
+    {t:"Sustentação da mudança", d:"Arranjos que mantêm o desempenho seguro depois que a equipe de projeto sai: responsáveis definidos, observação continuada, consequências incorporadas à rotina."}
+  ],
+  perguntas:["Descreva, em termos de contingência, por que um trabalhador experiente deixa de usar o equipamento de proteção.",
+             "Que consequências imediatas poderiam ser programadas para o desempenho seguro em um laboratório universitário?",
+             "Por que campanhas de conscientização, isoladamente, produzem efeitos tão pequenos e tão curtos?"],
+  ponte:"Modelo diretamente transferível para a Avaliação 2: os passos de pinpoint, observação, prioridades, medida, intervenção e manutenção são o esqueleto de qualquer projeto de intervenção da disciplina.",
+  quiz:[
+    {p:"A explicação comportamental para a persistência do trabalho inseguro é que ele:", alt:["Resulta de falta de informação","É reforçado imediatamente por rapidez e conforto, enquanto a lesão é rara e adiada","Decorre de traços de personalidade imprudente","Ocorre apenas em trabalhadores novatos"], c:1,
+     fb:"A assimetria entre consequência imediata positiva e consequência aversiva rara e distante é o núcleo do problema — e o que a intervenção precisa inverter."},
+    {p:"No modelo do desempenho seguro, a análise ecocomportamental serve para:", alt:["Medir a satisfação dos trabalhadores","Examinar materiais, pessoal, recursos e ambiente físico que cercam o desempenho","Substituir a observação direta","Calcular o retorno financeiro"], c:1,
+     fb:"Ela amplia o foco do comportamento isolado para as condições concretas que o tornam mais ou menos provável."},
+    {p:"Segundo as autoras, soluções apenas de engenharia tendem a ser insuficientes porque:", alt:["São caras demais","As pessoas ajustam o comportamento e reabsorvem parte do ganho de segurança","A legislação as proíbe","Não podem ser medidas"], c:1,
+     fb:"Barreiras físicas mudam o ambiente, mas o comportamento se reorganiza em torno delas; sem consequências programadas, parte do ganho se perde."}
+  ]},
+
+{ n:11, parte:"II", titulo:"Cuidado ativo pela segurança ocupacional",
+  autores:"E. Scott Geller", pp:"pp. 303–325",
+  pitch:"O que faz alguém agir pela segurança do colega — e a hierarquia de intervenções por custo e intrusividade.",
+  sintese:`<p>Geller parte de uma pergunta que lhe foi feita por gestores: o que é preciso para que empregados cuidem ativamente da saúde e da segurança dos colegas? Ele define <strong>cuidado ativo</strong> de forma operacional — agir de modo a beneficiar a segurança de outra pessoa — e propõe um modelo que mobiliza constructos raramente usados na literatura de gestão de desempenho: autoestima, empoderamento (senso de controle pessoal e autoeficácia), otimismo e pertencimento.</p>
+  <p>A proposta é deliberadamente heterodoxa dentro do volume, e vale lê-la assim: como uma tentativa de estender o paradigma da gestão de desempenho para além do comportamento diretamente consequenciado. O capítulo apresenta apoio empírico ao modelo, discute como avaliar esses fatores e descreve aplicações concretas em empresas.</p>
+  <p>A contribuição mais transferível, porém, é a <strong>hierarquia de intervenções múltiplas</strong>. Intervenções de nível 1 — sinalização, cartazes, campanhas — são pouco intrusivas, alcançam muita gente e custam pouco por pessoa. Quem não é afetado por elas também não será afetado por mais exposição ao mesmo nível: exige-se intervenção de nível superior, mais intrusiva, com mais contato pessoal e custo maior por indivíduo. É um princípio de alocação de recursos que vale para qualquer programa institucional, de segurança a saúde pública.</p>`,
+  conceitos:[
+    {t:"Cuidado ativo", d:"Agir deliberadamente para beneficiar a segurança de outra pessoa — definido em termos de ação observável, não de intenção."},
+    {t:"Hierarquia de intervenções múltiplas", d:"Escalonamento de estratégias por intrusividade e custo por pessoa: quem não responde ao nível mais barato exige o nível seguinte, mais intensivo."},
+    {t:"Fatores pessoais do modelo", d:"Autoestima, empoderamento, otimismo e pertencimento, propostos por Geller como moduladores da disposição a cuidar ativamente."},
+    {t:"Custo-efetividade da intervenção", d:"Relação entre alcance, intensidade e custo por indivíduo, usada para decidir onde alocar esforço em um programa institucional."}
+  ],
+  perguntas:["A introdução de constructos como autoestima e otimismo é compatível com uma abordagem comportamental? Sob que condições?",
+             "Como a hierarquia de intervenções múltiplas se aplicaria a um programa de saúde mental estudantil na universidade?",
+             "Que riscos existem em atribuir a fatores pessoais aquilo que pode ser efeito de contingências organizacionais?"],
+  ponte:"Bom material para a aula 11 (ética e desenho de ambientes) e para o debate da Unidade III: até que ponto 'engajar' o trabalhador é empoderamento e a partir de que ponto vira transferência de responsabilidade?",
+  quiz:[
+    {p:"A hierarquia de intervenções múltiplas sustenta que:", alt:["Campanhas de baixo custo bastam se repetidas muitas vezes","Quem não responde a intervenções de baixo custo exige intervenções mais intrusivas e caras","Toda intervenção deve ser individualizada","Cartazes são sempre ineficazes"], c:1,
+     fb:"Repetir o mesmo nível de intervenção para quem já não respondeu a ele desperdiça recurso; a alocação racional escalona a intensidade."},
+    {p:"Geller define cuidado ativo em termos de:", alt:["Intenção declarada de ajudar","Ação observável que beneficia a segurança de outra pessoa","Escores em inventário de personalidade","Tempo de casa na empresa"], c:1,
+     fb:"A definição operacional em termos de ação é o que permite medir, treinar e consequenciar o cuidado ativo."},
+    {p:"Uma crítica legítima ao uso de constructos como autoestima em gestão de desempenho é que eles:", alt:["Nunca foram medidos","Podem deslocar para o indivíduo a explicação de efeitos produzidos por contingências organizacionais","São incompatíveis com qualquer pesquisa empírica","Impedem a coleta de dados"], c:1,
+     fb:"É a mesma crítica que a Unidade III faz às intervenções individuais sobre estresse: explicar pelo indivíduo pode deixar intocado o arranjo que produz o problema."}
+  ]},
+
+{ n:12, parte:"II", titulo:"Uma abordagem comportamental à gestão de vendas",
+  autores:"Mark J. Martinko, William W. Casey & Paul Fadil", pp:"pp. 327–345",
+  pitch:"O modelo BSM em seis passos e a decisão estratégica entre medir comportamento, volume ou os dois.",
+  sintese:`<p>O capítulo é útil menos por tratar de vendas e mais por explicitar a <strong>sequência genérica de qualquer intervenção em OBM</strong>. Os autores observam que os modelos disponíveis na literatura — Brethower, Gilbert, Luthans e Kreitner, entre outros — são variações de um mesmo tema: avaliar necessidades, identificar comportamentos ou realizações-chave, desenvolver medidas, analisar antecedentes e consequências, modificar o ambiente e avaliar resultados.</p>
+  <p>O modelo BSM (<em>Behavioral Sales Management</em>) organiza esses passos com uma decisão inicial importante: <strong>o que será o alvo da mudança</strong>. Há três caminhos — programas dirigidos a comportamentos relacionados à venda (abordagem do cliente, demonstração, follow-up), programas dirigidos ao volume de vendas, e programas combinados. Cada opção tem consequências previsíveis: medir só volume premia resultados que dependem de fatores fora do controle do vendedor; medir só comportamento pode produzir muita atividade e pouco resultado.</p>
+  <p>Os passos seguintes tratam de estabelecer medidas (observação por pares, registro automatizado, combinações), analisar sinais e consequências por entrevistas e estudos-piloto, desenhar a intervenção — antecedentes, consequências, esquemas, com atenção especial a esquemas de razão variável —, implementar com delineamento adequado, e avaliar considerando a razão entre benefícios e custos.</p>`,
+  conceitos:[
+    {t:"Modelo BSM", d:"Sequência de seis passos para intervenção em vendas: identificar o alvo, estabelecer medidas, analisar sinais e consequências, desenhar a intervenção, implementar e avaliar."},
+    {t:"Alvo comportamento versus alvo resultado", d:"Decisão estratégica entre medir o que o vendedor faz, o que ele produz, ou ambos — cada escolha com riscos distintos."},
+    {t:"Observação por pares", d:"Estratégia de coleta em que colegas registram desempenhos-alvo, ampliando a frequência de medida a custo menor."},
+    {t:"Razão benefício-custo", d:"Critério de avaliação que considera o custo da intervenção frente ao ganho obtido — sem ele, programas eficazes podem ser insustentáveis."}
+  ],
+  perguntas:["Traduza os seis passos do BSM para um serviço público de saúde: o que seria 'volume' e o que seria 'comportamento'?",
+             "Que distorções aparecem quando se remunera apenas por resultado em serviços humanos?",
+             "Como decidir entre observação por pares e registro automatizado em uma organização com pouca confiança interna?"],
+  ponte:"Use a sequência de seis passos como roteiro para o projeto da Avaliação 2 — é o mesmo esqueleto do modelo de desempenho seguro do capítulo 10, aplicado a outro domínio.",
+  quiz:[
+    {p:"Segundo os autores, os diversos modelos de gestão comportamental disponíveis na literatura:", alt:["São incompatíveis entre si","São variações de uma mesma sequência básica de passos","Aplicam-se apenas a vendas","Dispensam a etapa de medida"], c:1,
+     fb:"Avaliar necessidades, identificar alvos, medir, analisar antecedentes e consequências, intervir e avaliar: a sequência é comum a praticamente todos os modelos."},
+    {p:"Medir apenas volume de vendas é problemático porque:", alt:["Volume não pode ser registrado","O resultado depende de fatores fora do controle do vendedor","Volume não interessa à organização","Impede o uso de feedback"], c:1,
+     fb:"É o critério U do SURF & C: medir o que o trabalhador não controla premia ou pune por razões alheias ao seu desempenho."},
+    {p:"A razão benefício-custo entra no modelo BSM na etapa de:", alt:["Identificação do alvo","Análise de antecedentes","Avaliação da intervenção","Coleta de linha de base"], c:2,
+     fb:"É na avaliação que se pergunta se o ganho obtido compensa o custo do programa — condição para que ele sobreviva na organização."}
+  ]},
+
+{ n:13, parte:"III", titulo:"Marketing de soluções baseadas em comportamento",
+  autores:"Leslie Wilk Braksick & Julie M. Smith", pp:"pp. 347–366",
+  pitch:"Ter uma tecnologia que funciona não basta: é preciso saber descrevê-la para quem nunca foi reforçado por usá-la.",
+  sintese:`<p>As autoras identificam um problema real e pouco discutido na formação: analistas do comportamento acreditam na eficácia de suas intervenções, mas a maioria das organizações <strong>não tem histórico de reforçamento por escolher soluções comportamentais</strong>. O resultado é que boas tecnologias ficam sem uso, não por serem ineficazes, mas por não serem comunicadas.</p>
+  <p>O capítulo organiza-se em quatro frentes. Primeiro, definir produtos e serviços centrais — decidir quem se é e o que se oferece, descrito em termos do que o cliente quer e reconhece, não em jargão técnico. Segundo, publicidade e promoção. Terceiro, estratégias de venda, incluindo o contato direto que é apenas uma entre várias abordagens possíveis. Quarto, pesquisa de mercado, para posicionar o serviço de forma competitiva.</p>
+  <p>Para a graduação brasileira, o capítulo cumpre uma função específica e importante: a atuação em Psicologia Organizacional envolve, com frequência, prestação de serviços — e prestação de serviços exige repertórios de gestão, precificação e comunicação que raramente aparecem no currículo. Vale ler com um olho na realidade local: o mercado descrito aqui é o das grandes corporações norte-americanas dos anos 1990, e boa parte das oportunidades brasileiras está em serviços públicos, terceiro setor, clínicas e escolas.</p>`,
+  conceitos:[
+    {t:"Orientação para o cliente", d:"Descrever serviços em termos do que o cliente quer e reconhece, e não do que o prestador considera tecnicamente elegante."},
+    {t:"Ausência de histórico de reforçamento", d:"Organizações que nunca contataram bons resultados de intervenções comportamentais não têm razão prévia para escolhê-las — obstáculo de comunicação, não de eficácia."},
+    {t:"Posicionamento", d:"Definição do lugar do serviço no mercado frente às alternativas disponíveis ao cliente."},
+    {t:"Prestação de serviços", d:"Dimensão da atuação profissional que exige repertórios de gestão, precificação e comunicação, além dos repertórios técnicos da área."}
+  ],
+  perguntas:["Como você descreveria uma intervenção em OBM para a direção de uma escola pública, sem usar jargão técnico?",
+             "Que aspectos deste capítulo não se transferem ao contexto brasileiro — e por quê?",
+             "Existem limites éticos para o marketing de serviços psicológicos? Quais?"],
+  ponte:"Complementa a aula 3 (campo de atuação do psicólogo) e o capítulo 16 (ética). Comunicar bem e prometer demais são coisas diferentes.",
+  quiz:[
+    {p:"O obstáculo principal identificado pelas autoras para a adoção de soluções comportamentais é:", alt:["Ineficácia das técnicas","Ausência de histórico de reforçamento das organizações por escolher essas soluções","Custo proibitivo","Restrição legal"], c:1,
+     fb:"A tecnologia funciona; o que falta é contato prévio do cliente com bons resultados — e, portanto, razão para escolhê-la."},
+    {p:"A recomendação de 'orientação para o cliente' significa:", alt:["Aceitar qualquer demanda do contratante","Descrever o serviço em termos do que o cliente quer e reconhece","Reduzir o preço do serviço","Evitar avaliação de resultados"], c:1,
+     fb:"É uma recomendação sobre linguagem e enquadramento da oferta — não sobre abrir mão de critérios técnicos ou éticos."},
+    {p:"Ao transpor este capítulo para o Brasil, a ressalva mais pertinente é que:", alt:["Marketing é proibido para psicólogos no Brasil","O contexto descrito é o de grandes corporações, e boa parte das oportunidades locais está em serviços públicos e terceiro setor","Não existem organizações no Brasil","Serviços comportamentais não têm demanda"], c:1,
+     fb:"O capítulo foi escrito para um mercado corporativo específico; a transposição exige considerar o perfil institucional brasileiro."}
+  ]},
+
+{ n:14, parte:"III", titulo:"OBM e Desenvolvimento Organizacional: caminhos possíveis de reciprocidade",
+  autores:"James L. Eubanks", pp:"pp. 367–389",
+  pitch:"Dois campos que nasceram próximos, se ignoraram por décadas e têm muito a trocar.",
+  sintese:`<p>Eubanks reconstrói uma separação histórica. Enquanto Skinner desenvolvia a análise experimental do comportamento, Kurt Lewin e Rensis Likert insistiam em conectar pesquisa, teoria e prática, dando origem ao campo do <strong>Desenvolvimento Organizacional</strong> (DO). Os dois campos se afastaram: textos de DO praticamente não citam Skinner nem mencionam a OBM, enquanto a OBM raramente incorpora os métodos de diagnóstico participativo e mudança planejada do DO.</p>
+  <p>As diferenças são reais. A OBM caracteriza-se por registro direto e frequente do comportamento, alvos que os trabalhadores podem influenciar e foco em consequências de desempenho. O DO trabalha com intervenções sistêmicas de longo prazo, processos grupais, diagnóstico participativo e mudança de cultura — e foi historicamente criticado pela fragilidade de sua avaliação de resultados.</p>
+  <p>Daí a proposta de reciprocidade: o DO tem a ganhar com o rigor de medida e avaliação da OBM; a OBM tem a ganhar com os métodos do DO para lidar com sistemas amplos, resistência à mudança e envolvimento das partes interessadas. Eubanks observa ainda que clientes passaram a exigir demonstração de ganhos de desempenho, o que pressiona o DO na direção da avaliação — e abre a porta para o encontro.</p>`,
+  conceitos:[
+    {t:"Desenvolvimento Organizacional (DO)", d:"Campo de intervenção planejada em sistemas organizacionais, herdeiro de Lewin e Likert, com ênfase em processos grupais, diagnóstico participativo e mudança de longo prazo."},
+    {t:"Reciprocidade OBM–DO", d:"Proposta de troca em que o DO adota o rigor de medida da OBM e a OBM adota os métodos sistêmicos e participativos do DO."},
+    {t:"Diagnóstico participativo", d:"Estratégia de levantamento em que os próprios membros da organização identificam problemas e prioridades, aumentando adesão à mudança."},
+    {t:"Avaliação de resultados", d:"Ponto historicamente frágil do DO e ponto forte da OBM — e o principal terreno de encontro entre os dois campos."}
+  ],
+  perguntas:["Que elementos do DO seriam úteis para reduzir resistência a uma intervenção de OBM em uma escola?",
+             "Por que campos com objetos tão próximos podem se ignorar por décadas?",
+             "Como o diagnóstico participativo se relaciona com a análise de contingências de quem participa dele?"],
+  ponte:"Preparação para as aulas 8 e 9: a BSA é, em parte, a resposta da própria OBM ao problema que Eubanks aponta — como intervir no sistema, e não apenas no desempenho individual.",
+  quiz:[
+    {p:"A crítica histórica mais recorrente ao Desenvolvimento Organizacional é a fragilidade em:", alt:["Diagnóstico participativo","Avaliação sistemática de resultados","Trabalho com grupos","Intervenções de longo prazo"], c:1,
+     fb:"É justamente onde a OBM é forte, o que sustenta a proposta de reciprocidade entre os campos."},
+    {p:"Entre as marcas distintivas da OBM apontadas no capítulo está:", alt:["Registro direto e frequente do comportamento","Ênfase em processos grupais inconscientes","Recusa de trabalhar com organizações privadas","Uso exclusivo de entrevistas"], c:0,
+     fb:"Registro direto e frequente, alvos influenciáveis pelo trabalhador e foco em consequências são as marcas metodológicas do campo."},
+    {p:"A proposta central do capítulo é que OBM e DO:", alt:["Devem permanecer separados","Podem se beneficiar reciprocamente, trocando rigor de medida por métodos sistêmicos","São idênticos","Não têm objeto comum"], c:1,
+     fb:"Eubanks argumenta que cada campo tem exatamente aquilo que falta ao outro."}
+  ]},
+
+{ n:15, parte:"III", titulo:"Análise da gestão comportamental pela teoria da aprendizagem social",
+  autores:"Robert Waldersee & Fred Luthans", pp:"pp. 391–413",
+  pitch:"A posição heterodoxa do volume: compreender exige cognição, prever e controlar exige comportamento.",
+  sintese:`<p>Este é o capítulo mais polêmico do livro dentro de uma leitura analítico-comportamental, e por isso mesmo o mais interessante para discutir em sala. Waldersee e Luthans assumem uma posição explícita: as abordagens cognitivas produziriam melhor compreensão do comportamento organizacional, enquanto a abordagem comportamental seria superior em previsão e controle. A partir daí, propõem a teoria da aprendizagem social (TAS) como integração.</p>
+  <p>Eles revisam as teorias motivacionais cognitivas — expectativa, estabelecimento de metas — e reconhecem que geraram muita pesquisa e poucas técnicas aplicáveis. Em contraste, a abordagem comportamental, centrada no controle de antecedentes e consequências, produziu aplicações práticas robustas. A TAS entra como quadro que acrescenta modelação, autorregulação e autoeficácia à análise de antecedentes e consequências.</p>
+  <p>Vale ler criticamente. A análise do comportamento tem respostas para boa parte do que a TAS reivindica como acréscimo: comportamento verbal, regras, autorregras e comportamento encoberto não são lacunas do behaviorismo radical. A questão a levar para a discussão é se a TAS acrescenta processos novos ou se renomeia processos já descritos — e o capítulo é um excelente material para exercitar exatamente esse tipo de leitura conceitual.</p>`,
+  conceitos:[
+    {t:"Teoria da aprendizagem social", d:"Quadro que acrescenta modelação, autorregulação e autoeficácia à análise de antecedentes e consequências."},
+    {t:"Compreensão versus previsão e controle", d:"Distinção assumida pelos autores para justificar a integração: cognição explicaria melhor, comportamento preveria e controlaria melhor."},
+    {t:"Modelação", d:"Aprendizagem por observação de um modelo. Na análise do comportamento, tratada em termos de controle de estímulos e consequências para o comportamento imitativo."},
+    {t:"Autoeficácia", d:"Estimativa que a pessoa faz da própria capacidade de executar um desempenho. Conceito central da TAS e alvo frequente de crítica conceitual behaviorista."}
+  ],
+  perguntas:["A distinção entre 'compreender' e 'prever e controlar' se sustenta epistemologicamente? Por quê?",
+             "O que a análise do comportamento diria sobre autoeficácia sem recorrer a estados internos causais?",
+             "Que ganho prático a TAS oferece que a análise de contingências não ofereceria?"],
+  ponte:"Excelente material para uma VL de contraste. Leia junto com o capítulo 2 e pergunte: quais dos 'acréscimos' da TAS já estão descritos ali com outro vocabulário?",
+  quiz:[
+    {p:"A posição assumida pelos autores é que a abordagem comportamental é superior em:", alt:["Compreensão e explicação","Previsão e controle","Análise estatística","Diagnóstico organizacional"], c:1,
+     fb:"Eles atribuem melhor compreensão às abordagens cognitivas e melhor previsão e controle à abordagem comportamental — tese que o capítulo propõe integrar via TAS."},
+    {p:"Uma crítica analítico-comportamental pertinente à TAS é que:", alt:["Ela ignora o ambiente por completo","Vários processos que ela apresenta como acréscimos já são descritos em termos de regras e comportamento verbal","Ela não pode ser testada","Ela rejeita o conceito de modelação"], c:1,
+     fb:"Comportamento verbal, regras e autorregras cobrem boa parte do que a TAS reivindica; a discussão é se há processo novo ou renomeação."},
+    {p:"Segundo os autores, as teorias motivacionais cognitivas geraram:", alt:["Muitas técnicas aplicáveis e pouca pesquisa","Muita pesquisa e poucas técnicas aplicáveis","Nem pesquisa nem técnicas","Apenas aplicações em segurança do trabalho"], c:1,
+     fb:"É justamente esse desequilíbrio que eles usam para justificar a manutenção da abordagem comportamental no lado da aplicação."}
+  ]},
+
+{ n:16, parte:"III", titulo:"Ética e análise do comportamento na gestão",
+  autores:"Howard C. Berthold Jr.", pp:"pp. 415–435",
+  pitch:"Ciência descreve como as coisas são; ética pergunta como deveriam ser. Aplicar princípios comportamentais coloca as duas em contato.",
+  sintese:`<p>Berthold constrói o capítulo sobre uma distinção clássica e útil: enunciados factuais descrevem como o mundo é; enunciados de valor afirmam o que é bom, certo ou errado, e como as coisas deveriam ser. Ciência produz os primeiros; ética se ocupa dos segundos. O objetivo declarado não é criar diretrizes novas, mas mapear as diretrizes existentes e examinar por que a aplicação de métodos comportamentais em contextos organizacionais suscita preocupações éticas específicas.</p>
+  <p>O argumento central é honesto: os demais capítulos do volume descrevem relações entre antecedentes, comportamento e consequências — leis, no sentido científico. Nada nessas leis diz quem deve usá-las, para quê e em benefício de quem. É precisamente esse vazio que a ética ocupa. Em organizações, o problema ganha contornos próprios porque há assimetria de poder: quem arranja as contingências raramente é quem está submetido a elas.</p>
+  <p>Para esta disciplina, o capítulo funciona como dobradiça entre a Unidade II e a Unidade III. As técnicas que se aprende a usar em diagnóstico e intervenção são as mesmas cuja apropriação por plataformas digitais será analisada criticamente algumas semanas depois. A pergunta 'quem controla o controlador?' não é externa à OBM — está no coração dela.</p>`,
+  conceitos:[
+    {t:"Enunciado factual versus enunciado de valor", d:"Descrições sobre como o mundo é não determinam, por si sós, como se deve agir. A passagem de uma coisa à outra exige argumento ético explícito."},
+    {t:"Assimetria de poder", d:"Nas organizações, quem projeta as contingências raramente é quem está submetido a elas — condição que torna a análise ética indispensável."},
+    {t:"Diretrizes profissionais", d:"Códigos existentes que orientam a prática; o capítulo os mapeia em vez de propor um novo."},
+    {t:"Consentimento e transparência", d:"Condições que distinguem intervenção legítima de manipulação: quem é afetado sabe o que está sendo feito, por quem e com que finalidade?"}
+  ],
+  perguntas:["Quem deve consentir com uma intervenção de OBM em um hospital: a direção, os trabalhadores, os pacientes? Todos?",
+             "A mesma técnica de feedback pode ser ética em um contexto e antiética em outro? Dê um exemplo.",
+             "Que critérios distinguem uma intervenção comportamental legítima de uma manipulação?"],
+  ponte:"Capítulo-chave para a aula 11 e para toda a Unidade III. É a ponte explícita entre a tecnologia que a disciplina ensina e a crítica que ela exercita.",
+  quiz:[
+    {p:"A distinção entre enunciados factuais e de valor implica que:", alt:["A ciência determina automaticamente o uso correto de suas descobertas","Descrições de como o mundo é não determinam, sozinhas, como se deve agir","Valores são irrelevantes na ciência aplicada","Ética e ciência são incompatíveis"], c:1,
+     fb:"É o vazio entre descrição e prescrição que a análise ética precisa preencher — e que nenhuma lei comportamental preenche sozinha."},
+    {p:"O que torna a aplicação de princípios comportamentais em organizações eticamente delicada é sobretudo:", alt:["A dificuldade técnica dos procedimentos","A assimetria entre quem arranja as contingências e quem está submetido a elas","O custo dos programas","A ausência de literatura"], c:1,
+     fb:"Quando o projetista das contingências não é quem as sofre, a pergunta sobre consentimento, transparência e beneficiário torna-se incontornável."},
+    {p:"O objetivo declarado do capítulo é:", alt:["Criar um novo código de ética para a OBM","Mapear diretrizes existentes e examinar as questões éticas subjacentes","Provar que a OBM é antiética","Substituir os códigos profissionais"], c:1,
+     fb:"Berthold é explícito quanto a isso: o capítulo mapeia e problematiza, em vez de legislar."}
+  ]},
+
+{ n:17, parte:"III", titulo:"Cultura organizacional e análise de sistemas comportamentais",
+  autores:"William K. Redmon & Matthew A. Mason", pp:"pp. 437–456",
+  pitch:"O capítulo mais importante do livro para esta disciplina: metacontingências, TPS, PEM e os três níveis de análise.",
+  sintese:`<p>Redmon e Mason propõem descrever cultura organizacional em termos funcionais: <strong>o conjunto de práticas dominantes dos seus membros e as causas dessas práticas</strong>. Isso desloca a discussão do terreno das crenças e valores declarados para o terreno do que efetivamente se faz e do que mantém o que se faz. Eles contrastam a visão materialista cultural — práticas que garantem recursos ou afastam ameaças são repetidas — com visões cognitivas da cultura organizacional.</p>
+  <p>A adaptação de organizações a ambientes em mudança é analisada por meio de <strong>metacontingências</strong>: práticas comuns a um grupo relacionam-se a consequências molares que determinam a sobrevivência do conjunto, operando ao lado — e às vezes em conflito — com as contingências locais que afetam indivíduos. O conceito, porém, é geral demais para orientar o redesenho de uma organização específica. É aí que entram os <strong>modelos de sistemas comportamentais</strong>.</p>
+  <p>O capítulo apresenta três: a matriz de engenharia do desempenho de Gilbert, o <em>Total Performance System</em> de Brethower e o modelo de sistemas adaptativos de Rummler e Brache. Todos descrevem a organização por resultados ligados à sobrevivência, práticas dos membros, ligações entre práticas e resultados, e fatores que fortalecem ou enfraquecem práticas. E todos vão além da descrição: oferecem regras para decidir o que mudar. A análise se organiza em três passos — descrição do sistema adaptativo (entradas, processamento, saídas, sistema receptor, feedback interno, feedback do receptor, influências externas); análise interna de metas, processos e desenho; e análise do desempenho individual, examinando saídas, insumos, consequências, feedback, conhecimento e capacidades.</p>`,
+  conceitos:[
+    {t:"Cultura em termos funcionais", d:"Conjunto de práticas dominantes dos membros de uma organização e das variáveis que as mantêm — não o conjunto de valores declarados no mural da recepção."},
+    {t:"Metacontingência", d:"Relação entre práticas entrelaçadas de um grupo, seu produto agregado e o ambiente selecionador. Opera junto com contingências locais, às vezes em conflito com elas."},
+    {t:"Total Performance System", d:"Descrição da organização como sistema adaptativo: entradas, processamento, saídas, sistema receptor, feedback interno, feedback do receptor e influências externas."},
+    {t:"Matriz de engenharia do desempenho", d:"Modelo de Gilbert que cruza níveis de análise — política, estratégia, táticas — com estágios: modelos, medidas e métodos."},
+    {t:"Três níveis de análise", d:"Organização, processo e desempenho individual, cada um examinado quanto a metas, desenho e gestão, na tradição de Rummler e Brache."},
+    {t:"Mediação de eventos adiados", d:"Função gerencial de converter consequências remotas — concorrência, regulação, mercado — em consequências imediatas para o desempenho cotidiano."}
+  ],
+  perguntas:["Descreva funcionalmente a cultura de uma organização que você conhece: quais práticas dominam e o que as mantém?",
+             "Onde estão as alças de feedback quebradas nessa organização — interna, do receptor, ou ambas?",
+             "Como as contingências locais que afetam cada trabalhador podem conflitar com a metacontingência que garante a sobrevivência do conjunto?"],
+  ponte:"Núcleo teórico das aulas 8 e 9 e da Avaliação 2. Junto com Diener, McGee & Miguel (2009) e Gusso & De Luca (2017), forma o tripé conceitual da BSA na disciplina.",
+  quiz:[
+    {p:"Descrever cultura organizacional em termos funcionais significa caracterizá-la por:", alt:["Valores declarados pela direção","Práticas dominantes dos membros e as variáveis que as mantêm","Clima organizacional medido por questionário","Estrutura do organograma"], c:1,
+     fb:"O deslocamento do declarado para o praticado é o que torna a cultura analisável — e modificável — em termos comportamentais."},
+    {p:"No modelo de sistemas adaptativos, o feedback vindo do sistema receptor serve para:", alt:["Controlar a qualidade antes da saída","Calibrar critérios internos e comunicar mudanças na demanda","Substituir o feedback interno","Medir a satisfação dos funcionários"], c:1,
+     fb:"O feedback interno regula o processo antes da saída; o feedback do receptor traz de volta a informação sobre o que o ambiente externo está selecionando."},
+    {p:"Segundo o capítulo, o conceito de metacontingência é insuficiente sozinho para orientar mudança em uma organização específica porque:", alt:["É incompatível com a análise do comportamento","É geral demais e trata de seleção entre organizações, exigindo modelos de sistemas para o redesenho interno","Nunca foi aplicado empiricamente","Ignora o produto agregado"], c:1,
+     fb:"Seleção explica por que práticas sobrevivem; para redesenhar uma organização no curto prazo é preciso analisar entradas, processos, saídas e alças de feedback."}
+  ]}
+);
+</script>
+
+<!-- =================================================================
+     APLICAÇÃO — não é preciso mexer aqui para a atualização anual.
+     ================================================================= -->
+<script>
+(function(){
+"use strict";
+const D = document;
+const $  = (s,c)=> (c||D).querySelector(s);
+const $$ = (s,c)=> Array.from((c||D).querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"]/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+
+/* ---------- armazenamento local, tolerante a falha ---------- */
+const CHAVE = "6pac099:v1";
+const vazio = ()=>({ turma:CONFIG.turmaPadrao, cad:{}, capsLidos:[], quizzes:{},
+                     carimbos:[], glosVistos:[], progAbertos:[], aulasVistas:[] });
+let E = vazio();
+function carregar(){
+  try{ const b = localStorage.getItem(CHAVE); if(b) E = Object.assign(vazio(), JSON.parse(b)); }
+  catch(err){ /* navegador sem armazenamento: segue sem persistir */ }
+}
+function salvar(){
+  try{ localStorage.setItem(CHAVE, JSON.stringify(E)); }catch(err){}
+}
+carregar();
+
+/* ---------- carimbos de percurso ---------- */
+function ganhar(id){
+  if(E.carimbos.includes(id)) return;
+  const c = CARIMBOS.find(x=>x.id===id); if(!c) return;
+  E.carimbos.push(id); salvar(); renderCarimbos();
+  const el = D.createElement("div");
+  el.className = "toast-item";
+  el.innerHTML = "<b>carimbo obtido</b>"+c.ic+" "+esc(c.nome);
+  $("#toast").appendChild(el);
+  setTimeout(()=>{ el.style.transition="opacity .5s"; el.style.opacity="0";
+                   setTimeout(()=>el.remove(),520); }, 3800);
+}
+function renderCarimbos(){
+  $("#carimbosGrade").innerHTML = CARIMBOS.map(c=>{
+    const g = E.carimbos.includes(c.id);
+    return `<div class="carimbo-item ${g?"ganho":""}"><span class="ic">${c.ic}</span>
+      <b>${esc(c.nome)}</b><small>${esc(c.desc)}</small></div>`;
+  }).join("");
+}
+
+/* ---------- turma ---------- */
+function fmtData(iso){
+  if(!iso) return "—";
+  const [a,m,d] = iso.split("-");
+  return d+"/"+m;
+}
+function fmtDataLonga(iso){
+  const [a,m,d] = iso.split("-");
+  const nomes=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+  return `${d} de ${nomes[+m-1]} de ${a}`;
+}
+function dataDaTurma(aula){ return E.turma==="T1000" ? aula.dataT1000 : aula.dataT2000; }
+
+function aplicarTurma(){
+  $$("#turmaBtns button").forEach(b=>{
+    const on = b.dataset.turma===E.turma;
+    b.classList.toggle("on", on); b.setAttribute("aria-pressed", on?"true":"false");
+  });
+  const t = CONFIG.turmas[E.turma];
+  $("#cronoTurmaInfo").textContent = `${t.nome} · ${t.dia} · datas exibidas para esta turma`;
+  renderCrono();
+}
+
+/* ---------- § 1 programa ---------- */
+function renderPrograma(){
+  $("#programaAcc").innerHTML = PROGRAMA.map(p=>`
+    <div class="acc" data-prog="${p.id}">
+      <button class="acc-head" aria-expanded="false">
+        <span class="caret">▸</span>
+        <h3>${esc(p.titulo)}</h3>
+        ${p.tag?`<span class="tag ${p.tag}">Unidade ${p.tag==="u1"?"I":p.tag==="u2"?"II":"III"}</span>`:""}
+      </button>
+      <div class="acc-body">${p.html}</div>
+    </div>`).join("");
+  $$("#programaAcc .acc-head").forEach(h=>{
+    h.addEventListener("click", ()=>{
+      const acc = h.parentElement, abrir = !acc.classList.contains("open");
+      acc.classList.toggle("open", abrir);
+      h.setAttribute("aria-expanded", abrir?"true":"false");
+      if(abrir){
+        const id = acc.dataset.prog;
+        if(!E.progAbertos.includes(id)){ E.progAbertos.push(id); salvar(); }
+        if(E.progAbertos.length >= PROGRAMA.length) ganhar("programa");
+      }
+    });
+  });
+}
+
+/* ---------- § 2 cronograma ---------- */
+function proximaAula(){
+  const hoje = new Date(); hoje.setHours(0,0,0,0);
+  for(const a of CRONOGRAMA){
+    const d = dataDaTurma(a); if(!d) continue;
+    if(new Date(d+"T00:00:00") >= hoje) return a.n;
+  }
+  return null;
+}
+function renderCrono(){
+  const prox = proximaAula();
+  $("#cronoLista").innerHTML = CRONOGRAMA.map(a=>{
+    const d = dataDaTurma(a);
+    const uni = a.unidade==="u1"?"I":a.unidade==="u2"?"II":"III";
+    const caps = (a.cap||[]).map(n=>`<button class="btn pequeno" data-abrecap="${n}">cap. ${n}</button>`).join(" ");
+    return `<div class="aula ${a.n===prox?"destaque":""}" data-aula="${a.n}" id="aula-${a.n}">
+      <button class="aula-head" aria-expanded="false">
+        <span class="aula-n">${a.n}</span>
+        <span class="aula-data">${fmtData(d)}<br><span style="opacity:.65">${E.turma}</span></span>
+        <span class="aula-tema">${esc(a.tema)}</span>
+        <span style="display:flex;gap:.4rem;align-items:center">
+          ${a.n===prox?'<span class="proxima">próxima</span>':""}
+          <span class="aula-vl">${a.vl}</span>
+          <span class="tag ${a.unidade}">Un. ${uni}</span>
+        </span>
+      </button>
+      <div class="aula-corpo">
+        ${a.situacao?`<span class="aviso">⚑ ${esc(a.situacao)}</span>`:""}
+        <dl>
+          <dt>Data</dt><dd>${d?fmtDataLonga(d):"—"} · turma ${E.turma}</dd>
+          <dt>Produto</dt><dd>${esc(a.produto)}</dd>
+          <dt>Bibliografia</dt><dd>${esc(a.bib)}</dd>
+          ${caps?`<dt>No manual</dt><dd>${caps}</dd>`:""}
+        </dl>
+      </div>
+    </div>`;
+  }).join("");
+
+  $$("#cronoLista .aula-head").forEach(h=>{
+    h.addEventListener("click", ()=>{
+      const box = h.parentElement, abrir = !box.classList.contains("open");
+      box.classList.toggle("open", abrir);
+      h.setAttribute("aria-expanded", abrir?"true":"false");
+      if(abrir){
+        const n = box.dataset.aula;
+        if(!E.aulasVistas.includes(n)){ E.aulasVistas.push(n); salvar(); }
+        if(E.aulasVistas.length>=5) ganhar("crono");
+      }
+    });
+  });
+  $$("[data-abrecap]").forEach(b=> b.addEventListener("click", ev=>{
+    ev.stopPropagation(); abrirCapitulo(+b.dataset.abrecap);
+  }));
+}
+/* ---------- § 3 caderneta + árvore ---------- */
+const NVLS = 17;
+function vl(i){ if(!E.cad["vl"+i]) E.cad["vl"+i] = {feita:false, conq:[]}; return E.cad["vl"+i]; }
+
+function renderCaderneta(){
+  let th = `<thead><tr><th>VL</th><th class="vl-col">entregue</th>` +
+    CONQUISTAS.map(c=>`<th title="${esc(c.nome)}">${c.ic}<br><span style="font-size:.5rem">${esc(c.nome.split(" ")[0])}</span></th>`).join("") +
+    `</tr></thead>`;
+  let tb = "<tbody>";
+  for(let i=0;i<NVLS;i++){
+    const r = vl(i);
+    const aula = CRONOGRAMA[i];
+    tb += `<tr><th title="Aula ${aula?aula.n:""}">VL ${i}</th>
+      <td class="vl-col"><button class="${r.feita?"on":""}" data-vl="${i}" data-tipo="feita"
+        aria-label="Marcar VL ${i} como entregue" aria-pressed="${r.feita}">✔</button></td>` +
+      CONQUISTAS.map(c=>`<td><button class="${r.conq.includes(c.id)?"on":""}" data-vl="${i}"
+        data-tipo="${c.id}" aria-label="${esc(c.nome)} na VL ${i}" aria-pressed="${r.conq.includes(c.id)}">${c.ic}</button></td>`).join("") +
+      `</tr>`;
+  }
+  tb += "</tbody>";
+  $("#tabCaderneta").innerHTML = th+tb;
+  $$("#tabCaderneta button").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      const i = +b.dataset.vl, tipo = b.dataset.tipo, r = vl(i);
+      if(tipo==="feita"){ r.feita = !r.feita; }
+      else { const k = r.conq.indexOf(tipo); if(k>=0) r.conq.splice(k,1); else r.conq.push(tipo); }
+      salvar(); renderCaderneta(); desenharArvore();
+      const feitas = contar().feitas;
+      if(feitas>=1) ganhar("semeador");
+      if(feitas>=NVLS) ganhar("floresta");
+    });
+  });
+}
+function contar(){
+  const c = { feitas:0 };
+  CONQUISTAS.forEach(q=> c[q.id]=0);
+  for(let i=0;i<NVLS;i++){
+    const r = vl(i);
+    if(r.feita) c.feitas++;
+    r.conq.forEach(q=>{ if(c[q]!==undefined) c[q]++; });
+  }
+  return c;
+}
+function renderLegenda(){
+  $("#cadLegenda").innerHTML = CONQUISTAS.concat([CONQ_FINAL]).map(c=>
+    `<div class="conq-chip"><span class="ic">${c.ic}</span><span><b>${esc(c.nome)}</b>${esc(c.desc)}</span></div>`).join("");
+  $("#produtoFinal").innerHTML = PRODUTO_FINAL;
+}
+
+/* --- desenho procedural da árvore --- */
+function prng(seed){ let s = seed>>>0 || 7; return ()=>{ s = (s*1664525 + 1013904223)>>>0; return s/4294967296; }; }
+function desenharArvore(){
+  const c = contar();
+  const svg = $("#svgArvore");
+  const R = prng(1000 + c.feitas*31 + c.ramo*7 + c.folha*3 + c.fruto*11 + c.raiz*5 + c.mutacao*13);
+  const NS = "http://www.w3.org/2000/svg";
+  const solo = 345, cx = 210;
+  let out = `<title>Sua Árvore de Leituras e Pensamentos</title>`;
+
+  /* floresta ao fundo, quando o percurso está completo */
+  if(c.feitas >= NVLS){
+    for(let i=0;i<7;i++){
+      const x = 20 + i*62 + R()*18, h = 60 + R()*40;
+      out += `<path d="M${x} ${solo} L${x-14} ${solo} L${x} ${solo-h} L${x+14} ${solo} Z" fill="var(--verde)" opacity=".13"/>`;
+    }
+  }
+  /* linha do solo */
+  out += `<line x1="14" y1="${solo}" x2="406" y2="${solo}" stroke="var(--tinta)" stroke-width="1.6" opacity=".55"/>`;
+  out += `<line x1="14" y1="${solo+4}" x2="406" y2="${solo+4}" stroke="var(--tinta)" stroke-width="0.8" opacity=".25" stroke-dasharray="3 5"/>`;
+
+  /* raízes */
+  for(let i=0;i<c.raiz;i++){
+    const lado = i%2 ? 1 : -1, n = Math.floor(i/2)+1;
+    const x2 = cx + lado*(26 + n*17 + R()*10), y2 = solo + 14 + n*7 + R()*8;
+    out += `<path d="M${cx} ${solo} Q${cx+lado*14} ${solo+13} ${x2} ${y2}" fill="none"
+             stroke="var(--verde)" stroke-width="${Math.max(1,3-n*.35)}" opacity=".75" stroke-linecap="round"/>`;
+  }
+
+  /* tronco */
+  const alturaTronco = 34 + c.feitas*8.5;
+  const topo = solo - alturaTronco;
+  const larg = 6 + Math.min(c.feitas,17)*0.75;
+  out += `<path d="M${cx-larg} ${solo} C${cx-larg+1} ${solo-alturaTronco*.5} ${cx-larg*.55} ${topo+8} ${cx-larg*.42} ${topo}
+           L${cx+larg*.42} ${topo} C${cx+larg*.55} ${topo+8} ${cx+larg-1} ${solo-alturaTronco*.5} ${cx+larg} ${solo} Z"
+           fill="var(--tinta)" opacity=".82"/>`;
+
+  /* galhos */
+  const pontas = [];
+  for(let i=0;i<c.ramo;i++){
+    const lado = i%2 ? 1 : -1;
+    const t = .22 + (i/Math.max(c.ramo,1))*.72;
+    const y0 = solo - alturaTronco*t;
+    const comp = 38 + R()*50 + (1-t)*18;
+    const x1 = cx + lado*comp, y1 = y0 - 24 - R()*40;
+    out += `<path d="M${cx} ${y0} Q${cx+lado*comp*.5} ${y0-10} ${x1} ${y1}" fill="none"
+             stroke="var(--tinta)" stroke-width="${1.4+R()*1.2}" opacity=".78" stroke-linecap="round"/>`;
+    pontas.push([x1,y1]);
+  }
+  if(!pontas.length && c.feitas>0) pontas.push([cx, topo]);
+
+  /* enxertos: marcas que ligam galhos vizinhos */
+  for(let i=0;i<c.enxerto && pontas.length>1;i++){
+    const a = pontas[i%pontas.length], b = pontas[(i+1)%pontas.length];
+    out += `<path d="M${a[0]} ${a[1]} Q${(a[0]+b[0])/2} ${Math.min(a[1],b[1])-16} ${b[0]} ${b[1]}"
+             fill="none" stroke="var(--esfero)" stroke-width="1" opacity=".5" stroke-dasharray="3 3"/>`;
+  }
+
+  /* folhas */
+  for(let i=0;i<c.folha;i++){
+    const p = pontas.length ? pontas[i%pontas.length] : [cx, topo];
+    const x = p[0] + (R()-.5)*46, y = p[1] + (R()-.5)*40 - 6;
+    const g = R()*360;
+    out += `<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="7" ry="3.6"
+             transform="rotate(${g.toFixed(0)} ${x.toFixed(1)} ${y.toFixed(1)})"
+             fill="var(--verde-claro)" opacity=".8"/>`;
+  }
+  /* frutos */
+  for(let i=0;i<c.fruto;i++){
+    const p = pontas.length ? pontas[i%pontas.length] : [cx, topo];
+    const x = p[0] + (R()-.5)*36, y = p[1] + 8 + R()*22;
+    out += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.6" fill="var(--carimbo)" opacity=".85"/>
+            <line x1="${x.toFixed(1)}" y1="${(y-4.6).toFixed(1)}" x2="${x.toFixed(1)}" y2="${(y-9).toFixed(1)}"
+                  stroke="var(--tinta)" stroke-width="1" opacity=".6"/>`;
+  }
+  /* mutações */
+  for(let i=0;i<c.mutacao;i++){
+    const p = pontas.length ? pontas[i%pontas.length] : [cx, topo];
+    const x = p[0] + (R()-.5)*56, y = p[1] - 10 - R()*26;
+    out += `<path d="M${x} ${y-7} L${(x+2).toFixed(1)} ${(y-2).toFixed(1)} L${(x+7).toFixed(1)} ${y}
+             L${(x+2).toFixed(1)} ${(y+2).toFixed(1)} L${x} ${(y+7).toFixed(1)} L${(x-2).toFixed(1)} ${(y+2).toFixed(1)}
+             L${(x-7).toFixed(1)} ${y} L${(x-2).toFixed(1)} ${(y-2).toFixed(1)} Z" fill="var(--ocre)" opacity=".9"/>`;
+  }
+  /* estado inicial */
+  if(c.feitas===0){
+    out += `<text x="210" y="${solo-56}" text-anchor="middle" font-family="Caveat, cursive" font-size="19"
+             fill="var(--tinta-fraca)">semeie a primeira VL ao lado →</text>`;
+    out += `<path d="M204 ${solo-6} q6 -14 12 0" fill="none" stroke="var(--verde)" stroke-width="2" stroke-linecap="round"/>`;
+  }
+  svg.innerHTML = out;
+
+  const total = c.raiz+c.ramo+c.folha+c.enxerto+c.fruto+c.mutacao;
+  $("#arvoreStats").innerHTML =
+    `<div><b>${c.feitas}/${NVLS}</b><span>VLs</span></div>` +
+    CONQUISTAS.map(q=>`<div><b>${c[q.id]}</b><span>${esc(q.parte)}</span></div>`).join("") +
+    `<div><b>${total}</b><span>total</span></div>`;
+}
+
+/* ---------- § 4 manual ---------- */
+const NOMES_PARTE = { I:"Parte I — Fundamentos", II:"Parte II — Aplicações do modelo comportamental",
+                      III:"Parte III — Questões profissionais e teóricas" };
+let filtroParte = "todas";
+function renderManual(){
+  const termo = ($("#buscaCap").value||"").toLowerCase().trim();
+  const lista = CAPITULOS.filter(c=>{
+    if(filtroParte!=="todas" && c.parte!==filtroParte) return false;
+    if(!termo) return true;
+    const blob = (c.titulo+" "+c.autores+" "+c.pitch+" "+c.sintese+" "+
+                  c.conceitos.map(k=>k.t+" "+k.d).join(" ")+" "+c.ponte).toLowerCase();
+    return blob.includes(termo);
+  });
+  if(!lista.length){ $("#manualLista").innerHTML = `<div class="vazio">Nenhum capítulo corresponde a “${esc(termo)}”.</div>`; return; }
+  let html = "";
+  ["I","II","III"].forEach(p=>{
+    const desta = lista.filter(c=>c.parte===p);
+    if(!desta.length) return;
+    html += `<div class="parte-faixa"><span>${p}</span>${esc(NOMES_PARTE[p].split("— ")[1])}</div>
+             <div class="caps-grade">` +
+      desta.map(c=>`<button class="cap-card ${E.capsLidos.includes(c.n)?"lido":""}" data-cap="${c.n}">
+        <span class="num">Capítulo ${c.n} · ${esc(c.pp)}</span>
+        <h4>${esc(c.titulo)}</h4>
+        <span class="aut">${esc(c.autores)}</span>
+        <span class="pit">${esc(c.pitch)}</span>
+        <span class="rodape"><span class="tag">${c.conceitos.length} conceitos</span>
+        <span class="tag" style="color:var(--carimbo)">${c.quiz.length} questões</span>
+        ${E.quizzes[c.n]?`<span class="tag" style="color:var(--verde)">${E.quizzes[c.n].acertos}/${E.quizzes[c.n].total}</span>`:""}</span>
+      </button>`).join("") + `</div>`;
+  });
+  $("#manualLista").innerHTML = html;
+  $$("[data-cap]").forEach(b=> b.addEventListener("click", ()=> abrirCapitulo(+b.dataset.cap)));
+}
+function abrirCapitulo(n){
+  const c = CAPITULOS.find(x=>x.n===n); if(!c) return;
+  if(!E.capsLidos.includes(n)){ E.capsLidos.push(n); salvar(); }
+  if(E.capsLidos.length>=5) ganhar("manual");
+  $("#modalProto").textContent = `Handbook · Cap. ${c.n} · ${c.pp}`;
+  $("#modalCorpo").innerHTML = `
+    <h3 id="modalTitulo">${esc(c.titulo)}</h3>
+    <p class="aut">${esc(c.autores)} · ${NOMES_PARTE[c.parte]}</p>
+    <h5>Síntese</h5>${c.sintese}
+    <h5>Conceitos-chave</h5>
+    ${c.conceitos.map(k=>`<div class="conceito"><b>${esc(k.t)}</b><br>${esc(k.d)}</div>`).join("")}
+    <h5>Perguntas para levar à VL</h5>
+    <ol>${c.perguntas.map(p=>`<li>${esc(p)}</li>`).join("")}</ol>
+    <h5>Ponte com a disciplina</h5>
+    <div class="ponte"><b>onde isto entra</b>${esc(c.ponte)}</div>
+    <h5>Verificação rápida</h5>
+    <div class="quiz" id="quizBox"></div>`;
+  montarQuiz(c);
+  abrirModal();
+  renderManual();
+}
+function montarQuiz(c){
+  const box = $("#quizBox");
+  box.innerHTML = c.quiz.map((q,i)=>`
+    <div class="quiz-q" data-q="${i}">
+      <p>${i+1}. ${esc(q.p)}</p>
+      ${q.alt.map((a,j)=>`<button class="quiz-alt" data-q="${i}" data-a="${j}">${esc(a)}</button>`).join("")}
+      <div class="quiz-fb" data-fb="${i}"></div>
+    </div>`).join("") + `<div class="quiz-placar" id="quizPlacar">responda para ver o resultado</div>`;
+  let respondidas = 0, acertos = 0;
+  $$(".quiz-alt", box).forEach(b=>{
+    b.addEventListener("click", ()=>{
+      const qi = +b.dataset.q, ai = +b.dataset.a, q = c.quiz[qi];
+      const grupo = $$(`.quiz-alt[data-q="${qi}"]`, box);
+      if(grupo[0].disabled) return;
+      grupo.forEach((g,j)=>{ g.disabled = true; if(j===q.c) g.classList.add("certa"); });
+      if(ai!==q.c) b.classList.add("errada"); else acertos++;
+      respondidas++;
+      const fb = $(`.quiz-fb[data-fb="${qi}"]`, box);
+      fb.innerHTML = esc(q.fb); fb.classList.add("on");
+      if(respondidas===c.quiz.length){
+        $("#quizPlacar").textContent = `${acertos} de ${c.quiz.length} · ` +
+          (acertos===c.quiz.length ? "capítulo dominado" : acertos===0 ? "vale reler a síntese" : "quase lá — revise os conceitos-chave");
+        E.quizzes[c.n] = { acertos:acertos, total:c.quiz.length }; salvar();
+        if(acertos===c.quiz.length) ganhar("banca");
+        if(Object.keys(E.quizzes).length>=10) ganhar("erudito");
+        renderManual();
+      } else {
+        $("#quizPlacar").textContent = `${respondidas} de ${c.quiz.length} respondidas`;
+      }
+    });
+  });
+}
+
+/* ---------- § 5 glossário ---------- */
+function renderGlossario(){
+  const termo = ($("#buscaGlos").value||"").toLowerCase().trim();
+  const lista = GLOSSARIO.filter(v=> !termo || (v.t+" "+v.d+" "+v.onde).toLowerCase().includes(termo));
+  $("#glosContagem").textContent = `${lista.length} de ${GLOSSARIO.length} verbetes`;
+  $("#glosGrade").innerHTML = lista.length ? lista.map(v=>`
+    <button class="verbete" data-verbete="${esc(v.t)}">
+      <b>${esc(v.t)}</b>
+      <span class="tag ${v.u}" style="margin-top:.2rem">Unidade ${v.u==="u1"?"I":v.u==="u2"?"II":"III"}</span>
+      <span class="d">${v.d}<span class="ondeuso">${esc(v.onde)}</span></span>
+    </button>`).join("") : `<div class="vazio">Nenhum verbete para “${esc(termo)}”.</div>`;
+  $$(".verbete").forEach(b=> b.addEventListener("click", ()=>{
+    b.classList.toggle("open");
+    if(b.classList.contains("open")){
+      const t = b.dataset.verbete;
+      if(!E.glosVistos.includes(t)){ E.glosVistos.push(t); salvar(); }
+      if(E.glosVistos.length>=10) ganhar("glossa");
+    }
+  }));
+}
+
+/* ---------- § 6 acervo ---------- */
+function opts(sel, valores, rotulo){
+  sel.innerHTML = `<option value="">${rotulo}</option>` +
+    valores.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join("");
+}
+function renderAcervoFiltros(){
+  const anos = [...new Set(ACERVO_AV3.map(a=>a.ano))].sort((a,b)=>b-a);
+  const turmas = [...new Set(ACERVO_AV3.map(a=>a.turma))].sort();
+  const tipos = [...new Set(ACERVO_AV3.map(a=>a.tipo))].sort();
+  opts($("#filtroAno"), anos, "todos os anos");
+  opts($("#filtroTurma"), turmas, "todas as turmas");
+  opts($("#filtroTipo"), tipos, "todos os tipos");
+}
+function acervoFiltrado(){
+  const t = ($("#buscaAcervo").value||"").toLowerCase().trim();
+  const ano = $("#filtroAno").value, turma = $("#filtroTurma").value, tipo = $("#filtroTipo").value;
+  return ACERVO_AV3.filter(a=>{
+    if(ano && String(a.ano)!==ano) return false;
+    if(turma && a.turma!==turma) return false;
+    if(tipo && a.tipo!==tipo) return false;
+    if(!t) return true;
+    return (a.tema+" "+a.instituicao+" "+a.resumo+" "+a.alunos.join(" ")+" "+a.tags.join(" ")).toLowerCase().includes(t);
+  });
+}
+function renderAcervo(){
+  const lista = acervoFiltrado();
+  const anos = [...new Set(ACERVO_AV3.map(a=>a.ano))];
+  const pessoas = new Set(); ACERVO_AV3.forEach(a=> a.alunos.forEach(n=> pessoas.add(a.ano+"|"+n)));
+  $("#acervoStats").innerHTML = `
+    <div class="stat-box"><b>${ACERVO_AV3.length}</b><span>intervenções</span></div>
+    <div class="stat-box"><b>${anos.length}</b><span>anos</span></div>
+    <div class="stat-box"><b>${pessoas.size}</b><span>participações</span></div>
+    <div class="stat-box"><b>${[...new Set(ACERVO_AV3.map(a=>a.tipo))].length}</b><span>tipos de instituição</span></div>
+    <div class="stat-box"><b>${lista.length}</b><span>em exibição</span></div>`;
+
+  const porTipo = {};
+  ACERVO_AV3.forEach(a=> porTipo[a.tipo] = (porTipo[a.tipo]||0)+1);
+  const pares = Object.entries(porTipo).sort((a,b)=>b[1]-a[1]);
+  const maxv = Math.max(1, ...pares.map(p=>p[1]));
+  $("#acervoBarras").innerHTML =
+    `<div style="font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-fraca);margin-bottom:.5rem">Instituições escolhidas, por tipo — acumulado de todos os anos</div>` +
+    (pares.length ? pares.map(([t,v])=>`
+      <div class="barra-linha"><span>${esc(t)}</span>
+        <span class="barra-tr"><span class="barra-fill" style="width:${(v/maxv*100).toFixed(0)}%"></span></span>
+        <span style="text-align:right">${v}</span></div>`).join("")
+      : `<div style="font-family:var(--f-mono);font-size:.75rem;color:var(--tinta-fraca)">Sem dados ainda.</div>`);
+
+  $("#acervoLista").innerHTML = lista.length ? lista.map(a=>`
+    <div class="ficha-av3 ${a.exemplo?"exemplo":""}">
+      <div class="fa-cab"><span>${a.ano} · ${esc(a.turma)}</span><span>${esc(a.tipo)}</span></div>
+      <div class="fa-corpo">
+        <h4>${esc(a.tema)}</h4>
+        <span class="inst">${esc(a.instituicao)}</span>
+        <p class="res">${esc(a.resumo)}</p>
+        <div class="tags">${a.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+        <div class="alunos">${a.alunos.map(esc).join(" · ")}</div>
+      </div>
+    </div>`).join("")
+    : `<div class="vazio">Nenhuma ficha corresponde aos filtros. <br>Se este é o primeiro ano do acervo, adicione as entradas em <code>ACERVO_AV3</code>.</div>`;
+}
+
+/* ---------- § 7 mural ---------- */
+function renderMural(){
+  const anos = [...new Set(MURAL.map(m=>m.ano))].sort((a,b)=>b-a);
+  $("#muralConteudo").innerHTML = anos.length ? anos.map(ano=>`
+    <div class="mural-ano">
+      <h3>${ano}</h3>
+      <div class="mural-grade">
+        ${MURAL.filter(m=>m.ano===ano).map((m,i)=>`
+          <div class="polaroide" style="--gir:${(i%2?1:-1)*(1+i%3)}deg" role="button" tabindex="0"
+               data-foto="${esc(m.foto)}" data-leg="${esc(m.legenda)}">
+            <img class="foto" src="${esc(m.foto)}" alt="${esc(m.legenda)}" loading="lazy"
+                 onerror="this.outerHTML='&lt;div class=\\'semfoto\\'&gt;sem foto ainda&lt;br&gt;coloque o arquivo em&lt;br&gt;<b>${esc(m.foto)}</b>&lt;/div&gt;'">
+            <div class="leg">${esc(m.legenda)}${m.n?`<small>${m.n} estudantes</small>`:""}</div>
+          </div>`).join("")}
+      </div>
+    </div>`).join("")
+    : `<div class="vazio">O mural ainda está vazio. Adicione entradas em <code>MURAL</code>.</div>`;
+
+  $$(".polaroide").forEach(p=>{
+    const abrir = ()=>{
+      if(!p.querySelector("img")) return;
+      $("#lbImg").src = p.dataset.foto; $("#lbImg").alt = p.dataset.leg;
+      $("#lbLeg").textContent = p.dataset.leg;
+      $("#lightbox").classList.add("on");
+    };
+    p.addEventListener("click", abrir);
+    p.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); abrir(); }});
+  });
+}
+
+/* ---------- § 8 bibliografia ---------- */
+let filtroBib = "todas";
+function limpo(html){ return html.replace(/<[^>]+>/g,""); }
+function renderBib(){
+  const termo = ($("#buscaBib").value||"").toLowerCase().trim();
+  const lista = BIBLIOGRAFIA.filter(b=>{
+    if(filtroBib!=="todas" && b.cat!==filtroBib) return false;
+    if(!termo) return true;
+    return (limpo(b.ref)+" "+(b.onde||"")).toLowerCase().includes(termo);
+  });
+  $("#bibLista").innerHTML = lista.length ? lista.map((b,i)=>`
+    <li class="bib-item">
+      <div class="bib-txt">${b.ref}${b.link?` <a href="${esc(b.link)}" target="_blank" rel="noopener">↗</a>`:""}
+        <span class="ondeler">${esc(b.onde||"")}</span></div>
+      <div class="bib-acoes"><button class="btn pequeno" data-copiar="${i}">copiar</button></div>
+    </li>`).join("") : `<div class="vazio">Nenhuma referência corresponde a “${esc(termo)}”.</div>`;
+  $$("[data-copiar]").forEach(b=> b.addEventListener("click", ()=>{
+    const item = lista[+b.dataset.copiar];
+    const txt = limpo(item.ref) + (item.link ? " " + item.link : "");
+    const ok = ()=>{ b.textContent = "copiado ✓"; ganhar("biblio"); setTimeout(()=>b.textContent="copiar",1600); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(ok, ()=>fallback(txt,ok));
+    } else fallback(txt, ok);
+  }));
+}
+function fallback(txt, ok){
+  const ta = D.createElement("textarea"); ta.value = txt; ta.style.position="fixed"; ta.style.opacity="0";
+  D.body.appendChild(ta); ta.select();
+  try{ D.execCommand("copy"); ok(); }catch(e){}
+  ta.remove();
+}
+
+/* ---------- painel do docente ---------- */
+function renderPainel(){
+  $("#painelDocente").innerHTML = `
+  <h4>Atualização anual — cinco passos</h4>
+  <ol>
+    <li><strong>Cabeçalho do ano.</strong> Em <code>CONFIG</code>, altere <code>anoLetivo</code>, <code>periodo</code> e <code>versao</code>. A capa e o rodapé se atualizam sozinhos.</li>
+    <li><strong>Cronograma.</strong> Em <code>CRONOGRAMA</code>, atualize <code>dataT1000</code> e <code>dataT2000</code> (formato <code>AAAA-MM-DD</code>) e, se necessário, tema, VL e bibliografia. Os avisos de congresso, recesso e viagem ficam no campo <code>situacao</code> de cada aula.</li>
+    <li><strong>Acervo da Avaliação 3.</strong> Ao final do semestre, acrescente uma entrada em <code>ACERVO_AV3</code> por grupo. <strong>Não apague nada dos anos anteriores</strong> — é o acúmulo que dá valor ao acervo. Apague apenas as fichas com <code>exemplo:true</code>.</li>
+    <li><strong>Mural.</strong> Salve as fotos em <code>img/</code> e acrescente uma entrada em <code>MURAL</code> por turma. Se o arquivo não existir, a moldura aparece vazia com o nome esperado — nada quebra.</li>
+    <li><strong>Bibliografia.</strong> Acrescente itens em <code>BIBLIOGRAFIA</code> com <code>cat</code> igual a <code>instituicoes</code>, <code>obm</code>, <code>digital</code> ou <code>complementar</code>.</li>
+  </ol>
+  <h4 style="margin-top:1rem">Modelo de entrada do acervo</h4>
+  <pre>{ ano:2027, turma:"T1000",
+  instituicao:"Escola Estadual X — Londrina/PR",
+  tipo:"Escola",
+  tema:"Registro de ocorrências disciplinares e feedback à equipe",
+  resumo:"Uma ou duas frases sobre o que o grupo propôs.",
+  alunos:["Fulana de Tal","Sicrano de Tal"],
+  tags:["feedback","pinpoint","escola"] },</pre>
+  <p style="font-size:.86rem;margin-top:.5rem">Mantenha a grafia dos <code>tipo</code> já usados — <em>Escola, Clínica, Saúde, Universidade, Empresa, Terceiro setor, Serviço público, Esporte e lazer, Outro</em> — para que o gráfico de barras continue somando corretamente.</p>
+  <h4 style="margin-top:1rem">Publicação</h4>
+  <p style="font-size:.86rem">O site é um único arquivo <code>index.html</code> mais a pasta <code>img/</code>. Envie os dois para o repositório do CRIACOM no GitHub e ative o GitHub Pages. Não há dependências além das fontes do Google Fonts.</p>
+  <h4 style="margin-top:1rem">Nomes de estudantes</h4>
+  <p style="font-size:.86rem">O acervo é público. Combine com cada turma, por escrito, a publicação dos nomes junto aos temas, e ofereça a opção de figurar apenas com as iniciais. Basta escrever as iniciais no campo <code>alunos</code> para quem preferir assim.</p>`;
+}
+
+/* ---------- modal e lightbox ---------- */
+function abrirModal(){ $("#overlay").classList.add("on"); D.body.style.overflow="hidden"; $("#modalFechar").focus(); }
+function fecharModal(){ $("#overlay").classList.remove("on"); D.body.style.overflow=""; }
+$("#modalFechar").addEventListener("click", fecharModal);
+$("#overlay").addEventListener("click", e=>{ if(e.target===$("#overlay")) fecharModal(); });
+$("#lbFechar").addEventListener("click", ()=> $("#lightbox").classList.remove("on"));
+$("#lightbox").addEventListener("click", e=>{ if(e.target.id!=="lbImg") $("#lightbox").classList.remove("on"); });
+D.addEventListener("keydown", e=>{
+  if(e.key==="Escape"){ fecharModal(); $("#lightbox").classList.remove("on"); }
+});
+
+/* ---------- eventos gerais ---------- */
+$("#turmaBtns").addEventListener("click", e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  E.turma = b.dataset.turma; salvar(); aplicarTurma();
+});
+$("#btnMenu").addEventListener("click", ()=>{
+  const n = $("#navPrincipal"), ab = n.classList.toggle("aberto");
+  $("#btnMenu").setAttribute("aria-expanded", ab?"true":"false");
+});
+$$("#navPrincipal a").forEach(a=> a.addEventListener("click", ()=> $("#navPrincipal").classList.remove("aberto")));
+$("#btnAbrirTudo").addEventListener("click", ()=> $$("#cronoLista .aula").forEach(a=>a.classList.add("open")));
+$("#btnFecharTudo").addEventListener("click", ()=> $$("#cronoLista .aula").forEach(a=>a.classList.remove("open")));
+$("#btnProxima").addEventListener("click", ()=>{
+  const n = proximaAula();
+  if(!n){ alert("O semestre já terminou — todas as aulas do cronograma passaram."); return; }
+  const el = $("#aula-"+n); el.classList.add("open"); el.scrollIntoView({behavior:"smooth", block:"center"});
+});
+$("#buscaCap").addEventListener("input", renderManual);
+$$("[data-filtro-parte]").forEach(b=> b.addEventListener("click", ()=>{
+  filtroParte = b.dataset.filtroParte;
+  $$("[data-filtro-parte]").forEach(x=>x.classList.remove("vermelho"));
+  b.classList.add("vermelho"); renderManual();
+}));
+$("#buscaGlos").addEventListener("input", renderGlossario);
+$("#buscaBib").addEventListener("input", renderBib);
+$$("[data-filtro-bib]").forEach(b=> b.addEventListener("click", ()=>{
+  filtroBib = b.dataset.filtroBib;
+  $$("[data-filtro-bib]").forEach(x=>x.classList.remove("vermelho"));
+  b.classList.add("vermelho"); renderBib();
+}));
+["#buscaAcervo","#filtroAno","#filtroTurma","#filtroTipo"].forEach(s=>{
+  $(s).addEventListener("input", ()=>{ renderAcervo(); ganhar("arquivista"); });
+  $(s).addEventListener("change", ()=>{ renderAcervo(); ganhar("arquivista"); });
+});
+$("#btnLimparFiltros").addEventListener("click", ()=>{
+  $("#buscaAcervo").value=""; $("#filtroAno").value=""; $("#filtroTurma").value=""; $("#filtroTipo").value="";
+  renderAcervo();
+});
+$("#btnLimparCad").addEventListener("click", ()=>{
+  if(!confirm("Isto apaga toda a sua caderneta de VLs neste navegador. Confirma?")) return;
+  E.cad = {}; salvar(); renderCaderneta(); desenharArvore();
+});
+$("#btnExportarCad").addEventListener("click", ()=>{
+  const c = contar();
+  let txt = `CADERNETA — 6PAC099 · ${CONFIG.anoLetivo} · turma ${E.turma}\n`;
+  txt += `Gerada em ${new Date().toLocaleString("pt-BR")}\n\n`;
+  for(let i=0;i<NVLS;i++){
+    const r = vl(i);
+    const nomes = r.conq.map(id=>(CONQUISTAS.find(q=>q.id===id)||{}).nome).filter(Boolean);
+    txt += `VL ${String(i).padStart(2," ")} — ${r.feita?"entregue":"pendente"}` +
+           (nomes.length?` — conquistas: ${nomes.join(", ")}`:"") + "\n";
+  }
+  txt += `\nRESUMO: ${c.feitas}/${NVLS} VLs · ` + CONQUISTAS.map(q=>`${q.nome}: ${c[q.id]}`).join(" · ") + "\n";
+  const a = D.createElement("a");
+  a.href = URL.createObjectURL(new Blob([txt], {type:"text/plain;charset=utf-8"}));
+  a.download = `caderneta-6pac099-${CONFIG.anoLetivo}-${E.turma}.txt`;
+  a.click(); URL.revokeObjectURL(a.href);
+});
+
+/* destaque de navegação por seção visível */
+if("IntersectionObserver" in window){
+  const obs = new IntersectionObserver(ents=>{
+    ents.forEach(e=>{
+      if(!e.isIntersecting) return;
+      $$("#navPrincipal a").forEach(a=>
+        a.classList.toggle("on", a.getAttribute("href")==="#"+e.target.id));
+    });
+  }, { rootMargin:"-45% 0px -50% 0px" });
+  ["programa","cronograma","arvore","manual","glossario","acervo","mural","bibliografia"]
+    .forEach(id=>{ const el = D.getElementById(id); if(el) obs.observe(el); });
+}
+
+/* ---------- inicialização ---------- */
+$("#carimboAno").textContent = `${CONFIG.anoLetivo} · 2.º SEM.`;
+$("#capaPeriodo").textContent = CONFIG.periodo;
+$("#rodapeVersao").innerHTML =
+  `versão ${esc(CONFIG.versao)} · ano letivo ${CONFIG.anoLetivo} · ` +
+  `<span id="ovo" style="cursor:default" title="⚑">o controle nunca é só de um lado</span>`;
+$("#ovo").addEventListener("click", ()=> ganhar("contra"));
+
+renderPrograma();
+aplicarTurma();
+renderCaderneta();
+renderLegenda();
+desenharArvore();
+renderManual();
+renderGlossario();
+renderAcervoFiltros();
+renderAcervo();
+renderMural();
+renderBib();
+renderPainel();
+renderCarimbos();
+ganhar("protocolo");
+})();
+</script>
+</body>
+</html>
